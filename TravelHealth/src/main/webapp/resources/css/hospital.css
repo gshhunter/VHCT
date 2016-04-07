@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+
+#body {
+   padding-top:85px;
+   padding-bottom:5px;   /* Height of the footer */
+   height:100%;
+}
+
+/* - Footer - */
+#footer {
+   position:absolute;
+   right:0;
+   left:0;
+   bottom:0;
+   height:48px;   /* Height of the footer */
+   /* background:#6cf; */
+}
+
+/**/
+.navbar navbar-inverse navbar-fixed-top {
+	background-color: #000000;
+}
+
+.features .col-sm-7 {
+	padding-right:5.5px;
+}
+.features .col-sm-5 {
+	padding-left:5.5px
+}
