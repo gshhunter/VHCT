@@ -87,15 +87,12 @@
 						<div>
 							<h2 class="heading animated bounceInRight">Victoria Health Care Tourism</h2>
 							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
-							
 							  <a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
 							
 							<div class="search-basic">
 							<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
 							  <div class="form-group">
-							  
-								<input type="text" id="input" name="input" class="form-control input-lg" placeholder="Suburb/Zipcode" required>
-							  
+								<input type="text" id="input" name="input" class="form-control input-lg" placeholder="Suburb/Zipcode" required> 
 							  </div>
 							  
 							  <div class="form-group">
@@ -128,7 +125,7 @@
 					</div>
 			    </div>		  		
 		</div>
-		</div>
+	  </div>
     </section>
 	<!--/#home-->
 	
