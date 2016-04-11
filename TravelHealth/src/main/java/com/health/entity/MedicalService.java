@@ -3,6 +3,7 @@ package com.health.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 public class MedicalService {
 	
 	@Id
+	@GeneratedValue
 	private int medical_id;
 	
 	private String medical_name;
