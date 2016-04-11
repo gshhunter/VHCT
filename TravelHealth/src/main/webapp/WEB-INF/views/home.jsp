@@ -80,8 +80,8 @@
 						<!-- <source src="https://s3.amazonaws.com/fancyfootageclips/website/vid/2015-03-01-extreme.webm" type="video/webm">
 						<source src="https://s3.amazonaws.com/fancyfootageclips/website/vid/2015-03-01-extreme.mp4" type="video/mp4"> -->
 						<!-- <source src="http://videvo.net/videvo_files/converted/2013_04/videos/MelbourneEurekaTowerH264.mov15367.mp4" type="video/mp4"> -->
-						<source src="http://maryjbz.com/mj/Site_videoMP3.webm" type="video/webm">
-						<source src="http://maryjbz.com/mj/Site_videoMP3.mp4" type="video/mp4">
+						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.webm" type="video/webm">
+						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.mp4" type="video/mp4">
 					</video>
 					<div class="carousel-caption">
 						<div>
@@ -357,11 +357,11 @@
   
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script>
+  	<%-- <script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js"/>"></script>
+    <%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js"/>"></script> --%>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.prettyPhoto.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
+    <%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script> --%>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>  
 </body>
