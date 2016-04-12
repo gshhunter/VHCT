@@ -110,7 +110,6 @@
 						    	<thead>
 						    		<tr>
 						    			<th>Hospital Name</th>
-						    			<th>Phone NO.</th>
 						    			<th>Suburb</th>
 						    			<th>Postcode</th>
 						    			
@@ -120,7 +119,6 @@
 						    		<c:forEach items="${hospitals}" var="hospital">
 							    		<tr>
 							    			<td><a href="<%=request.getContextPath() %>/hospital/detail/${hospital['hospital_id']}" target="_blank">${hospital['hospital_name']}</a></td>
-							    			<td>${hospital['phoneno']}</td>
 							    			<td>${hospital['suburb']}</td>
 							    			<td>${hospital['postcode']}</td>
 							    		</tr>

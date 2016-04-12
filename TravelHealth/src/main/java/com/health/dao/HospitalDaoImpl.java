@@ -77,9 +77,9 @@ public class HospitalDaoImpl implements HospitalDao{
 	@Transactional
 	@Override
 	public Hospital findById(int hid) {
-		String str = "SELECT h FROM Hospital h WHERE h.Hospital_id = :hid";
-		Query query = em.createQuery(str);
-		query.setParameter("hid", hid);
+		String str = "SELECT h FROM Hospital h WHERE h.hospital_id = ?";
+		Query query = em.createQuery(str, Hospital.class);
+		query.setParameter(1, hid);
 		Hospital hospital = (Hospital)query.getSingleResult();
 		return hospital;
 	}
