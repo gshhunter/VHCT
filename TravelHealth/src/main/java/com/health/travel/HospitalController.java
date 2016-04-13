@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.health.entity.Hospital;
 import com.health.service.HospitalService;
 import com.health.util.ValidateNumOrString;
@@ -33,7 +34,7 @@ public class HospitalController {
 			@RequestParam(value="language", required=false) String language) {
 		logger.info("Medical Type: " + medicalType + " || Language Service: " + language);
 		boolean isPostcode = ValidateNumOrString.isPostcode(input);
-
+		Gson gson = new Gson();
 		if ("".equals(input.trim()) || input == null) {
 			return null;
 		} else {
@@ -44,6 +45,8 @@ public class HospitalController {
 					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(input);
 					logger.info("Post Code: " + hospitals.size());
 					model.addAttribute("hospitals", hospitals);
+					//Send json to front end
+					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
 				} else if (!"MT".equals(medicalType)) {
@@ -51,6 +54,8 @@ public class HospitalController {
 					List<Hospital> hospitals = hospitalService.findHospitalByPostcodeAndMedical(input, medicalType);
 				    logger.info("Postcode + Medical: " + hospitals.size());
 				    model.addAttribute("hospitals", hospitals);
+				    //Send json to front end
+					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
 				} else {
@@ -62,6 +67,8 @@ public class HospitalController {
 					List<Hospital> hospitals = hospitalService.findHospitalBySuburb(input);
 					logger.info("Suburb: " + hospitals.size());
 					model.addAttribute("hospitals", hospitals);
+					//Send json to front end
+					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
 				} else if (!"MT".equals(medicalType)) {
@@ -69,6 +76,8 @@ public class HospitalController {
 					List<Hospital> hospitals = hospitalService.findHospitalBySuburbAndMedical(input, medicalType);
 				    logger.info("Suburb + Medical: " + hospitals.size());
 				    model.addAttribute("hospitals", hospitals);
+				    //Send json to front end
+					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
 				} else {
