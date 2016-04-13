@@ -16,6 +16,7 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
 <!-- <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
 
@@ -177,7 +178,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="#header">Hospital Search</a>
+											<a>Hospital Search</a>
 										</h3>
 										<p>Look for a hospital you need</p>
 									</div>
@@ -190,7 +191,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="#">Travel Warning</a>
+											<a>Travel Warning</a>
 										</h3>
 										<p>Up-to-date events and news in Victoria</p>
 									</div>
@@ -203,7 +204,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="#">Health Risks</a>
+											<a>Health Risks</a>
 										</h3>
 										<p>Provide health-related information, such as animal
 											threats</p>
@@ -217,7 +218,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="#">Health Transportation</a>
+											<a>Health Transportation</a>
 										</h3>
 										<p>Show how to get to hospital/pharmacy/clinic</p>
 									</div>
