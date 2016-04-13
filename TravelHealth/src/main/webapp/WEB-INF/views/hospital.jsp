@@ -138,26 +138,59 @@
     			</div>
     			<div class="col-sm-5">
     				<div id="map" class="map" style="height:590px;width:500px"></div>
+    				<a href="#" onclick="myClick(0);">Open Info Window</a>
     				<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     				<!-- Add Google Map -->
     				<script>
-    				  initMap();
-    				  
+  				  	  var jsonh = '${jsonh}';
     				  
 				      function initMap() {
-				    	var myLatLng = {lat: -37.831, lng: 144.962};
+				    	var myLatLng1 = {lat: -37.831, lng: 144.962};
 				        var map = new google.maps.Map(document.getElementById('map'), {
-				          center: myLatLng,
-				          zoom: 8
+				          center: myLatLng1,
+				          zoom: 11
 				        });
 				        
-				        var marker = new google.maps.Marker({
-				            position: myLatLng,
-				            map: map,
-				            title: 'Hello World!'
-				          });
+				        //Infomation Window
+				        var infowindow = new google.maps.InfoWindow();
+				        //Initial status
+				        google.maps.event.addListener(map, 'click', function() {
+			                infowindow.close();
+			            });
+				        //Markers
+				        var markers = new Array();
+				        //transfer json to array
+				        var objArrary = eval(jsonh);
+				        for (var i = 0; i < objArrary.length; i++) {
+				        	var obj = objArrary[i];
+				        	//Must be number
+				        	var lat = parseFloat(obj['latitude']);
+				        	var lng = parseFloat(obj['longitude']);
+				        	//hospital name
+				        	var hname = obj['hospital_name'];
+				        	var myLatLng = {lat: lat, lng: lng};
+				        	var marker = new google.maps.Marker({
+					            position: myLatLng,
+					            map: map,
+					            title: hname
+					          });
+				        	
+				        	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			                    return function() {
+			                        infowindow.setContent(hname);
+			                        infowindow.open(map, marker);
+			                    }
+			                })(marker, i));
+				        	
+				        	markers.push(marker);
+				        }
 				      }
 				      
+				      google.maps.event.addDomListener(window, 'load', initMap);
+				      
+				      function myClick(id){
+				          google.maps.event.trigger(markers[id], 'click');
+				      }
 				    </script>
     			</div>
     		</div>
