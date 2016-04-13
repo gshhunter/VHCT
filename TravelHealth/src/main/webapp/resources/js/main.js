@@ -113,113 +113,113 @@ function Scroll() {
 
 // Portfolio Single View
 
-$('#portfolio').on('click','.folio-read-more',function(event){
-	event.preventDefault();
-
-	var link = $(this).data('single_url');
-	var full_url = '#portfolio-single-wrap',
-		parts = full_url.split("#"),
-		trgt = parts[1],
-		target_top = $("#"+trgt).offset().top;
-
-	$('html, body').animate({scrollTop:target_top}, 1200);
-	$('#portfolio-single').slideUp(1000, function(){
-		$(this).load(link,function(){
-			$(this).slideDown(1000);
-		});
-	});
-});
-
-// Close Portfolio Single View
-$('#portfolio-single-wrap').on('click','.close-folio-item',function(){
-	var full_url = '#portfolio',
-		parts = full_url.split("#"),
-		trgt = parts[1],
-		target_offset = $("#"+trgt).offset(),
-		target_top = target_offset.top;
-
-	$('html, body').animate({scrollTop:target_top}, 1400);
-
-	$("#portfolio-single").slideUp(1000);
-});
-
-
-// Google Map Customization
-(function(){
-
-	var map;
-
-	map = new GMaps({
-		el: '#gmap',
-		lat: 43.04446,
-		lng: -76.130791,
-		scrollwheel:false,
-		zoom: 10,
-		zoomControl : false,
-		panControl : false,
-		streetViewControl : false,
-		mapTypeControl: false,
-		overviewMapControl: false,
-		clickable: false
-	});
-
-	var image = 'images/map-icon.png';
-	map.addMarker({
-		lat: 43.04446,
-		lng: -76.130791,
-		icon: image,
-		animation: google.maps.Animation.DROP,
-		verticalAlign: 'bottom',
-		horizontalAlign: 'center',
-		backgroundColor: '#3e8bff',
-	});
+//$('#portfolio').on('click','.folio-read-more',function(event){
+//	event.preventDefault();
+//
+//	var link = $(this).data('single_url');
+//	var full_url = '#portfolio-single-wrap',
+//		parts = full_url.split("#"),
+//		trgt = parts[1],
+//		target_top = $("#"+trgt).offset().top;
+//
+//	$('html, body').animate({scrollTop:target_top}, 1200);
+//	$('#portfolio-single').slideUp(1000, function(){
+//		$(this).load(link,function(){
+//			$(this).slideDown(1000);
+//		});
+//	});
+//});
+//
+//// Close Portfolio Single View
+//$('#portfolio-single-wrap').on('click','.close-folio-item',function(){
+//	var full_url = '#portfolio',
+//		parts = full_url.split("#"),
+//		trgt = parts[1],
+//		target_offset = $("#"+trgt).offset(),
+//		target_top = target_offset.top;
+//
+//	$('html, body').animate({scrollTop:target_top}, 1400);
+//
+//	$("#portfolio-single").slideUp(1000);
+//});
 
 
-	var styles = [ 
-
-	{
-		"featureType": "road",
-		"stylers": [
-		{ "color": "#000000" }
-		]
-	},{
-		"featureType": "water",
-		"stylers": [
-		{ "color": "#333333" }
-		]
-	}
-	,{
-		"featureType": "landscape",
-		"stylers": [
-		{ "color": "#141414" }
-		]
-	},{
-		"elementType": "labels.text.fill",
-		"stylers": [
-		{ "color": "#808080" }
-		]
-	},{
-		"featureType": "poi",
-		"stylers": [
-		{ "color": "#161616" }
-		]
-	},{
-		"elementType": "labels.text",
-		"stylers": [
-		{ "saturation": 1 },
-		{ "weight": 0.1 },
-		{ "color": "#7f8080" }
-		]
-	}
-
-	];
-
-
-	map.addStyle({
-		styledMapName:"Styled Map",
-		styles: styles,
-		mapTypeId: "map_style"  
-	});
-
-	map.setStyle("map_style");
-}());
+//// Google Map Customization
+//(function(){
+//
+//	var map;
+//
+//	map = new GMaps({
+//		el: '#gmap',
+//		lat: 43.04446,
+//		lng: -76.130791,
+//		scrollwheel:false,
+//		zoom: 10,
+//		zoomControl : false,
+//		panControl : false,
+//		streetViewControl : false,
+//		mapTypeControl: false,
+//		overviewMapControl: false,
+//		clickable: false
+//	});
+//
+//	var image = 'images/map-icon.png';
+//	map.addMarker({
+//		lat: 43.04446,
+//		lng: -76.130791,
+//		icon: image,
+//		animation: google.maps.Animation.DROP,
+//		verticalAlign: 'bottom',
+//		horizontalAlign: 'center',
+//		backgroundColor: '#3e8bff',
+//	});
+//
+//
+//	var styles = [ 
+//
+//	{
+//		"featureType": "road",
+//		"stylers": [
+//		{ "color": "#000000" }
+//		]
+//	},{
+//		"featureType": "water",
+//		"stylers": [
+//		{ "color": "#333333" }
+//		]
+//	}
+//	,{
+//		"featureType": "landscape",
+//		"stylers": [
+//		{ "color": "#141414" }
+//		]
+//	},{
+//		"elementType": "labels.text.fill",
+//		"stylers": [
+//		{ "color": "#808080" }
+//		]
+//	},{
+//		"featureType": "poi",
+//		"stylers": [
+//		{ "color": "#161616" }
+//		]
+//	},{
+//		"elementType": "labels.text",
+//		"stylers": [
+//		{ "saturation": 1 },
+//		{ "weight": 0.1 },
+//		{ "color": "#7f8080" }
+//		]
+//	}
+//
+//	];
+//
+//
+//	map.addStyle({
+//		styledMapName:"Styled Map",
+//		styles: styles,
+//		mapTypeId: "map_style"  
+//	});
+//
+//	map.setStyle("map_style");
+//}());

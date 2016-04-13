@@ -12,7 +12,6 @@
     <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/presets/preset1.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/hospital.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
@@ -23,7 +22,7 @@
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="<c:url value="/resources/images/ico/favicon.ico" />" >
+    <link rel="shortcut icon" href="<c:url value="/resources/images/ico/new-favicon.png" />">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value="/resources/images/ico/apple-touch-icon-144-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
@@ -44,7 +43,7 @@
                     </button>
 
                     <a class="navbar-brand" href="/travel">
-                    	<img src="<c:url value="/resources/images/presets/preset1/logo5.png" />" alt="logo">
+                    	<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
                     </a>
                     
                 </div>
@@ -106,7 +105,7 @@
 							<p>Please enter new search conditions.</p>
 						</c:if>
 						<c:if test="${not empty hospitals }">
-						    <table id="content" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						    <table id="content" class="table table-striped table-bordered" >
 						    	<thead>
 						    		<tr>
 						    			<th>Hospital Name</th>
@@ -138,7 +137,6 @@
     			</div>
     			<div class="col-sm-5">
     				<div id="map" class="map" style="height:590px;width:500px"></div>
-    				<a href="#" onclick="myClick(0);">Open Info Window</a>
     				<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     				<!-- Add Google Map -->
     				<script>

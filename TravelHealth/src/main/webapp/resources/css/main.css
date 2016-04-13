@@ -1,8 +1,4 @@
 
-
-@import url(http://fonts.useso.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
-@import url(http://fonts.useso.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic);
-
 body {
   font-family: Lato, sans-serif;
   position: relative;
@@ -399,6 +395,7 @@ font-weight: 400
 }
 
 #home-carousel .carousel-caption > div{
+	padding-top: 100px;
     vertical-align: middle;
     display: table-cell;
 }
@@ -2526,4 +2523,29 @@ ul.preset-list li {
   padding: 10px 40px;
   text-transform: uppercase;
 }
-   
+
+/**
+**Fadein Css to control main pictures on the home page instead of original videos
+**/
+.fadein {
+    position:relative;
+    height:320px;
+    width:5px;
+    top: 0px;
+    left: 0px;
+}
+
+.fadein img {
+    position:absolute;
+    left:0;
+    top:0;
+    height: 750px;
+    min-width: 100%;
+    width: 1500px;
+}
+
+/* Move down button*/
+
+.movedown {
+	padding-top: 130px;
+}

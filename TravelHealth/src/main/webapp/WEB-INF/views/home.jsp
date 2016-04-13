@@ -16,9 +16,9 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
-<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-<link href="<c:url value="/resources/css/fadein.css" />" rel="stylesheet" type="text/css">
+<!-- <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
+
 <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -53,7 +53,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="/travel"> 
-					<img src="<c:url value="/resources/images/presets/preset1/logo5.png" />" alt="logo">
+					<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
 					</a>
 				</div>
 				<div class="collapse navbar-collapse">
@@ -75,7 +75,15 @@
 			<div class="carousel-inner">
 
 				<div class="item active">
-					<div class="fadein">
+					<!-- Videos -->
+				    <video autoplay loop>
+						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.webm" type="video/webm">
+						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.mp4" type="video/mp4">
+					</video>
+				    
+				    
+				    <!-- Slide Pictures -->
+					<%-- <div class="fadein">
 						<img src="<c:url value="/resources/images/slide1.jpg" />" /> 
 						<img src="<c:url value="/resources/images/slide2.jpg" />" /> 
 						<img src="<c:url value="/resources/images/slide3.jpg" />" />
@@ -90,7 +98,7 @@
 										.fadeIn().end().appendTo('.fadein');
 							}, 4000); // 4 seconds
 						});
-					</script>
+					</script> --%>
 
 					<div class="carousel-caption">
 						<div>
@@ -139,8 +147,15 @@
 								</form>
 							</div>
 							<!-- #Search Basic-->
+							
+							<div class="movedown">
+								<a href="#services" title="To Down">
+	                                <span class="glyphicon glyphicon-chevron-down" style="font-size:1.5em;color:#5CB85C;"></span>
+	                            </a>
+                            </div>
+                            <!-- Move down button -->
 						</div>
-
+						
 					</div>
 				</div>
 			</div>
@@ -236,15 +251,15 @@
 								<div class="carousel-inner">
 									<div class="item active">
 										<img
-											src="<c:url value="/resources/images/about-us/hospital.jpg" />" />
+											src="<c:url value="/resources/images/about-us/about-us1.jpg" />" />
 									</div>
 									<div class="item">
 										<img
-											src="<c:url value="/resources/images/about-us/visualisation.png" />" />
+											src="<c:url value="/resources/images/about-us/about-us3.jpg" />" />
 									</div>
 									<div class="item">
 										<img
-											src="<c:url value="/resources/images/about-us/health_transport_big.jpg" />" />
+											src="<c:url value="/resources/images/about-us/about-us2.jpg" />" />
 									</div>
 								</div>
 							</div>
@@ -418,6 +433,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.prettyPhoto.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
 </body>
 </html>
