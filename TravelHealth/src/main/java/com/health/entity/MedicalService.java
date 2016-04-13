@@ -1,8 +1,8 @@
 package com.health.entity;
 
 import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -19,9 +19,6 @@ public class MedicalService {
 	private String medical_name;
 	
 	private String description;
-
-	@ManyToMany(mappedBy="services")
-	private List<Hospital> hospitals;
 	
 	public int getMedical_id() {
 		return medical_id;
@@ -47,12 +44,4 @@ public class MedicalService {
 		this.description = description;
 	}
 
-	public List<Hospital> getHospitals() {
-		return hospitals;
-	}
-
-	public void setHospitals(List<Hospital> hospitals) {
-		this.hospitals = hospitals;
-	}
-	
 }

@@ -1,7 +1,5 @@
 package com.health.entity;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
@@ -39,13 +37,6 @@ public class Hospital {
 	private String agencytype;
 	
 	private String fax;
-	
-	@ManyToMany
-	@JoinTable(
-			name = "Hospital_Medical",
-			joinColumns=@JoinColumn(name="Hospital_id", referencedColumnName="Hospital_id"),
-			inverseJoinColumns=@JoinColumn(name="Medical_id", referencedColumnName="Medical_id"))
-	private List<MedicalService> services;
 	
 	public int getHospital_id() {
 		return hospital_id;
@@ -165,14 +156,6 @@ public class Hospital {
 
 	public void setFax(String fax) {
 		this.fax = fax;
-	}
-
-	public List<MedicalService> getServices() {
-		return services;
-	}
-	
-	public void setServices(List<MedicalService> services) {
-		this.services = services;
 	}
 	
 }
