@@ -1,0 +1,21 @@
+/* lg */ 
+.fadein {
+    position:relative;
+    height:320px;
+    width:5px;
+    top: 0px;
+    left: 0px;
+
+
+
+
+}
+
+.fadein img {
+    position:absolute;
+    left:0;
+    top:0;
+    height: 800px;
+     min-width: 100%;
+    width: 2036px;
+}
