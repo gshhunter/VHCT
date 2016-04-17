@@ -16,9 +16,6 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
-<!-- <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
 
 <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -62,7 +59,7 @@
 						<li class="scroll active"><a href="#header">Home</a></li>
 						<li class="scroll"><a href="#services">Services</a></li>
 						<li class="scroll"><a href="#about-us">About Us</a></li>
-						<li class="scroll"><a href="#our-team">Our Team</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">Our Team</a></li>
 					</ul>
 				</div>
 			</div>
@@ -81,7 +78,6 @@
 						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.webm" type="video/webm">
 						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.mp4" type="video/mp4">
 					</video>
-				    
 				    
 				    <!-- Slide Pictures -->
 					<%-- <div class="fadein">
@@ -103,17 +99,12 @@
 
 					<div class="carousel-caption">
 						<div>
-							<h2 class="heading animated bounceInRight">Victoria Health
-								Care Tourism</h2>
-							<p class="animated bounceInLeft">We provide 3 million
-								travelers with health support</p>
-							<a class="btn btn-default btn-transparent animated bounceInUp"
-								href="#services">Get Started</a>
+							<h2 class="heading animated bounceInRight">Victoria Health Care Tourism</h2>
+							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
+							<a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
 
 							<div class="search-basic">
-								<form id="form-search" class="form-inline" method="post"
-									action="<%=request.getContextPath()%>/hospital/search"
-									role="form">
+								<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath()%>/hospital/search" role="form">
 									<div class="form-group">
 										<input type="text" id="input" name="input"
 											class="form-control input-lg" placeholder="Suburb/Zipcode"
@@ -121,19 +112,16 @@
 									</div>
 
 									<div class="form-group">
-										<select class="form-control input-lg" id="medicalType"
-											name="medicalType">
+										<select class="form-control input-lg" id="medicalType" name="medicalType">
 											<option value="MT" selected>Medical Type</option>
 											<option value="Emergency">Emergency Hospital</option>
-											<option value="General Practitioner">General
-												Practitioner</option>
+											<option value="General Practitioner">General Practitioner</option>
 											<option value="Kid Emergency">Kid Emergency Hospital</option>
 											<option value="Pharmacy">Pharmacy</option>
 										</select>
 									</div>
 
-									<select class="form-control input-lg" id="language"
-										name="language" disabled>
+									<select class="form-control input-lg" id="language" name="language" disabled>
 										<option value="LS" selected>Doctor Languages</option>
 										<option value="Arabic">Arabic</option>
 										<option value="Chinese">Chinese</option>
@@ -435,5 +423,6 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
+	
 </body>
 </html>

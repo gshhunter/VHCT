@@ -9,6 +9,7 @@
     <meta name="author" content="Shuhao Guo">
     <title>Victoria Health Care Tourism</title>
     <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
@@ -17,8 +18,7 @@
 	<link href="<c:url value="/resources/css/hospital.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 	<link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />" >
-	<link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
-	<link href="<c:url value="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css" />" rel="stylesheet">
+	<%-- <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -51,9 +51,9 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
-                        <li class="scroll active"><a href="<%=request.getContextPath() %>#services">Services</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath() %>#services">Services</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#our-team">Our Team</a></li>
+                        <li class="scroll active"><a href="<%=request.getContextPath() %>/ourteam">Our Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,7 +63,7 @@
     
     <section id="our-team">
         <div class="container">
-            <h2 class="title">Our Team</h2>
+            <!-- <h2 class="title">Our Team</h2> -->
             <div id="team-member-carousel" class="carousel slide scale" data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">

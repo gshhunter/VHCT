@@ -37,4 +37,20 @@ public class HomeController {
 		return "home";
 	}
 	
+	/**
+	 * Redirect to Our Team page
+	 */
+	@RequestMapping(value="/ourteam", method = RequestMethod.GET)
+	public String ourteam(Locale locale, Model model) {
+        logger.info("Our Team page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		return "ourteam";
+	}
+	
 }
