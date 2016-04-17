@@ -1,138 +1,138 @@
 .blog-content h2 a:hover, .blog-content .post-meta li a:hover{
-	color: #5CB85C;
+	color: #2ecc71;
 }
 
 .btn-transparent:after{
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .btn-transparent{
-  -webkit-box-shadow: inset 0 0 0 1px #5CB85C;
-  box-shadow: inset 0 0 0 1px #5CB85C;
+  -webkit-box-shadow: inset 0 0 0 1px #2ecc71;
+  box-shadow: inset 0 0 0 1px #2ecc71;
 }
 
 #header .navbar-inverse .navbar-nav  .active  > a,  
 #header .navbar-inverse .navbar-nav  .active  > a:focus, 
 #header .navbar-nav.navbar-right li > a:hover,
 .navbar-inverse .navbar-nav > .open > a{
-  color:#5CB85C;
-  border-color:#5CB85C;
+  color:#2ecc71;
+  border-color:#2ecc71;
 }
 
 .dropdown-menu {
-  border-top: 3px solid #5CB85C;
+  border-top: 3px solid #2ecc71;
 }
 
 .carousel-indicators .active{
-  background-color: #5CB85C !important;
+  background-color: #2ecc71 !important;
 }
 
 #home-carousel .carousel-inner h2 span{
-  color:#5CB85C;
+  color:#2ecc71;
 }
 
 #home-carousel .carousel-left:hover,
 #home-carousel .carousel-right:hover{
-  border-color: #5CB85C;
+  border-color: #2ecc71;
 }
 
 .features-nav  .media i:after {
-  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #5CB85C;
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #2ecc71;
 }
 
 .features-nav .active .media i, 
 .features-nav li:hover  .media i {
-  background-color: #5CB85C;
-  border-color: #5CB85C;
+  background-color: #2ecc71;
+  border-color: #2ecc71;
 }
 
 #portfolio .portfolio-filter li .active{
-  border: 1px solid #5CB85C;
-  color: #5CB85C;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
 }
 
 #portfolio .portfolio-filter li a:hover, 
 #portfolio .portfolio-filter li a:focus,
 #portfolio .portfolio-filter li a:active {
-  color: #5CB85C;
+  color: #2ecc71;
 }
 
 .mask i {
-  border: 1px solid #5CB85C;
-  color: #5CB85C;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
 }
 
 .mask i:hover{
-  background-color:#5CB85C;  
+  background-color:#2ecc71;  
 }
 
 .carousel-left:hover, 
 .carousel-right:hover {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .carousel-left, 
 .carousel-right {
-  border: 1px solid #5CB85C;
-  color: #5CB85C;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
 }
 
 #team-member-carousel .team-member:hover{
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 #our-team .carousel-left:hover,
 #our-team .carousel-right:hover{
-  border: 1px solid #5CB85C;;
+  border: 1px solid #2ecc71;;
 }
 
 .testimonial p span{
-  color:#5CB85C;
+  color:#2ecc71;
 }
 
 .single-blog .date {
-  background: none repeat scroll 0 0 #5CB85C;
+  background: none repeat scroll 0 0 #2ecc71;
 }
 
 #contact .contact-form .btn-primary {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 
 #contact .contact-form .form-control:focus {
-  border-color: #5CB85C
+  border-color: #2ecc71
 }
 
 #footer a {
-  color:#5CB85C;
+  color:#2ecc71;
 }
 
 
 
 .btn-readmore {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .carousel-blog-control {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .btn-reply:hover{
-  background:#5CB85C;
+  background:#2ecc71;
 }
 
 .btn-send {
-  background: #5CB85C;
+  background: #2ecc71;
   }
   
 
 .replay-box form span input:focus, 
 .replay-box form textarea:focus{
-	border-color: #5CB85C;
+	border-color: #2ecc71;
 }  
 
 .pagination-lg li a:hover {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .pagination  .active  a, 
@@ -141,16 +141,16 @@
 .pagination  .active  span:hover, 
 .pagination  .active  a:focus, 
 .pagination  .active  span:focus {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .btn-search, .btn-plan {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .blog_category li a:hover, 
 .blog_category li a:focus {
-	color: #5CB85C;
+	color: #2ecc71;
 }
 
 ul.plan:hover {
@@ -168,29 +168,29 @@ ul.plan:hover .plan-price {
 
 
 .btn-readmore {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .carousel-blog-control {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .btn-reply:hover{
-  background:#5CB85C;
+  background:#2ecc71;
 }
 
 .btn-send, .date{
-  background: #5CB85C;
+  background: #2ecc71;
   }
   
 
 .replay-box form span input:focus, 
 .replay-box form textarea:focus{
-	border-color: #5CB85C;
+	border-color: #2ecc71;
 }  
 
 .pagination-lg li a:hover {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .pagination  .active  a, 
@@ -199,16 +199,16 @@ ul.plan:hover .plan-price {
 .pagination  .active  span:hover, 
 .pagination  .active  a:focus, 
 .pagination  .active  span:focus {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .btn-search, .btn-plan {
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 .blog_category li a:hover, 
 .blog_category li a:focus {
-	color: #5CB85C;
+	color: #2ecc71;
 }
 
 ul.plan:hover {
@@ -220,35 +220,35 @@ ul.plan:hover .plan-name {
 }
 
 ul.plan:hover .plan-price {
-  border-color: #5CB85C ;
+  border-color: #2ecc71 ;
 }
 
 .tag-cloud li a:hover, .tag-cloud li a:focus {
-  background-color: #5CB85C;
+  background-color: #2ecc71;
 }
 
 .portfolio-prev:hover, 
 .portfolio-next:hover {
-  background:#5CB85C;
-  border-color:#5CB85C;
+  background:#2ecc71;
+  border-color:#2ecc71;
 }
 
 .client-carousel-left:hover,  
 .client-carousel-right:hover,
 .client-carousel-left:focus,  
 .client-carousel-right:focus {
-  background:#5CB85C;
-  border-color:#5CB85C;
+  background:#2ecc71;
+  border-color:#2ecc71;
 }
 
 .single-carousel-right, 
 .single-carousel-left {
-  background:#5CB85C;
-  border: 1px solid #5CB85C;
+  background:#2ecc71;
+  border: 1px solid #2ecc71;
 }
 
 .search_box:focus{
-  border-color: #5CB85C;
+  border-color: #2ecc71;
 }
 
 

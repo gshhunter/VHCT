@@ -94,7 +94,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<button class="btn btn-success btn-md" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
 					</div>

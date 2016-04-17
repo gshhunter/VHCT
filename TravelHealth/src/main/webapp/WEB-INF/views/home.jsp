@@ -141,7 +141,7 @@
 										<option value="Indian">Indian</option>
 									</select>
 
-									<button class="btn btn-success btn-lg" type="submit">
+									<button class="btn btn-success btn-lg" type="submit" style="background-color:#2ecc71;">
 										<span class="glyphicon glyphicon-search"></span> Search
 									</button>
 
@@ -151,7 +151,7 @@
 							
 							<div class="movedown">
 								<a href="#services" title="To Down">
-	                                <span class="glyphicon glyphicon-chevron-down" style="font-size:1.5em;color:#5CB85C;"></span>
+	                                <span class="glyphicon glyphicon-chevron-down" style="font-size:1.5em;color:#2ecc71;"></span>
 	                            </a>
                             </div>
                             <!-- Move down button -->
@@ -180,7 +180,20 @@
 										<h3 class="media-heading">
 											<a>Hospital Search</a>
 										</h3>
-										<p>Look for a hospital you need</p>
+										<p>Let's you find hospitals near you</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="media service-media">
+									<img
+										src="<c:url value="/resources/images/services/weather-warning.png" />"
+										class="pull-left" alt="" />
+									<div class="media-body">
+										<h3 class="media-heading">
+											<a>Weather Warning</a>
+										</h3>
+										<p>Receive live updates and warnings on local weather</p>
 									</div>
 								</div>
 							</div>
@@ -191,36 +204,22 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Travel Warning</a>
-										</h3>
-										<p>Up-to-date events and news in Victoria</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="media service-media">
-									<img
-										src="<c:url value="/resources/images/services/health_risk.png" />"
-										class="pull-left" alt="" />
-									<div class="media-body">
-										<h3 class="media-heading">
 											<a>Health Risks</a>
 										</h3>
-										<p>Provide health-related information, such as animal
-											threats</p>
+										<p>Provide health-related risks around Victoria</p>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="media service-media">
 									<img
-										src="<c:url value="/resources/images/services/health_transport.png" />"
+										src="<c:url value="/resources/images/services/transport_finder.png" />"
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Health Transportation</a>
+											<a>Transportation Finder</a>
 										</h3>
-										<p>Show how to get to hospital/pharmacy/clinic</p>
+										<p>Easy integration of journey planner</p>
 									</div>
 								</div>
 							</div>
@@ -413,14 +412,14 @@
 				<div class="col-sm-6">
 					<p>
 						Copyright @ 2016<a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">
+							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
 							Daemon </a>
 					</p>
 				</div>
 				<div class="col-sm-6">
 					<p class="pull-right">
 						Designed by <a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a>
+							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">Daemon</a>
 					</p>
 				</div>
 			</div>

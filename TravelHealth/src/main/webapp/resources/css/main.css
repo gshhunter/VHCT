@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3 a {
-	color:#5CB85C;
+	color:#2ecc71;
 }
 
 h2.title {
@@ -82,7 +82,7 @@ h2.title:after {
 .btn-transparent{
   position:relative;
   z-index:0;
-  background: #5CB85C;
+  background: #2ecc71;
   color: #FFF;
   text-transform: uppercase;
   width: 190px;
@@ -99,7 +99,7 @@ h2.title:after {
 
 .btn-transparent:hover{
   color: #fff;
-  background: #5CB85C;
+  background: #2ecc71;
 }
 
 /* .btn-transparent:hover:after{
@@ -669,7 +669,7 @@ font-weight: 400
 }
 
 .service-media h3{
-  color: #5CB85C;
+  color: #2ecc71;
   font-family: Lato, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -681,7 +681,7 @@ font-weight: 400
 }
 
 .service-media h3 a:hover {
-	color: #5CB85C;
+	color: #2ecc71;
 }
 
 .service-media p {
