@@ -52,6 +52,7 @@
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
                         <li class="scroll active"><a href="<%=request.getContextPath() %>#services">Services</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath() %>#contact-area">Contact</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#our-team">Our Team</a></li>
                     </ul>
                 </div>
@@ -149,12 +150,11 @@
 				          zoom: 11
 				        });
 				        
-				        //Infomation Window
-				        var infowindow = new google.maps.InfoWindow();
-				        //Initial status
-				        google.maps.event.addListener(map, 'click', function() {
-			                infowindow.close();
-			            });
+				        placeMarker();
+				      }
+				      
+				      function placeMarker() {
+				    	  
 				        //Markers
 				        var markers = new Array();
 				        //transfer json to array
@@ -164,7 +164,9 @@
 				        	//Must be number
 				        	var lat = parseFloat(obj['latitude']);
 				        	var lng = parseFloat(obj['longitude']);
-				        	//hospital name
+				        	//Address
+				        	var address = obj['address']; 
+				        	//Hospital name
 				        	var hname = obj['hospital_name'];
 				        	var myLatLng = {lat: lat, lng: lng};
 				        	var marker = new google.maps.Marker({
@@ -173,12 +175,18 @@
 					            title: hname
 					          });
 				        	
-				        	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				        	//Content
+				        	var content = "Name: " + hname + '</br>' + "Address: " + address; 
+				        	
+				        	//Infomation Window
+					        var infowindow = new google.maps.InfoWindow();
+				        	
+				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
 			                    return function() {
-			                        infowindow.setContent(hname);
+			                        infowindow.setContent(content);
 			                        infowindow.open(map, marker);
 			                    }
-			                })(marker, i));
+			                })(marker, content, infowindow));
 				        	
 				        	markers.push(marker);
 				        }
@@ -186,9 +194,7 @@
 				      
 				      google.maps.event.addDomListener(window, 'load', initMap);
 				      
-				      function myClick(id){
-				          google.maps.event.trigger(markers[id], 'click');
-				      }
+				      
 				    </script>
     			</div>
     		</div>

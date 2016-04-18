@@ -61,10 +61,16 @@
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    	<div class="row">
-    		<div class="features">
-    			This page is being developed...
+    	<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+		<div class="row">
+    
+
+    		<div class="col-sm-12" style="background-color:white; height:700px;">
+        
+     
     		</div>
+   
+
     	</div>
     </section>
     <!-- /#Search -->

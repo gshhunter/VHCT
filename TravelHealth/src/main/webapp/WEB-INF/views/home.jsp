@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,7 @@
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
+
 <link rel="shortcut icon" href="<c:url value="/resources/images/ico/new-favicon.png" />">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value="/resources/images/ico/apple-touch-icon-144-precomposed.png" />">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />">
@@ -59,7 +59,8 @@
 						<li class="scroll active"><a href="#header">Home</a></li>
 						<li class="scroll"><a href="#services">Services</a></li>
 						<li class="scroll"><a href="#about-us">About Us</a></li>
-						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">Our Team</a></li>
+						<li class="scroll"><a href="#contact-area">Contact</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></li>
 					</ul>
 				</div>
 			</div>
@@ -102,7 +103,21 @@
 							<h2 class="heading animated bounceInRight">Victoria Health Care Tourism</h2>
 							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
 							<a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
-
+							
+							<%-- <div class="row" >
+								<div class="col-lg-12">  
+								<div style ="background:#000; color:#fff; width:100%; height:700px;margin-top:100px; filter:alpha(opacity=60); opacity:0.6;">
+		    						<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/hospit.png"/>" /> <br /> Hospital</div>
+		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/pharm.jpg" />" /><br /> Pharmacy</div>
+		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/doctors.png" />" /><br /> Find general practitioner</div>
+		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/travel warning1.png" />"/><br /> Travel warning</div>
+		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/travelwarnin.png" />"/><br /> Australian Health Risks </div>
+	 							</div>
+	 							</div>
+	 							
+            			 	</div>
+            			 	<!-- bar in the footer --> --%>
+            			 	
 							<div class="search-basic">
 								<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath()%>/hospital/search" role="form">
 									<div class="form-group">
@@ -136,13 +151,16 @@
 								</form>
 							</div>
 							<!-- #Search Basic-->
-							
+            			 	
 							<div class="movedown">
 								<a href="#services" title="To Down">
 	                                <span class="glyphicon glyphicon-chevron-down" style="font-size:1.5em;color:#2ecc71;"></span>
 	                            </a>
                             </div>
                             <!-- Move down button -->
+                            
+                            
+            			 	
 						</div>
 						
 					</div>
@@ -310,89 +328,57 @@
 	</section>
 	<!--/#about-us-->
 
-	<!-- <section id="promotion" class="parallax-section">
-		<div class="container">
-			<div class="promotion">
-				<h2 class="title">Clean and modern template <br /><strong>for your business</strong></h2>
-			</div>
-		</div>
-	</section> -->
-	<!--/#promotion-->
-
-	<section id="our-team">
-		<div class="container">
-			<h2 class="title">Our Team</h2>
-			<div id="team-member-carousel" class="carousel slide scale"
-				data-ride="carousel">
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item active">
-						<div class="col-xs-6 col-sm-3">
-							<div class="team-member text-center">
-								<img class="img-responsive"
-									src="<c:url value="/resources/images/team/mary.jpg" />" alt="" />
-								<h3>Maryam</h3>
-								<h4>User Interface Designer</h4>
-								<h4>Email: mjab7@student.monash.edu</h4>
-								<ul class="nav nav-pills">
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xs-6 col-sm-3">
-							<div class="team-member text-center">
-								<img class="img-responsive"
-									src="<c:url value="/resources/images/team/shuhao.jpg" />"
-									alt="" />
-								<h3>Shuhao Guo</h3>
-								<h4>Chief System Developer</h4>
-								<h4>Email: sguo17@student.monash.edu</h4>
-								<ul class="nav nav-pills">
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xs-6 col-sm-3">
-							<div class="team-member text-center">
-								<img class="img-responsive"
-									src="<c:url value="/resources/images/team/pradeep1.jpg" />"
-									alt="" />
-								<h3>Pradeep</h3>
-								<h4>Database Architect</h4>
-								<h4>Email: pmai5@student.monash.edu</h4>
-								<ul class="nav nav-pills">
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xs-6 col-sm-3">
-							<div class="team-member text-center">
-								<img class="img-responsive"
-									src="<c:url value="/resources/images/team/yadhu1-1.jpg" />"
-									alt="" />
-								<h3>Yadhu</h3>
-								<h4>Project Manager</h4>
-								<h4>Email: yrav3@student.monash.edu</h4>
-								<ul class="nav nav-pills">
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--/#our-team-->
+	<section id="contact-area" class="clearfix">
+	    <div id="contact">
+	    	<!-- <div class="status alert alert-success" style="display: none"></div> -->
+	    	<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+	            <div class="form-group">
+	                <input type="text" name="name" class="form-control" required placeholder="You Name">
+	            </div>
+	            <div class="form-group">
+	                <input type="email" name="email" class="form-control" required placeholder="Email Address">
+	            </div>
+	            <div class="form-group">
+	                <input type="text" name="subject" class="form-control" required placeholder="Subject">
+	            </div>
+	            <div class="form-group">
+	                <textarea name="message" id="message" required class="form-control" rows="8" placeholder="Message"></textarea>
+	            </div>                        
+	            <div class="form-group">
+	                <button type="submit" class="btn btn-primary">Send</button>
+	            </div>
+	        </form>
+	        <!-- <div class="social-icons">
+	            <a href=""><i class="fa fa-facebook"></i></a>
+	            <a href=""><i class="fa fa-twitter"></i></a>
+	            <a href=""><i class="fa fa-pinterest"></i></a>
+	            <a href=""><i class="fa fa-dribbble"></i></a>
+	            <a href=""><i class="fa fa-linkedin"></i></a>
+	            <a href=""><i class="fa fa-google-plus"></i></a>
+	            <a href=""><i class="fa  fa-flickr"></i></a>
+	        </div> -->
+	    </div>
+	    <div id="contact-info">
+	        <div class="row">
+	            <div class="col-sm-8">
+	                <p>Contact us and we'll get back to you within 24 hours.</p>
+	                <p> </p>
+      				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
+      				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
+      				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
+	            </div>
+	        </div>
+	    </div> 		
+	    <!-- <div id="gmap-wrap">
+ 			<div class="infowindow">
+ 				<h3>Miami Metro</h3>
+ 				<address>
+ 					<strong>1 Zoo Bouladk</strong><br />Old Bond Street<br />London, Uk
+ 				</address>
+ 			</div>
+    	</div> -->
+     </section>	
+    <!--/#contact-area-->
 
 	<footer id="footer">
 		<div class="container">
@@ -423,6 +409,8 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/html5shiv.js" />"></script>
 	
 </body>
 </html>

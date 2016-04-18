@@ -1364,6 +1364,18 @@ ul.plan li.plan-content span {
   width: 50%
 }
 
+#contact-info {
+	position:relative;
+	padding-top:100px;
+	float:right;
+	width:50%;
+}
+
+#contact-info p {
+	margin-bottom:10px;
+	font-size:20px;
+}
+
 #gmap-wrap{
   position: relative;
   float: right;
@@ -1462,7 +1474,7 @@ ul.plan li.plan-content span {
 }
 
 #contact .contact-form textarea {
-  background: #151515;
+  background: #fff;
   font-family: roboto;
   font-size: 16px;
   font-weight: 300;
@@ -1471,8 +1483,8 @@ ul.plan li.plan-content span {
 }
 
 #contact .contact-form input {
-  background: #151515;
-  color: #444;
+  background: #fff;
+  color: #2d2d2d;
   font-family: roboto;
   font-size: 16px;
   font-weight: 300;
@@ -2543,9 +2555,27 @@ ul.preset-list li {
     min-width: 100%;
     width: 1500px;
 }
-
+ 
 /* Move down button*/
 
 .movedown {
 	padding-top: 130px;
 }
+
+/*footer grey bar*/
+.img-circle {
+   border-radius: 50%;
+   height: 100px;
+   width: 100px;
+   border: solid;
+   border-color: #2ecc71 ;
+   border-radius: 150px;
+   -webkit-border-radius: 150px;
+   -moz-border-radius: 150px;
+
+}
+   .img-circle:hover { 
+       -moz-box-shadow: 0 0 10px #7AB600 ; 
+       -webkit-box-shadow: 0 0 10px #7AB600 ; 
+       box-shadow: 0 0 10px #7AB600 ;
+   }
