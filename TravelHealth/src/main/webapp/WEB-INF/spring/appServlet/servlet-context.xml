@@ -37,15 +37,16 @@
 	<!-- MySQL Datasource with Commons DBCP connection pooling -->
   	<beans:bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
     	<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    	<beans:property name="url" value="jdbc:mysql://au-cdbr-azure-southeast-a.cloudapp.net:3306/daemon"/>
-    	
-    	<!-- Azure MYSQL low level Username and Password:  
-    	<beans:property name="username" value="bbdb5d3b67afb7"/>
-    	<beans:property name="password" value="780fb7d6"/> -->
+    	<beans:property name="url" value="jdbc:mysql://au-cdbr-azure-southeast-a.cloudapp.net:3306/acsm_fcfa134a294a803"/>
     	
     	<!-- Azure MYSQL middle level Username and Password -->
-    	<beans:property name="username" value="bc80fa6f6bd086"/>
-    	<beans:property name="password" value="a2b41c30"/>
+    	<!-- <beans:property name="username" value="bc80fa6f6bd086"/>
+    	<beans:property name="password" value="a2b41c30"/> -->
+    	
+    	<!-- Azure MYSQL High Level Username and Password -->
+    	<!-- Database=acsm_fcfa134a294a803;Data Source=au-cdbr-azure-southeast-a.cloudapp.net;User Id=bca67650b6fa59;Password=772bbe05 -->
+    	<beans:property name="username" value="bca67650b6fa59"/>
+    	<beans:property name="password" value="772bbe05"/>
   	</beans:bean>
   	
   	<!-- EntityManagerFactory -->

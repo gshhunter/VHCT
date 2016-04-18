@@ -10,7 +10,7 @@ public interface HospitalDao {
 	 * @param postcode
 	 * @return
 	 */
-	public List<Hospital> findByPostcode(String postcode);
+	public List<Hospital> findByPostcode(int postcode);
 	/**
 	 * 
 	 * @param suburb

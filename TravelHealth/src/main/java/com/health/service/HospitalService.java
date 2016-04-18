@@ -11,7 +11,7 @@ public interface HospitalService {
 	 * @param postcode
 	 * @return list
 	 */
-	public List<Hospital> findHospitalByPostCode(String postcode);
+	public List<Hospital> findHospitalByPostCode(int postcode);
 	
 	
 	/**

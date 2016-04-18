@@ -17,7 +17,7 @@ public class HospitalServiceImpl implements HospitalService{
 	
 	@Override
 	@Transactional
-	public List<Hospital> findHospitalByPostCode(String postcode) {
+	public List<Hospital> findHospitalByPostCode(int postcode) {
 		return hospitalDao.findByPostcode(postcode);
 	}
 

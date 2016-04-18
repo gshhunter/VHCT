@@ -21,12 +21,12 @@ public class HospitalDaoImpl implements HospitalDao{
 	 * Find hospital by post code
 	 */
 	@SuppressWarnings("unchecked")
-	@Transactional
 	@Override
-	public List<Hospital> findByPostcode(String postcode) {
-		String str = "SELECT h FROM Hospital h WHERE h.postcode = :postcode";
+	public List<Hospital> findByPostcode(int postcode) {
+		String str = "SELECT h FROM Hospital h WHERE h.postcode BETWEEN ?1 AND ?2";
 		Query query = em.createQuery(str);
-		query.setParameter("postcode", postcode);
+		query.setParameter(1, postcode - 2);
+		query.setParameter(2, postcode + 2);
 		return query.getResultList();
 	}
 
@@ -34,7 +34,6 @@ public class HospitalDaoImpl implements HospitalDao{
 	 * find hospital by suburb
 	 */
 	@SuppressWarnings("unchecked")
-	@Transactional
 	@Override
 	public List<Hospital> findBySuburb(String suburb) {
 		String str = "SELECT h FROM Hospital h WHERE h.suburb = :suburb";

@@ -27,6 +27,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" >
+    
 </head><!--/head-->
 
 <body>
@@ -58,6 +59,7 @@
                 </div>
             </div>
         </div>
+        
     </header>
     <!--/#header-->
     
@@ -69,22 +71,21 @@
 	    				<form id="form-search" class="form-horizontal" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
 							<div class="form-group">
 								<div class="col-sm-7">
-									<input type="text" id="input" name="input" class="form-control input-md" placeholder="Suburb/Zipcode" required>
+									<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Zipcode" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-sm-3">
 										<select class="form-control input-md" id="medicalType" name="medicalType">
-											<option value="MT" selected>Medical Type</option>
+											<option value="AH">All Hospitals</option>
 											<option value="Emergency">Emergency Hospital</option>
-											<!-- <option value="General Practitioner">General Practitioner</option> -->
-											<option value="Kid Emergency">Kid Emergency Hospital</option>
-											<option value="Pharmacy">Pharmacy</option>
+											<option value="General Practitioner">General Practitioner</option>
+											<!-- <option value="Pharmacy">Pharmacy</option> -->
 										</select>
 									</div>
 									<div class="col-sm-3">
-										<select class="form-control input-md" id="language" name="language">
+										<select class="form-control input-md" id="language" name="language" style="display:none;">
 											<option value="LS" selected>Doctor Languages</option>
 											<option value="Arabic">Arabic</option>
 											<option value="Chinese">Chinese</option>
@@ -138,59 +139,118 @@
     			</div>
     			<div class="col-sm-5">
     				<div id="map" class="map" style="height:590px;width:500px"></div>
-    				<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    				<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
     				<!-- Add Google Map -->
     				<script>
+    				  //Get a search result JSON
   				  	  var jsonh = '${jsonh}';
-    				  
+
 				      function initMap() {
 				    	var myLatLng1 = {lat: -37.831, lng: 144.962};
 				        var map = new google.maps.Map(document.getElementById('map'), {
 				          center: myLatLng1,
-				          zoom: 11
+				          zoom: 11,
+				          mapTypeId: google.maps.MapTypeId.TERRAIN
 				        });
-				        
-				        placeMarker();
-				      }
-				      
-				      function placeMarker() {
-				    	  
-				        //Markers
-				        var markers = new Array();
+				    	
+				      	//Infomation Window
+				        var infowindow = new google.maps.InfoWindow();
 				        //transfer json to array
-				        var objArrary = eval(jsonh);
+					    var objArrary = eval(jsonh);
+				        //Marker array
+				        var markers = [];
+				        
 				        for (var i = 0; i < objArrary.length; i++) {
 				        	var obj = objArrary[i];
 				        	//Must be number
 				        	var lat = parseFloat(obj['latitude']);
 				        	var lng = parseFloat(obj['longitude']);
 				        	//Address
-				        	var address = obj['address']; 
+				        	var address = obj['address'];
+				        	
 				        	//Hospital name
 				        	var hname = obj['hospital_name'];
 				        	var myLatLng = {lat: lat, lng: lng};
 				        	var marker = new google.maps.Marker({
 					            position: myLatLng,
 					            map: map,
+					            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 					            title: hname
 					          });
 				        	
 				        	//Content
-				        	var content = "Name: " + hname + '</br>' + "Address: " + address; 
+				        	var content = "<b>Name:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>'; 
 				        	
-				        	//Infomation Window
-					        var infowindow = new google.maps.InfoWindow();
-				        	
+				        	//add info window
 				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
 			                    return function() {
+			                    	infowindow.close();
 			                        infowindow.setContent(content);
 			                        infowindow.open(map, marker);
 			                    }
 			                })(marker, content, infowindow));
 				        	
 				        	markers.push(marker);
+				        	
 				        }
+				        
+				        //info window for current location
+				        var infocurrentlocation = new google.maps.InfoWindow();
+				        
+				     	// Try HTML5 geolocation.
+				        if (navigator.geolocation) {
+				            navigator.geolocation.getCurrentPosition(function(position) {
+				            var pos = {
+				              lat: position.coords.latitude,
+				              lng: position.coords.longitude
+				            };
+
+				            infocurrentlocation.setPosition(pos);
+				            infocurrentlocation.setContent('Location found.');
+				            
+				            var curMarker = new google.maps.Marker({
+				            	position: pos,
+				            	map: map,
+				            	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+				            	tittle: 'Current Location'
+				            });
+				            /* map.setCenter(pos); */
+				            
+				            //info window add to click listener
+				            var con = "My Location"
+				            google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
+			                    return function() {
+			                    	infocurrentlocation.setContent(con);
+			                    	infocurrentlocation.open(map, curMarker);
+			                    }
+			                })(curMarker, con, infocurrentlocation));
+				            
+				          }, function() {
+				            handleLocationError(true, infocurrentlocation, map.getCenter());
+				          });
+				        } else {
+				          // Browser doesn't support Geolocation
+				          handleLocationError(false, infocurrentlocation, map.getCenter());
+				        }
+				     	//
+				        function handleLocationError(browserHasGeolocation, infocurrentlocation, pos) {
+				        	infocurrentlocation.setPosition(pos);
+				        	infocurrentlocation.setContent(browserHasGeolocation ?
+					    	                        'Error: The Geolocation service failed.' :
+					    	                        'Error: Your browser doesn\'t support geolocation.');
+					    }
+				     	
+				        //Set bounds
+				        var bounds = new google.maps.LatLngBounds();
+				        
+				        for (var i = 0; i < markers.length; i++) {
+				         bounds.extend(markers[i].getPosition());
+				        }
+				        //map will fit
+				        map.fitBounds(bounds);
 				      }
+				      
+				      
 				      
 				      google.maps.event.addDomListener(window, 'load', initMap);
 				      
@@ -216,7 +276,7 @@
     </footer>
     <!--/#footer-->
   </div>
-    <%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />" ></script> --%>
+    <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />" ></script>
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />" ></script> --%>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -245,5 +305,18 @@
         });
     } );
     </script>
+    <script type="text/javascript">
+		$(function(){
+			var input = '${input}';
+			var type = '${type}';
+			var language = '${language}';
+			
+			if (type == null || type == undefined || type == '' || type == 'AH') {
+				$("#medicalType").val('AH');
+			} else {
+				$("#medicalType").val(type);
+			}
+		})
+	</script>
 </body>
 </html>

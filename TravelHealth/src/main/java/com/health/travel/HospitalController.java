@@ -35,21 +35,25 @@ public class HospitalController {
 		logger.info("Medical Type: " + medicalType + " || Language Service: " + language);
 		boolean isPostcode = ValidateNumOrString.isPostcode(input);
 		Gson gson = new Gson();
+		model.addAttribute("input", input);
+		model.addAttribute("type", medicalType);
+		model.addAttribute("language", language);
 		if ("".equals(input.trim()) || input == null) {
 			return null;
 		} else {
 			
 			if (isPostcode) {
-				if ("MT".equals(medicalType)) {
+				if ("AH".equals(medicalType)) {
 					//search by post code
-					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(input);
+					int postcode = Integer.parseInt(input);
+					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(postcode);
 					logger.info("Post Code: " + hospitals.size());
 					model.addAttribute("hospitals", hospitals);
 					//Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
-				} else if (!"MT".equals(medicalType)) {
+				} else if (!"AH".equals(medicalType)) {
 					//search by post code and medical type
 					List<Hospital> hospitals = hospitalService.findHospitalByPostcodeAndMedical(input, medicalType);
 				    logger.info("Postcode + Medical: " + hospitals.size());
@@ -62,7 +66,7 @@ public class HospitalController {
 					return "hospital";
 				}
 			} else {
-				if ("MT".equals(medicalType)) {
+				if ("AH".equals(medicalType)) {
 					//search by suburb
 					List<Hospital> hospitals = hospitalService.findHospitalBySuburb(input);
 					logger.info("Suburb: " + hospitals.size());
@@ -71,7 +75,7 @@ public class HospitalController {
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
-				} else if (!"MT".equals(medicalType)) {
+				} else if (!"AH".equals(medicalType)) {
 					//search by suburb and medical type
 					List<Hospital> hospitals = hospitalService.findHospitalBySuburbAndMedical(input, medicalType);
 				    logger.info("Suburb + Medical: " + hospitals.size());

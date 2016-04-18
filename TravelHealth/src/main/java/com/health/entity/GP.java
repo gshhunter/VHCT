@@ -23,7 +23,7 @@ public class GP {
 	
 	private String suburb;
 	
-	private String postcode;
+	private int postcode;
 	
 	private String phone;
 	
@@ -83,11 +83,11 @@ public class GP {
 		this.suburb = suburb;
 	}
 
-	public String getPostcode() {
+	public int getPostcode() {
 		return postcode;
 	}
 
-	public void setPostcode(String postcode) {
+	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
 

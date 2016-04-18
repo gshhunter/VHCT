@@ -103,47 +103,27 @@
 							<h2 class="heading animated bounceInRight">Victoria Health Care Tourism</h2>
 							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
 							<a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
-							
-							<%-- <div class="row" >
-								<div class="col-lg-12">  
-								<div style ="background:#000; color:#fff; width:100%; height:700px;margin-top:100px; filter:alpha(opacity=60); opacity:0.6;">
-		    						<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/hospit.png"/>" /> <br /> Hospital</div>
-		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/pharm.jpg" />" /><br /> Pharmacy</div>
-		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/doctors.png" />" /><br /> Find general practitioner</div>
-		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/travel warning1.png" />"/><br /> Travel warning</div>
-		 							<div class="col-md-2"><img class="img-circle" src="<c:url value="/resources/images/icons/travelwarnin.png" />"/><br /> Australian Health Risks </div>
-	 							</div>
-	 							</div>
-	 							
-            			 	</div>
-            			 	<!-- bar in the footer --> --%>
-            			 	
+
 							<div class="search-basic">
 								<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath()%>/hospital/search" role="form">
-									<div class="form-group">
-										<input type="text" id="input" name="input"
-											class="form-control input-lg" placeholder="Suburb/Zipcode"
-											required>
-									</div>
 
-									<div class="form-group">
-										<select class="form-control input-lg" id="medicalType" name="medicalType">
-											<option value="MT" selected>Medical Type</option>
-											<option value="Emergency">Emergency Hospital</option>
-											<option value="General Practitioner">General Practitioner</option>
-											<option value="Kid Emergency">Kid Emergency Hospital</option>
-											<option value="Pharmacy">Pharmacy</option>
-										</select>
-									</div>
+									<input type="text" id="input" name="input" class="form-control input-lg" placeholder="Suburb/Postcode" required>
 
-									<select class="form-control input-lg" id="language" name="language" disabled>
+									<select class="form-control input-lg" id="medicalType" name="medicalType">
+										<option value="AH" selected>All Hospitals (default)</option>
+										<option value="Emergency">Emergency Hospital</option>
+										<option value="General Practitioner">General Practitioner</option>
+										<!-- <option value="Pharmacy">Pharmacy</option> -->
+									</select>
+									
+									<select class="form-control input-lg" id="language" name="language" style="display:none;">
 										<option value="LS" selected>Doctor Languages</option>
 										<option value="Arabic">Arabic</option>
 										<option value="Chinese">Chinese</option>
 										<option value="English">English</option>
 										<option value="Indian">Indian</option>
 									</select>
-
+									
 									<button class="btn btn-success btn-lg" type="submit" style="background-color:#2ecc71;">
 										<span class="glyphicon glyphicon-search"></span> Search
 									</button>

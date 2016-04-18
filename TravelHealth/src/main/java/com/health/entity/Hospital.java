@@ -12,7 +12,7 @@ public class Hospital {
 	
 	private String hospital_name;
 	
-	private String postcode;
+	private int postcode;
 	
 	private String suburb;
 	
@@ -54,11 +54,11 @@ public class Hospital {
 		this.hospital_name = hospital_name;
 	}
 
-	public String getPostcode() {
+	public int getPostcode() {
 		return postcode;
 	}
 
-	public void setPostcode(String postcode) {
+	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
 
