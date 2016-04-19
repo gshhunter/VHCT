@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
+import com.health.entity.GP;
 import com.health.entity.Hospital;
 import com.health.service.GPService;
 import com.health.service.HospitalService;
@@ -74,7 +75,23 @@ public class HospitalController {
 					return "hospital";
 					
 				} else if ("General Practitioner".equals(medicalType)) {
-					return null;
+					if ("DL".equals(language)) {
+						List<GP> doctors = gpService.findGPByPostcode(postcode);
+						logger.info("User search GP by post code: " + postcode);
+						//Send list to front end
+					    model.addAttribute("doctors", doctors);
+					    //Send json to front end
+						model.addAttribute("jsong", gson.toJson(doctors));
+						return "gp";
+					} else {
+						List<GP> doctors = gpService.findGPByPostcodeAndLanguage(postcode, language);
+						logger.info("User search GP by post code: " + postcode + " and language: " + language);
+						//Send list to front end
+					    model.addAttribute("doctors", doctors);
+					    //Send json to front end
+						model.addAttribute("jsong", gson.toJson(doctors));
+						return "gp";
+					}
 				} else {
 					return "hospital";
 				}
@@ -99,6 +116,24 @@ public class HospitalController {
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
+				} else if ("General Practitioner".equals(medicalType)) {
+					if ("DL".equals(language)) {
+						List<GP> doctors = gpService.findGPBySuburb(input);
+						logger.info("User search GP by suburb: " + input);
+						//Send list to front end
+					    model.addAttribute("doctors", doctors);
+					    //Send json to front end
+						model.addAttribute("jsong", gson.toJson(doctors));
+						return "gp";
+					} else {
+						List<GP> doctors = gpService.findGPBySuburbAndLanguage(input, language);
+						logger.info("User search GP by suburb: " + input + " and language: " + language);
+						//Send list to front end
+					    model.addAttribute("doctors", doctors);
+					    //Send json to front end
+						model.addAttribute("jsong", gson.toJson(doctors));
+						return "gp";
+					}
 				} else {
 					return "hospital";
 				}
