@@ -152,4 +152,12 @@ public class HospitalController {
 		return "hos_detail";
 	}
 	
+	
+	@RequestMapping(value = "/gp_detail/{gpid}", method = RequestMethod.GET)
+	public String viewGPDetail(Model model, @PathVariable(value = "gpid") String gpid) {
+		logger.info("The GP id: " + gpid);
+		GP doctor = gpService.findGPById(Integer.parseInt(gpid));
+		model.addAttribute("doctor", doctor);
+		return "gp_detail";
+	}
 }

@@ -63,13 +63,14 @@
     
     <section id="body" class="container-fluid">
     	<div class="panel panel-default">
+    	
 		  <div class="panel-heading">
-		      <h3>${hospital['hospital_name']}</h3>
+		      <h3>${doctor['gp_name']}</h3>
 		  </div>
 		  <div class="panel-body">
 		    <div class="row">
 		        <div class="col-sm-12">
-		            <p><span class="glyphicon glyphicon-map-marker"> ${hospital['address']} ${hospital['suburb']} VIC ${hospital['postcode']}</span></p>
+		            <p><span class="glyphicon glyphicon-map-marker"> ${doctor['address']} ${doctor['suburb']} VIC ${doctor['postcode']}</span></p>
 		        </div>
 		        <!-- <div class="col-sm-6">
 		            <p><span></span> </p>
@@ -78,31 +79,30 @@
 
 	    	<div class="row">
 	           <div class="col-sm-6">
-	               <p><span class="glyphicon glyphicon-envelope"> ${hospital['email']}</span></p>
+	               <p><span class="glyphicon glyphicon-envelope"> ${doctor['email']}</span></p>
+	           </div>
+	           <div class="col-sm-6">
+		           <p><span class="glyphicon glyphicon-home"> ${doctor['surgery_name']}</span></p>
+		       </div>
+	    	</div>
+    	
+	    	<div class="row">
+	           <div class="col-sm-6">
+	               <p><span class="glyphicon glyphicon-phone"> ${doctor['phone']}</span></p>
 	           </div>
 	           <div class="col-sm-6">
 	               <p><span class="glyphicon glyphicon-road"> <a href="#">PTV Road Search</a></span></p>
 	           </div>
 	    	</div>
-    	
-	    	<div class="row">
-	           <div class="col-sm-6">
-	               <p><span class="glyphicon glyphicon-phone"> ${hospital['phoneno']}</span></p>
-	           </div>
-	           <c:if test="${hospital.isemergency == 'YES'}">
-		           <div class="col-sm-6">
-		               <p><span class="glyphicon glyphicon-home"> Emergency Hospital</span></p>
-		           </div>
-	           </c:if>
-	    	</div>
-	    	   
+	    	
 	    	<div class="row">
 	           <div class="col-sm-6">
 	               <p><span class="glyphicon glyphicon-globe"> <a href="#">${hospital['website']}</a></span></p>
 	           </div>
-	           
-	    	   </div>
-			</div>
+	    	</div>
+	    	
+	      </div>
+	      
 		</div>
 		
 		
