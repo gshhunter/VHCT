@@ -53,4 +53,20 @@ public class HomeController {
 		return "ourteam";
 	}
 	
+	/**
+	 * Redirect to search page
+	 */
+	@RequestMapping(value="/searchPage", method = RequestMethod.GET)
+	public String searchPage(Locale locale, Model model) {
+        logger.info("Search page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		return "hospital";
+	}
+	
 }

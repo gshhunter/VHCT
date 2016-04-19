@@ -50,9 +50,10 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
-                        <li class="scroll active"><a href="<%=request.getContextPath() %>#services">Services</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath() %>#services">Services</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#our-team">Our Team</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath() %>#contact-area">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,18 +62,52 @@
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    	<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-		<div class="row">
-    
+    	<div class="panel panel-default">
+		  <div class="panel-heading">
+		      <h3>${hospital['hospital_name']}</h3>
+		  </div>
+		  <div class="panel-body">
+		    <div class="row">
+		        <div class="col-sm-12">
+		            <p><span class="glyphicon glyphicon-map-marker"> ${hospital['address']} ${hospital['suburb']} VIC ${hospital['postcode']}</span></p>
+		        </div>
+		        <!-- <div class="col-sm-6">
+		            <p><span></span> </p>
+		        </div> -->
+    	    </div>
 
-    		<div class="col-sm-12" style="background-color:white; height:700px;">
-        
-     
-    		</div>
-   
-
-    	</div>
+	    	<div class="row">
+	           <div class="col-sm-6">
+	               <p><span class="glyphicon glyphicon-envelope"> ${hospital['email']}</span></p>
+	           </div>
+	           <div class="col-sm-6">
+	               <p><span class="glyphicon glyphicon-road"> <a href="#">PTV Road Search</a></span></p>
+	           </div>
+	    	</div>
+    	
+	    	<div class="row">
+	           <div class="col-sm-6">
+	               <p><span class="glyphicon glyphicon-phone-alt"> ${hospital['phoneno']}</span></p>
+	           </div>
+	           <c:if test="${hospital.isemergency == 'YES'}">
+		           <div class="col-sm-6">
+		               <p><span class="glyphicon glyphicon-home"> Emergency Hospital</span></p>
+		           </div>
+	           </c:if>
+	    	</div>
+	    	   
+	    	<div class="row">
+	           <div class="col-sm-6">
+	               <p><span class="glyphicon glyphicon-globe"> <a href="#">${hospital['website']}</a></span></p>
+	           </div>
+	           
+	    	   </div>
+			</div>
+		</div>
+		
+		
     </section>
+    
     <!-- /#Search -->
     
     <footer id="footer" class="container-fluid bg-2">

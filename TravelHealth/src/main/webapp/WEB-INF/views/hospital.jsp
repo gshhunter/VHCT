@@ -27,7 +27,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" >
-    
 </head><!--/head-->
 
 <body>
@@ -51,10 +50,10 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
-                        <li class="scroll active"><a href="<%=request.getContextPath() %>#services">Services</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath() %>#services">Services</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath() %>#contact-area">Contact</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#our-team">Our Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -85,12 +84,21 @@
 										</select>
 									</div>
 									<div class="col-sm-3">
-										<select class="form-control input-md" id="language" name="language" style="display:none;">
-											<option value="LS" selected>Doctor Languages</option>
+										<select class="form-control input-md" id="language" name="language" >
+											<option value="DL" selected>Doctor Languages</option>
 											<option value="Arabic">Arabic</option>
 											<option value="Chinese">Chinese</option>
-											<option value="English">English</option>
-											<option value="Indian">Indian</option>
+											<option value="French">French</option>
+											<option value="German">German</option>
+											<option value="Greek">Greek</option>
+											<option value="Hindi">Hindi</option>
+											<option value="Indonesian">Indonesian</option>
+											<option value="Italian">Italian</option>
+											<option value="Malay">Malay</option>
+											<option value="Persian">Persian</option>
+											<option value="Russian">Russian</option>
+											<option value="Spanish">Spanish</option>
+											<option value="Vietnamese">Vietnamese</option>
 										</select>
 									</div>
 								</div>
@@ -103,7 +111,7 @@
 					
 					<div class="result-area">
 						<c:if test="${empty hospitals}">
-							<p>Sorry, there is no result!</p>
+							<p>There is no result yet!</p>
 							<p>Please enter new search conditions.</p>
 						</c:if>
 						<c:if test="${not empty hospitals }">
@@ -129,13 +137,13 @@
 						</c:if>
 						
 					</div>
-					<div class="transport">
+					<%-- <div class="transport">
 						<p>Taxi? <a href="https://www.uber.com" target="_blank"><img src="<c:url value="/resources/images/uber.png" />" /></a> now!</p>
 						
 					
-					<%-- <div class="row">
-							<p>Journey Planner? <a href="https://ptv.vic.gov.au/journey#jpsearch%5Baction%5D=showPlanner" target="_blank"><img src="<c:url value="/resources/images/ptv_logo.png" />" /></a> now!</p></div> --%>
-					</div>
+					<div class="row">
+							<p>Journey Planner? <a href="https://ptv.vic.gov.au/journey#jpsearch%5Baction%5D=showPlanner" target="_blank"><img src="<c:url value="/resources/images/ptv_logo.png" />" /></a> now!</p></div>
+					</div> --%>
     			</div>
     			<div class="col-sm-5">
     				<div id="map" class="map" style="height:590px;width:500px"></div>
@@ -217,13 +225,13 @@
 				            /* map.setCenter(pos); */
 				            
 				            //info window add to click listener
-				            var con = "My Location"
-				            google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
+				            /* var con = "My Location" */
+				            /* google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
 			                    return function() {
 			                    	infocurrentlocation.setContent(con);
 			                    	infocurrentlocation.open(map, curMarker);
 			                    }
-			                })(curMarker, con, infocurrentlocation));
+			                })(curMarker, con, infocurrentlocation)); */
 				            
 				          }, function() {
 				            handleLocationError(true, infocurrentlocation, map.getCenter());
@@ -306,7 +314,7 @@
     } );
     </script>
     <script type="text/javascript">
-		$(function(){
+		$(document).ready(function(){
 			var input = '${input}';
 			var type = '${type}';
 			var language = '${language}';
@@ -316,6 +324,20 @@
 			} else {
 				$("#medicalType").val(type);
 			}
+			
+			if ($("#medicalType").val() == 'General Practitioner') {
+				$("#language").show();
+			} else {
+				$("#language").hide();
+			}
+			
+			$("#medicalType").change(function(){
+	    		if ($("#medicalType").val() == 'General Practitioner') {
+		    		$("#language").show();
+		    	} else {
+		    		$("#language").hide();
+		    	}	
+	    	});
 		})
 	</script>
 </body>

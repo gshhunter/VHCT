@@ -37,5 +37,17 @@ public interface HospitalDao {
 	 * @return
 	 */
 	public Hospital findById(int hid);
-	
+	/**
+	 * 
+	 * @param postcode
+	 * @return
+	 */
+	public List<Hospital> findEmergencyByPostcode(int postcode);
+	/**
+	 * 
+	 * @param suburb
+	 * @return
+	 */
+	public List<Hospital> findEmergencyBySuburb(String suburb);
 }
+

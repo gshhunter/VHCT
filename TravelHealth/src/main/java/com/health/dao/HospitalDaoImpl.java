@@ -21,6 +21,7 @@ public class HospitalDaoImpl implements HospitalDao{
 	 * Find hospital by post code
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional
 	@Override
 	public List<Hospital> findByPostcode(int postcode) {
 		String str = "SELECT h FROM Hospital h WHERE h.postcode BETWEEN ?1 AND ?2";
@@ -42,6 +43,7 @@ public class HospitalDaoImpl implements HospitalDao{
 		return query.getResultList();
 	}
 
+	
 	/**
 	 * Find hospital by post code and medical type
 	 */
@@ -73,7 +75,9 @@ public class HospitalDaoImpl implements HospitalDao{
 		return results;
 	}
 
-	@Transactional
+	/**
+	 * Search hospital by id
+	 */
 	@Override
 	public Hospital findById(int hid) {
 		String str = "FROM Hospital h WHERE h.hospital_id = ?1";
@@ -82,6 +86,35 @@ public class HospitalDaoImpl implements HospitalDao{
 		Hospital hospital = (Hospital)query.getSingleResult();
 		return hospital;
 	}
+
+	/**
+	 * Search emergency hospital by post code 
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Hospital> findEmergencyByPostcode(int postcode) {
+		String str = "SELECT h FROM Hospital h WHERE h.postcode >= ?1 AND h.postcode <= ?2 AND h.isemergency = ?3";
+		Query query = em.createQuery(str);
+		query.setParameter(1, postcode - 2);
+		query.setParameter(2, postcode + 2);
+		query.setParameter(3, "YES");
+		return query.getResultList();
+	}
+
+	/**
+	 * Search emergency hospital by suburb
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Hospital> findEmergencyBySuburb(String suburb) {
+		String str = "SELECT h FROM Hospital h WHERE h.suburb = ?1 AND h.isemergency = ?2";
+		Query query = em.createQuery(str);
+		query.setParameter(1, suburb);
+		query.setParameter(2, "YES");
+		return query.getResultList();
+	}
+	
+	
 
 
 //	@SuppressWarnings("unchecked")

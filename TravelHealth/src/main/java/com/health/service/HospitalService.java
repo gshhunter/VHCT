@@ -43,4 +43,18 @@ public interface HospitalService {
 	 * @return
 	 */
 	public Hospital findHospitalById(int hid);
+	
+	/**
+	 * 
+	 * @param postcode
+	 * @return
+	 */
+	public List<Hospital> findEmergencyHospitalByPostcode(int postcode);
+	
+	/**
+	 * 
+	 * @param suburb
+	 * @return
+	 */
+	public List<Hospital> findEmergencyHospitalBySuburb(String suburb);
 }

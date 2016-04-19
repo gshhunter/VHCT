@@ -42,4 +42,15 @@ public class HospitalServiceImpl implements HospitalService{
 		return hospitalDao.findById(hid);
 	}
 
+	@Override
+	public List<Hospital> findEmergencyHospitalByPostcode(int postcode) {
+		return hospitalDao.findEmergencyByPostcode(postcode);
+	}
+
+	@Override
+	public List<Hospital> findEmergencyHospitalBySuburb(String suburb) {
+		return hospitalDao.findEmergencyBySuburb(suburb);
+	}
+
+	
 }

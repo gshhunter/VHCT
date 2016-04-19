@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
 import com.health.entity.Hospital;
+import com.health.service.GPService;
 import com.health.service.HospitalService;
 import com.health.util.ValidateNumOrString;
 
@@ -25,6 +26,8 @@ public class HospitalController {
 	
 	@Autowired
 	private HospitalService hospitalService;
+	@Autowired
+	private GPService gpService;
 	
 	/**
 	 * Show all list by search
@@ -35,33 +38,43 @@ public class HospitalController {
 		logger.info("Medical Type: " + medicalType + " || Language Service: " + language);
 		boolean isPostcode = ValidateNumOrString.isPostcode(input);
 		Gson gson = new Gson();
+		//input data transfer to front end
 		model.addAttribute("input", input);
 		model.addAttribute("type", medicalType);
 		model.addAttribute("language", language);
+		
 		if ("".equals(input.trim()) || input == null) {
 			return null;
 		} else {
 			
 			if (isPostcode) {
+				
+				//Transfer from String to Integer
+				int postcode = Integer.parseInt(input);
+				
 				if ("AH".equals(medicalType)) {
 					//search by post code
-					int postcode = Integer.parseInt(input);
+					
 					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(postcode);
 					logger.info("Post Code: " + hospitals.size());
+					//Send list to front end
 					model.addAttribute("hospitals", hospitals);
 					//Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
-				} else if (!"AH".equals(medicalType)) {
+				} else if ("Emergency".equals(medicalType)) {
 					//search by post code and medical type
-					List<Hospital> hospitals = hospitalService.findHospitalByPostcodeAndMedical(input, medicalType);
-				    logger.info("Postcode + Medical: " + hospitals.size());
+					List<Hospital> hospitals = hospitalService.findEmergencyHospitalByPostcode(postcode);
+				    logger.info("Postcode + Emergency: " + hospitals.size());
+				    //Send list to front end
 				    model.addAttribute("hospitals", hospitals);
 				    //Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
+				} else if ("General Practitioner".equals(medicalType)) {
+					return null;
 				} else {
 					return "hospital";
 				}
@@ -70,15 +83,17 @@ public class HospitalController {
 					//search by suburb
 					List<Hospital> hospitals = hospitalService.findHospitalBySuburb(input);
 					logger.info("Suburb: " + hospitals.size());
+					//Send list to front end
 					model.addAttribute("hospitals", hospitals);
 					//Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
-				} else if (!"AH".equals(medicalType)) {
+				} else if ("Emergency".equals(medicalType)) {
 					//search by suburb and medical type
-					List<Hospital> hospitals = hospitalService.findHospitalBySuburbAndMedical(input, medicalType);
+					List<Hospital> hospitals = hospitalService.findEmergencyHospitalBySuburb(input);
 				    logger.info("Suburb + Medical: " + hospitals.size());
+				    //Send list to front end
 				    model.addAttribute("hospitals", hospitals);
 				    //Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));

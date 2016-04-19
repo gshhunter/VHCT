@@ -56,11 +56,11 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="scroll active"><a href="#header">Home</a></li>
+						<li class="scroll"><a href="#header">Home</a></li>
 						<li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
 						<li class="scroll"><a href="#about-us">About Us</a></li>
 						<li class="scroll"><a href="#contact-area">Contact</a></li>
-						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></li>
 					</ul>
 				</div>
 			</div>
@@ -116,12 +116,21 @@
 										<!-- <option value="Pharmacy">Pharmacy</option> -->
 									</select>
 									
-									<select class="form-control input-lg" id="language" name="language" style="display:none;">
-										<option value="LS" selected>Doctor Languages</option>
+									<select class="form-control input-lg" id="language" name="language">
+										<option value="DL" selected>Doctor Languages</option>
 										<option value="Arabic">Arabic</option>
 										<option value="Chinese">Chinese</option>
-										<option value="English">English</option>
-										<option value="Indian">Indian</option>
+										<option value="French">French</option>
+										<option value="German">German</option>
+										<option value="Greek">Greek</option>
+										<option value="Hindi">Hindi</option>
+										<option value="Indonesian">Indonesian</option>
+										<option value="Italian">Italian</option>
+										<option value="Malay">Malay</option>
+										<option value="Persian">Persian</option>
+										<option value="Russian">Russian</option>
+										<option value="Spanish">Spanish</option>
+										<option value="Vietnamese">Vietnamese</option>
 									</select>
 									
 									<button class="btn btn-success btn-lg" type="submit" style="background-color:#2ecc71;">
@@ -346,6 +355,7 @@
       				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
       				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
       				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
+      				<p><span class="glyphicon glyphicon-knight"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
 	            </div>
 	        </div>
 	    </div> 		
@@ -391,6 +401,18 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/html5shiv.js" />"></script>
-	
+	<script type="text/javascript">
+	    $(document).ready(function(){
+	    	$("#language").hide();
+	    	$("#medicalType").change(function(){
+	    		if ($("#medicalType").val() == 'General Practitioner') {
+		    		$("#language").show();
+		    	} else {
+		    		$("#language").hide();
+		    	}	
+	    	});
+	    	
+	    });
+	</script>
 </body>
 </html>

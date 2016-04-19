@@ -34,6 +34,12 @@ body {
 	background-color: #000000;
 }
 
+.map {
+	position: relative;
+	width:500px !important;
+	height: 590px !important;
+}
+
 .features .col-sm-7 {
 	padding-right:5.5px;
 }
