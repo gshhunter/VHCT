@@ -64,7 +64,7 @@
     <section id="body" class="container-fluid">
     	<div class="panel panel-default">
 		  <div class="panel-heading">
-		      <h3>${hospital['hospital_name']}</h3>
+		      <h3>Hospital: ${hospital['hospital_name']}</h3>
 		  </div>
 		  <div class="panel-body">
 		    <div class="row">
@@ -81,7 +81,7 @@
 	               <p><span class="glyphicon glyphicon-envelope"> ${hospital['email']}</span></p>
 	           </div>
 	           <div class="col-sm-6">
-	               <p><span class="glyphicon glyphicon-road"> <a href="#">PTV Road Search</a></span></p>
+	               <p><span class="glyphicon glyphicon-road"> <a href="https://www.google.com.au/maps/dir//${hospital['latitude']},${hospital['longitude']}">Public Transport Finder</a></span></p>
 	           </div>
 	    	</div>
     	
@@ -100,7 +100,9 @@
 	           <div class="col-sm-6">
 	               <p><span class="glyphicon glyphicon-globe"> <a href="#">${hospital['website']}</a></span></p>
 	           </div>
-	           
+	           <div class="col-sm-6">
+	               <p><img src="<c:url value="/resources/images/Taxi2.png" />" />&nbsp;&nbsp;&nbsp;<a href="https://www.uber.com/">Uber</a> or <a href="http://www.13cabs.com.au/">13Cab</a></p>
+	           </div>
 	    	   </div>
 			</div>
 		</div>

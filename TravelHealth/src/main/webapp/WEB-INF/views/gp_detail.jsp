@@ -65,7 +65,7 @@
     	<div class="panel panel-default">
     	
 		  <div class="panel-heading">
-		      <h3>${doctor['gp_name']}</h3>
+		      <h3>GP: ${doctor['gp_name']}</h3>
 		  </div>
 		  <div class="panel-body">
 		    <div class="row">
@@ -91,13 +91,16 @@
 	               <p><span class="glyphicon glyphicon-phone"> ${doctor['phone']}</span></p>
 	           </div>
 	           <div class="col-sm-6">
-	               <p><span class="glyphicon glyphicon-road"> <a href="#">PTV Road Search</a></span></p>
+	               <p><span class="glyphicon glyphicon-road"> <a href="https://www.google.com.au/maps/dir//${doctor['latitude']},${doctor['longitude']}">Public Transport Finder</a></span></p>
 	           </div>
 	    	</div>
 	    	
 	    	<div class="row">
 	           <div class="col-sm-6">
 	               <p><span class="glyphicon glyphicon-globe"> <a href="#">${hospital['website']}</a></span></p>
+	           </div>
+	           <div class="col-sm-6">
+	               <p><img src="<c:url value="/resources/images/Taxi2.png" />" />&nbsp;&nbsp;&nbsp;<a href="https://www.uber.com/">Uber</a> or <a href="http://www.13cabs.com.au/">13Cab</a></p>
 	           </div>
 	    	</div>
 	    	

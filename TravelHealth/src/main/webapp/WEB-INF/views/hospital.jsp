@@ -187,7 +187,8 @@
 					          });
 				        	
 				        	//Content
-				        	var content = "<b>Name:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>'; 
+				        	var content = "<b>Hospital:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
+				        	     "<a href='https://www.google.com.au/maps/dir//" + obj['latitude'] + "," + obj['longitude'] + "'>Public Transport Finder</a>"; 
 				        	
 				        	//add info window
 				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {

@@ -355,7 +355,7 @@
       				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
       				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
       				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
-      				<p><span class="glyphicon glyphicon-knight"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
+      				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
 	            </div>
 	        </div>
 	    </div> 		
