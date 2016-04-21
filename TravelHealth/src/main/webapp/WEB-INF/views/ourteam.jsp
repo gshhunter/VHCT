@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="/travel">
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>">
                     	<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
                     </a>
                     

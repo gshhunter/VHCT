@@ -50,7 +50,7 @@
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/travel"> 
+					<a class="navbar-brand" href="<%=request.getContextPath()%>"> 
 					<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
 					</a>
 				</div>
@@ -110,7 +110,7 @@
 									<input type="text" id="input" name="input" class="form-control input-lg" placeholder="Suburb/Postcode" required>
 
 									<select class="form-control input-lg" id="medicalType" name="medicalType">
-										<option value="AH" selected>All Hospitals (default)</option>
+										<option value="AH" selected>Hospital (default)</option>
 										<option value="Emergency">Emergency Hospital</option>
 										<option value="General Practitioner">General Practitioner</option>
 										<!-- <option value="Pharmacy">Pharmacy</option> -->
