@@ -263,8 +263,7 @@
 				</div>
 				<div class="col-sm-5">
 					<ul class="nav features-nav">
-						<li class="active" data-target="#community-carousel"
-							data-slide-to="0">
+						<li class="active" data-target="#community-carousel" data-slide-to="0">
 							<div class="vertical-middle">
 								<div>
 									<div class="media">
@@ -288,8 +287,7 @@
 										</div>
 										<div class="media-body media-content">
 											<h3 class="media-heading">Visualize health data</h3>
-											<p>Provide map and visualized data of health care and
-												safety in Victoria</p>
+											<p>Provide map and visualized data of health care and safety in Victoria</p>
 										</div>
 									</div>
 								</div>
@@ -349,8 +347,8 @@
 	    </div>
 	    <div id="contact-info">
 	        <div class="row">
-	            <div class="col-sm-8">
-	                <p>Contact us and we'll get back to you within 24 hours.</p>
+	            <div class="col-sm-7">
+	                <p>Contact us and we'll reply you within 24 hours.</p>
 	                <p> </p>
       				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
       				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>

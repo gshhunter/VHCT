@@ -127,7 +127,7 @@
 						    	<tbody>
 						    		<c:forEach items="${hospitals}" var="hospital">
 							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/detail/${hospital['hospital_id']}" target="_blank">${hospital['hospital_name']}</a></td>
+							    			<td><a href="<%=request.getContextPath() %>/hospital/detail/${hospital['hospital_id']}">${hospital['hospital_name']}</a></td>
 							    			<td>${hospital['suburb']}</td>
 							    			<td>${hospital['postcode']}</td>
 							    		</tr>

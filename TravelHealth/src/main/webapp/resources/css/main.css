@@ -539,11 +539,11 @@ font-weight: 400
 #community-carousel .carousel-indicators li{
   display: block;
   background-color:#fff;
-  margin:8px 1px;
+  margin:1px 1px;
 }
 
 #community-carousel .carousel-indicators li.active{
-  width: 10px;
+  width: 0px;
   height: 10px;
 }
 
@@ -693,7 +693,7 @@ font-weight: 400
 }
 
 .service-right {
-  padding: 40px 0 0;
+  padding: 35px 0 0;
 }
 .service-right img {
   width: 100%
@@ -1361,14 +1361,14 @@ ul.plan li.plan-content span {
 
 #contact {
   float: left;
-  width: 50%
+  width: 45%
 }
 
 #contact-info {
 	position:relative;
 	padding-top:100px;
-	float:right;
-	width:50%;
+	float:left;
+	width:45%;
 }
 
 #contact-info p {
@@ -1577,7 +1577,8 @@ ul.plan li.plan-content span {
 #footer {
   background:#181818;
   color: #DCDCDC;
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 #footer p {
