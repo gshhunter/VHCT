@@ -1,5 +1,7 @@
 package com.health.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,7 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "gp")
-public class GP {
+public class GP implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

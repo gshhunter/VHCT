@@ -1,11 +1,15 @@
 package com.health.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "hospital")
-public class Hospital {
-	
+public class Hospital implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private int hospital_id;
