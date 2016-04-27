@@ -63,6 +63,7 @@
 						<li class="scroll"><a href="#contact-area">Contact</a></li>
 					</ul>
 				</div>
+				
 			</div>
 		</div>
 	</header>
@@ -113,7 +114,7 @@
 										<option value="AH" selected>Hospital (default)</option>
 										<option value="Emergency">Emergency Hospital</option>
 										<option value="General Practitioner">General Practitioner</option>
-										<!-- <option value="Pharmacy">Pharmacy</option> -->
+										<option value="Pharmacy">Pharmacy</option>
 									</select>
 									
 									<select class="form-control input-lg" id="language" name="language">
@@ -236,8 +237,7 @@
 								data-ride="carousel">
 								<!-- Indicators -->
 								<ul class="carousel-indicators">
-									<li data-target="#community-carousel" data-slide-to="0"
-										class="active"></li>
+									<li data-target="#community-carousel" data-slide-to="0" class="active"></li>
 									<li data-target="#community-carousel" data-slide-to="1"></li>
 									<li data-target="#community-carousel" data-slide-to="2"></li>
 								</ul>
@@ -371,14 +371,27 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-4">
 					<p>
 						Copyright @ 2016<a target="_blank"
 							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
 							Daemon </a>
 					</p>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-4">
+					<div id="google_translate_element"></div>
+					<script type="text/javascript">
+						function googleTranslateElementInit() {
+						 new google.translate.TranslateElement({
+							 pageLanguage: 'en', 
+							 includedLanguages: 'ar,de,el,es,fa,fr,hi,it,ja,ko,ms,nl,pt,ru,sv,th,tr,ur,vi,zh-CN,zh-TW', 
+							 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+							 }, 'google_translate_element');
+						}
+					</script>
+					<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+				</div>
+				<div class="col-sm-4">
 					<p class="pull-right">
 						Designed by <a target="_blank"
 							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">Daemon</a>

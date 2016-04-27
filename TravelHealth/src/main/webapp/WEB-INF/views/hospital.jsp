@@ -80,7 +80,7 @@
 											<option value="AH">Hospital</option>
 											<option value="Emergency">Emergency Hospital</option>
 											<option value="General Practitioner">General Practitioner</option>
-											<!-- <option value="Pharmacy">Pharmacy</option> -->
+											<option value="Pharmacy">Pharmacy</option>
 										</select>
 									</div>
 									<div class="col-sm-3">

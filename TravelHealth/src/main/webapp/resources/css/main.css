@@ -414,7 +414,7 @@ font-weight: 400
   color: #FFFFFF;
   font-family: Lato, sans-serif;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 550;
   margin-bottom: 59px;
   margin-top: 0;
   text-shadow:none;
@@ -633,9 +633,9 @@ font-weight: 400
 
 .features-nav .media-content p {
   color: #666666;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 33px;
 }
 
@@ -652,6 +652,7 @@ font-weight: 400
 }
 
 #services h2.title{
+  font-family: Lato, sans-serif;
   color: #fff;
   border-color: #fff;
 }
@@ -677,6 +678,7 @@ font-weight: 400
 }
 
 .service-media h3 a{
+	font-family: Lato, sans-serif;
 	color: #999999;
 }
 
@@ -686,7 +688,7 @@ font-weight: 400
 
 .service-media p {
   color: #999999;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 19px;
   font-weight: 300;
   line-height: 30px;
@@ -2560,7 +2562,7 @@ ul.preset-list li {
 /* Move down button*/
 
 .movedown {
-	padding-top: 130px;
+	padding-top: 100px;
 }
 
 /*footer grey bar*/

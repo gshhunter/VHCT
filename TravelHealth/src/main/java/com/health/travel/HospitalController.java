@@ -92,8 +92,12 @@ public class HospitalController {
 						model.addAttribute("jsong", gson.toJson(doctors));
 						return "gp";
 					}
+				} else if ("Pharmacy".equals(medicalType)) {
+					
+					
+					return "pharmacy";
 				} else {
-					return "hospital";
+					return "error";
 				}
 			} else {
 				if ("AH".equals(medicalType)) {
