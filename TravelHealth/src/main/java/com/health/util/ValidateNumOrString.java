@@ -24,6 +24,22 @@ public class ValidateNumOrString {
 		}
 	}
 	
+	public static boolean isNum(String str) {
+		if (str != null) {
+			try {
+				String regex = "^[0-9]*$s";
+				boolean is = Pattern.matches(regex, str);
+				return is;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
 	public static void main(String args[]) {
 		System.out.println(ValidateNumOrString.isPostcode("3266"));
 		System.out.println(ValidateNumOrString.isPostcode("4097"));
