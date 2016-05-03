@@ -63,180 +63,52 @@
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    	<div class="row">
-    			<div class="col-sm-12" style="width:100%;">
-    			
-    				<!-- Search Area -->
+    	
     			    <div class="search-area">
-	    				<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
+	    				<form id="form-search" class="form-horizontal" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
 							<div class="form-group">
-							  
-								<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
-							  
+								<div class="col-sm-7">
+									<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
+								</div>
 							</div>
 							<div class="form-group">
-							  
-								<select class="form-control" id="medicalType" name="medicalType">
-									<option value="AH">Hospital</option>
-									<option value="Emergency">Emergency Hospital</option>
-									<option value="General Practitioner">General Practitioner</option>
-									<option value="Pharmacy">Pharmacy</option>
-								</select>
+								<div class="row">
+									<div class="col-sm-3">
+										<select class="form-control input-md" id="medicalType" name="medicalType">
+											<option value="AH">Hospital</option>
+											<option value="Emergency">Emergency Hospital</option>
+											<option value="General Practitioner">General Practitioner</option>
+											<option value="Pharmacy">Pharmacy</option>
+										</select>
+									</div>
+									
+									<div class="col-sm-3">
+										<select class="form-control input-md" id="language" name="language" >
+											<option value="DL" selected>Doctor Languages</option>
+											<option value="Arabic">Arabic</option>
+											<option value="Chinese">Chinese</option>
+											<option value="French">French</option>
+											<option value="German">German</option>
+											<option value="Greek">Greek</option>
+											<option value="Hindi">Hindi</option>
+											<option value="Indonesian">Indonesian</option>
+											<option value="Italian">Italian</option>
+											<option value="Malay">Malay</option>
+											<option value="Persian">Persian</option>
+											<option value="Russian">Russian</option>
+											<option value="Spanish">Spanish</option>
+											<option value="Vietnamese">Vietnamese</option>
+										</select>
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<select class="form-control" id="language" name="language" >
-									<option value="DL" selected>Doctor Languages</option>
-									<option value="Arabic">Arabic</option>
-									<option value="Chinese">Chinese</option>
-									<option value="French">French</option>
-									<option value="German">German</option>
-									<option value="Greek">Greek</option>
-									<option value="Hindi">Hindi</option>
-									<option value="Indonesian">Indonesian</option>
-									<option value="Italian">Italian</option>
-									<option value="Malay">Malay</option>
-									<option value="Persian">Persian</option>
-									<option value="Russian">Russian</option>
-									<option value="Spanish">Spanish</option>
-									<option value="Vietnamese">Vietnamese</option>
-								</select>
-							</div>
-							
 							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
 					</div>
-					</div>
-					</div>
-					<!-- #Search-area -->
 					
-					<!-- Map -->
-					<div class="row">
-					<div class="col-ml-12" style="padding-top:10px;">
-    					<div id="map" class="map" style="height:400px;width:100%;"></div>
-    				</div>
-				    </div>
-					<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
-					
-    				<script>
-    				  //Get a search result JSON
-  				  	  var jsonh = '${jsonh}';
-
-				      function initMap() {
-				    	var myLatLng1 = {lat: -37.831, lng: 144.962};
-				        var map = new google.maps.Map(document.getElementById('map'), {
-				          center: myLatLng1,
-				          zoom: 11,
-				          mapTypeId: google.maps.MapTypeId.TERRAIN
-				        });
-				    	
-				      	//Infomation Window
-				        var infowindow = new google.maps.InfoWindow();
-				        //transfer json to array
-					    var objArrary = eval(jsonh);
-				        //Marker array
-				        var markers = [];
-				        
-				        for (var i = 0; i < objArrary.length; i++) {
-				        	var obj = objArrary[i];
-				        	//Must be number
-				        	var lat = parseFloat(obj['latitude']);
-				        	var lng = parseFloat(obj['longitude']);
-				        	//Address
-				        	var address = obj['address'];
-				        	
-				        	//Hospital name
-				        	var hname = obj['hospital_name'];
-				        	var myLatLng = {lat: lat, lng: lng};
-				        	var marker = new google.maps.Marker({
-					            position: myLatLng,
-					            map: map,
-					            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-					            title: hname
-					          });
-				        	
-				        	//Content
-				        	var content = "<b>Hospital:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
-				        	     "<a href='https://www.google.com.au/maps/dir//" + obj['latitude'] + "," + obj['longitude'] + "'>Public Transport Finder</a>"; 
-				        	
-				        	//add info window
-				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
-			                    return function() {
-			                    	infowindow.close();
-			                        infowindow.setContent(content);
-			                        infowindow.open(map, marker);
-			                    }
-			                })(marker, content, infowindow));
-				        	
-				        	markers.push(marker);
-				        	
-				        }
-				        
-				        //info window for current location
-				        var infocurrentlocation = new google.maps.InfoWindow();
-				        
-				     	// Try HTML5 geolocation.
-				        if (navigator.geolocation) {
-				            navigator.geolocation.getCurrentPosition(function(position) {
-				            var pos = {
-				              lat: position.coords.latitude,
-				              lng: position.coords.longitude
-				            };
-
-				            infocurrentlocation.setPosition(pos);
-				            infocurrentlocation.setContent('Location found.');
-				            
-				            var curMarker = new google.maps.Marker({
-				            	position: pos,
-				            	map: map,
-				            	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-				            	tittle: 'Current Location'
-				            });
-				            /* map.setCenter(pos); */
-				            
-				            //info window add to click listener
-				            /* var con = "My Location" */
-				            /* google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
-			                    return function() {
-			                    	infocurrentlocation.setContent(con);
-			                    	infocurrentlocation.open(map, curMarker);
-			                    }
-			                })(curMarker, con, infocurrentlocation)); */
-				            
-				          }, function() {
-				            handleLocationError(true, infocurrentlocation, map.getCenter());
-				          });
-				        } else {
-				          // Browser doesn't support Geolocation
-				          handleLocationError(false, infocurrentlocation, map.getCenter());
-				        }
-				     	//
-				        function handleLocationError(browserHasGeolocation, infocurrentlocation, pos) {
-				        	infocurrentlocation.setPosition(pos);
-				        	infocurrentlocation.setContent(browserHasGeolocation ?
-					    	                        'Error: The Geolocation service failed.' :
-					    	                        'Error: Your browser doesn\'t support geolocation.');
-					    }
-				     	
-				        //Set bounds
-				        var bounds = new google.maps.LatLngBounds();
-				        
-				        for (var i = 0; i < markers.length; i++) {
-				         bounds.extend(markers[i].getPosition());
-				        }
-				        //map will fit
-				        map.fitBounds(bounds);
-				      }
-				      
-				      google.maps.event.addDomListener(window, 'load', initMap);
-				    </script>
-				    
-					<!-- #Map -->
-					
-					<!-- Result Area -->
-					<div class="row col-sm-12">
-					<div class="result-area" style="padding-top:10px;">
+					<div class="result-area">
 						<c:if test="${empty hospitals}">
 							<p>There is no result yet!</p>
 							<p>Please enter new search conditions.</p>
@@ -248,7 +120,6 @@
 						    			<th>Hospital Name</th>
 						    			<th>Suburb</th>
 						    			<th>Postcode</th>
-						    			
 						    		</tr>
 						    	</thead>
 						    	<tbody>
@@ -262,10 +133,108 @@
 						    	</tbody>
 						    </table>  
 						</c:if>
+						
 					</div>
-					</div>
-					<!-- #Result-area -->
-	
+					
+    			<div class="col-sm-5">
+    				
+    				<script>
+				      // This example requires the Places library. Include the libraries=places
+				      // parameter when you first load the API. For example:
+				      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+				
+				      var map;
+				      var infowindow;
+				      
+				      initCurrentLocation(showPosition, showError);
+				      
+				      //Initialize current location
+				      function initCurrentLocation(showPosition, showError) {
+				    	  navigator.geolocation.getCurrentPosition(showPosition, showError);
+				      }
+				      
+				      //show position
+				      function showPosition(position) {
+				    	  lat = position.coords.latitude;
+				    	  lng = position.coords.longitude;
+				    	  initMap(lat, lng);
+				      }
+				      
+				      //show error
+				      function showError(error) {
+			            switch (error.code) {
+			                case error.PERMISSION_DENIED:
+			                    x.innerHTML = "User denied the request for Geolocation."
+			                    break;
+			                case error.POSITION_UNAVAILABLE:
+			                    x.innerHTML = "Location information is unavailable."
+			                    break;
+			                case error.TIMEOUT:
+			                    x.innerHTML = "The request to get user location timed out."
+			                    break;
+			                case error.UNKNOWN_ERROR:
+			                    x.innerHTML = "An unknown error occurred."
+			                    break;
+			            }
+			          }
+
+				      //Initialize map
+				      function initMap(lat, lng) {
+				        var latlng = {lat: lat, lng: lng};
+
+				        map = new google.maps.Map(document.getElementById('map'), {
+				          center: latlng,
+				          zoom: 12
+				        });
+				
+				        //Create a marker for current location
+				        var marker = new google.maps.Marker({
+				        	position: latlng,
+				        	map: map,
+				        	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
+				        	tittle: 'You are here!'
+				        });
+				        
+				        infowindow = new google.maps.InfoWindow();
+				        
+				        var service = new google.maps.places.PlacesService(map);
+				        service.nearbySearch({
+				          location: latlng,
+				          radius: 5000,
+				          type: ['pharmacy']
+				        }, callback1);
+				      }
+				
+				      function callback1(results, status) {
+				        if (status === google.maps.places.PlacesServiceStatus.OK) {
+				          for (var i = 0; i < results.length; i++) {
+				            createMarker(results[i]);
+				          }
+				        }
+				      }
+				
+				      //create marker
+				      function createMarker(place) {
+				        var placeLoc = place.geometry.location;
+				        var marker = new google.maps.Marker({
+				          map: map,
+				          position: place.geometry.location,
+				          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+				        });
+				
+				        google.maps.event.addListener(marker, 'click', function() {
+				          infowindow.setContent(place.name);
+				          infowindow.open(map, this);
+				        });
+				      }
+				    </script>
+    				<div id="map" class="map" style="height:590px;width:500px"></div>
+    				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places" async defer></script>
+    				<!-- Add Google Map -->
+    				
+    			</div>
+    		</div>
+    	</div>
     </section>
     <!-- /#Search -->
     
@@ -287,6 +256,7 @@
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />" ></script> --%>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ 	
   	<%-- <script type="text/javascript" src="<c:url value="/resources/js/modernizr.custom.86080.js" />" ></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />" ></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />" ></script>
@@ -297,7 +267,6 @@
    	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
-    
     <!-- Data Table jQuery -->
     <script type="text/javascript">
     $(document).ready(function() {

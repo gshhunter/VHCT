@@ -63,93 +63,60 @@
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    	<div class="row">
-    		<div class="features">
-    			<div class="col-sm-7">
+    		<!-- Search Area -->
+    		<div class="row">
+    			<div class="col-sm-12" style="width:100%;">
     			    <div class="search-area">
-	    				<form id="form-search" class="form-horizontal" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
+	    				<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
 							<div class="form-group">
-								<div class="col-sm-7">
-									<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
-								</div>
+							  
+								<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
+							  
 							</div>
 							<div class="form-group">
-								<div class="row">
-									<div class="col-sm-3">
-										<select class="form-control input-md" id="medicalType" name="medicalType">
-											<option value="AH">Hospital</option>
-											<option value="Emergency">Emergency Hospital</option>
-											<option value="General Practitioner">General Practitioner</option>
-											<option value="Pharmacy">Pharmacy</option>
-										</select>
-									</div>
-									<div class="col-sm-3">
-										<select class="form-control input-md" id="language" name="language" >
-											<option value="DL" selected>Doctor Languages</option>
-											<option value="Arabic">Arabic</option>
-											<option value="Chinese">Chinese</option>
-											<option value="French">French</option>
-											<option value="German">German</option>
-											<option value="Greek">Greek</option>
-											<option value="Hindi">Hindi</option>
-											<option value="Indonesian">Indonesian</option>
-											<option value="Italian">Italian</option>
-											<option value="Malay">Malay</option>
-											<option value="Persian">Persian</option>
-											<option value="Russian">Russian</option>
-											<option value="Spanish">Spanish</option>
-											<option value="Vietnamese">Vietnamese</option>
-										</select>
-									</div>
-								</div>
+							  
+								<select class="form-control" id="medicalType" name="medicalType">
+									<option value="AH">Hospital</option>
+									<option value="Emergency">Emergency Hospital</option>
+									<option value="General Practitioner">General Practitioner</option>
+									<option value="Pharmacy">Pharmacy</option>
+								</select>
 							</div>
+							<div class="form-group">
+								<select class="form-control" id="language" name="language" >
+									<option value="DL" selected>Doctor Languages</option>
+									<option value="Arabic">Arabic</option>
+									<option value="Chinese">Chinese</option>
+									<option value="French">French</option>
+									<option value="German">German</option>
+									<option value="Greek">Greek</option>
+									<option value="Hindi">Hindi</option>
+									<option value="Indonesian">Indonesian</option>
+									<option value="Italian">Italian</option>
+									<option value="Malay">Malay</option>
+									<option value="Persian">Persian</option>
+									<option value="Russian">Russian</option>
+									<option value="Spanish">Spanish</option>
+									<option value="Vietnamese">Vietnamese</option>
+								</select>
+							</div>
+							
 							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
 					</div>
-					
-					<div class="result-area">
-						<c:if test="${empty doctors}">
-							<p>There is no result yet!</p>
-							<p>Please enter new search conditions.</p>
-						</c:if>
-						<c:if test="${not empty doctors }">
-						    <table id="content" class="table table-striped table-bordered" >
-						    	<thead>
-						    		<tr>
-						    			<th>GP Name</th>
-						    			<th>Suburb</th>
-						    			<th>Postcode</th>
-						    			<th>Language</th>
-						    		</tr>
-						    	</thead>
-						    	<tbody>
-						    		<c:forEach items="${doctors}" var="doctor">
-							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/gp_detail/${doctor['gp_id']}">${doctor['gp_name']}</a></td>
-							    			<td>${doctor['suburb']}</td>
-							    			<td>${doctor['postcode']}</td>
-					    	    			<td>${doctor['language']}</td>
-							    		</tr>
-						    		</c:forEach>
-						    	</tbody>
-						    </table>  
-						</c:if>
-						
 					</div>
-					<%-- <div class="transport">
-						<p>Taxi? <a href="https://www.uber.com" target="_blank"><img src="<c:url value="/resources/images/uber.png" />" /></a> now!</p>
-						
+					</div>
+					<!-- #Search-area -->
 					
+					<!--Map -->
 					<div class="row">
-							<p>Journey Planner? <a href="https://ptv.vic.gov.au/journey#jpsearch%5Baction%5D=showPlanner" target="_blank"><img src="<c:url value="/resources/images/ptv_logo.png" />" /></a> now!</p></div>
-					</div> --%>
-    			</div>
-    			<div class="col-sm-5">
-    				<div id="map" class="map" style="height:590px;width:500px"></div>
+					  <div class="col-ml-12" style="padding-top:10px;">
+    					<div id="map" class="map" style="height:400px;width:100%;"></div>
+    				  </div>
+    				</div>
     				<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
-    				<!-- Add Google Map -->
     				<script>
     				  //Get a search result JSON
   				  	  var jsonh = '${jsong}';
@@ -221,7 +188,7 @@
 				            var curMarker = new google.maps.Marker({
 				            	position: pos,
 				            	map: map,
-				            	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+				            	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
 				            	tittle: 'Current Location'
 				            });
 				            /* map.setCenter(pos); */
@@ -261,12 +228,43 @@
 				      }
 				      
 				      google.maps.event.addDomListener(window, 'load', initMap);
-				      
-				      
 				    </script>
-    			</div>
-    		</div>
-    	</div>
+    				<!-- #Map -->
+					
+					<!-- Result Area -->
+					<div class="row col-sm-12">
+					<div class="result-area" style="padding-top:10px;">
+						<c:if test="${empty doctors}">
+							<p>There is no result yet!</p>
+							<p>Please enter new search conditions.</p>
+						</c:if>
+						<c:if test="${not empty doctors }">
+						    <table id="content" class="table table-striped table-bordered" >
+						    	<thead>
+						    		<tr>
+						    			<th>GP Name</th>
+						    			<th>Suburb</th>
+						    			<th>Postcode</th>
+						    			<th>Language</th>
+						    		</tr>
+						    	</thead>
+						    	<tbody>
+						    		<c:forEach items="${doctors}" var="doctor">
+							    		<tr>
+							    			<td><a href="<%=request.getContextPath() %>/hospital/gp_detail/${doctor['gp_id']}">${doctor['gp_name']}</a></td>
+							    			<td>${doctor['suburb']}</td>
+							    			<td>${doctor['postcode']}</td>
+					    	    			<td>${doctor['language']}</td>
+							    		</tr>
+						    		</c:forEach>
+						    	</tbody>
+						    </table>  
+						</c:if>
+						</div>
+					</div>
+					<!-- #Result-Area -->
+    			
+    		
     </section>
     <!-- /#Search -->
     

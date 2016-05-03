@@ -129,6 +129,7 @@ public class HospitalController {
 					    //Send json to front end
 						model.addAttribute("jsong", gson.toJson(doctors));
 						return "gp";
+						
 					} else {
 						List<GP> doctors = gpService.findGPBySuburbAndLanguage(input, language);
 						logger.info("User search GP by suburb: " + input + " and language: " + language);
@@ -137,9 +138,12 @@ public class HospitalController {
 					    //Send json to front end
 						model.addAttribute("jsong", gson.toJson(doctors));
 						return "gp";
+						
 					}
+				} else if ("Pharmacy".equals(medicalType)) {
+					return "pharmacy";
 				} else {
-					return "hospital";
+					return "error";
 				}
 			}
 		}

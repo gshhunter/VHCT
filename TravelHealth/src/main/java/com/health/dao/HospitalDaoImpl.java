@@ -35,6 +35,8 @@ public class HospitalDaoImpl implements HospitalDao{
 			em.close();
 			e.printStackTrace();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 

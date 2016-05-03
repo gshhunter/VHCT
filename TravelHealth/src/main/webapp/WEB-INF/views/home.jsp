@@ -38,13 +38,12 @@
 		</div>
 	</div>
 	<!--/.preloader-->
-
+	
 	<header id="header">
 		<div class="navbar navbar-inverse navbar-fixed-top" role="banner">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-collapse">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span> 
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span> 
@@ -54,6 +53,7 @@
 					<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
 					</a>
 				</div>
+				
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="scroll"><a href="#header">Home</a></li>
@@ -63,8 +63,9 @@
 						<li class="scroll"><a href="#contact-area">Contact</a></li>
 					</ul>
 				</div>
-				
+				<div id="box" style="color: #FF0000">Emergency Dial: 000</div>
 			</div>
+			
 		</div>
 	</header>
 	<!--/#header-->
@@ -101,7 +102,7 @@
 
 					<div class="carousel-caption">
 						<div>
-							<h2 class="heading animated bounceInRight">Victoria Health Care Tourism</h2>
+							<h2 class="heading animated bounceInRight">Victorian Tourist Health Assistant</h2>
 							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
 							<a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
 
@@ -149,8 +150,6 @@
                             </div>
                             <!-- Move down button -->
                             
-                            
-            			 	
 						</div>
 						
 					</div>
@@ -187,7 +186,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Weather Warning</a>
+											<a href="<%=request.getContextPath()%>/weather">Weather Forecast</a>
 										</h3>
 										<p>Receive live updates and warnings on local weather</p>
 									</div>
@@ -200,7 +199,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Health Risks</a>
+											<a href="<%=request.getContextPath()%>/warning">Travel Warnings</a>
 										</h3>
 										<p>Provide health-related risks around Victoria</p>
 									</div>
@@ -317,7 +316,7 @@
 
 	<section id="contact-area" class="clearfix">
 	    <div id="contact">
-	    	<!-- <div class="status alert alert-success" style="display: none"></div> -->
+	    	
 	    	<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
 	            <div class="form-group">
 	                <input type="text" name="name" class="form-control" required placeholder="You Name">
@@ -335,15 +334,7 @@
 	                <button type="submit" class="btn btn-primary">Send</button>
 	            </div>
 	        </form>
-	        <!-- <div class="social-icons">
-	            <a href=""><i class="fa fa-facebook"></i></a>
-	            <a href=""><i class="fa fa-twitter"></i></a>
-	            <a href=""><i class="fa fa-pinterest"></i></a>
-	            <a href=""><i class="fa fa-dribbble"></i></a>
-	            <a href=""><i class="fa fa-linkedin"></i></a>
-	            <a href=""><i class="fa fa-google-plus"></i></a>
-	            <a href=""><i class="fa  fa-flickr"></i></a>
-	        </div> -->
+	       
 	    </div>
 	    <div id="contact-info">
 	        <div class="row">
@@ -410,8 +401,11 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script>
+	<%-- <script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/html5shiv.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.mb.YTPlayer.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/respond.min.js" />"></script>
 	<script type="text/javascript">
 	    $(document).ready(function(){
 	    	$("#language").hide();
