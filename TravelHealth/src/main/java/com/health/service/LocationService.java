@@ -9,4 +9,6 @@ public interface LocationService {
 	public List<Tlocation> findLocationByPostcode(int postcode);
 	
 	public List<Tlocation> findLocationLikeSuburb(String suburb);
+	
+	public List<Tlocation> findLocationBySuburb(String suburb);
 }

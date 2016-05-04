@@ -74,7 +74,6 @@
 							  
 							</div>
 							<div class="form-group">
-							  
 								<select class="form-control" id="medicalType" name="medicalType">
 									<option value="AH">Hospital</option>
 									<option value="Emergency">Emergency Hospital</option>
@@ -113,7 +112,7 @@
 					<!--Map -->
 					<div class="row">
 					  <div class="col-ml-12" style="padding-top:10px;">
-    					<div id="map" class="map" style="height:400px;width:100%;"></div>
+    					<div id="map" class="map"></div>
     				  </div>
     				</div>
     				<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>

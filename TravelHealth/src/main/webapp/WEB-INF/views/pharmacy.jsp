@@ -63,86 +63,62 @@
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    	
+    	<div class="row">
+    		<div class="col-sm-12" style="width:100%;">
+    			    <!-- Search Area -->
     			    <div class="search-area">
-	    				<form id="form-search" class="form-horizontal" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
+	    				<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
 							<div class="form-group">
-								<div class="col-sm-7">
-									<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
-								</div>
+							  
+								<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
+							  
 							</div>
 							<div class="form-group">
-								<div class="row">
-									<div class="col-sm-3">
-										<select class="form-control input-md" id="medicalType" name="medicalType">
-											<option value="AH">Hospital</option>
-											<option value="Emergency">Emergency Hospital</option>
-											<option value="General Practitioner">General Practitioner</option>
-											<option value="Pharmacy">Pharmacy</option>
-										</select>
-									</div>
-									
-									<div class="col-sm-3">
-										<select class="form-control input-md" id="language" name="language" >
-											<option value="DL" selected>Doctor Languages</option>
-											<option value="Arabic">Arabic</option>
-											<option value="Chinese">Chinese</option>
-											<option value="French">French</option>
-											<option value="German">German</option>
-											<option value="Greek">Greek</option>
-											<option value="Hindi">Hindi</option>
-											<option value="Indonesian">Indonesian</option>
-											<option value="Italian">Italian</option>
-											<option value="Malay">Malay</option>
-											<option value="Persian">Persian</option>
-											<option value="Russian">Russian</option>
-											<option value="Spanish">Spanish</option>
-											<option value="Vietnamese">Vietnamese</option>
-										</select>
-									</div>
-								</div>
+								<select class="form-control" id="medicalType" name="medicalType">
+									<option value="AH">Hospital</option>
+									<option value="Emergency">Emergency Hospital</option>
+									<option value="General Practitioner">General Practitioner</option>
+									<option value="Pharmacy">Pharmacy</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="language" name="language" >
+									<option value="DL" selected>Doctor Languages</option>
+									<option value="Arabic">Arabic</option>
+									<option value="Chinese">Chinese</option>
+									<option value="French">French</option>
+									<option value="German">German</option>
+									<option value="Greek">Greek</option>
+									<option value="Hindi">Hindi</option>
+									<option value="Indonesian">Indonesian</option>
+									<option value="Italian">Italian</option>
+									<option value="Malay">Malay</option>
+									<option value="Persian">Persian</option>
+									<option value="Russian">Russian</option>
+									<option value="Spanish">Spanish</option>
+									<option value="Vietnamese">Vietnamese</option>
+								</select>
 							</div>
 							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
 					</div>
-					
-					<div class="result-area">
-						<c:if test="${empty hospitals}">
-							<p>There is no result yet!</p>
-							<p>Please enter new search conditions.</p>
-						</c:if>
-						<c:if test="${not empty hospitals }">
-						    <table id="content" class="table table-striped table-bordered" >
-						    	<thead>
-						    		<tr>
-						    			<th>Hospital Name</th>
-						    			<th>Suburb</th>
-						    			<th>Postcode</th>
-						    		</tr>
-						    	</thead>
-						    	<tbody>
-						    		<c:forEach items="${hospitals}" var="hospital">
-							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/detail/${hospital['hospital_id']}">${hospital['hospital_name']}</a></td>
-							    			<td>${hospital['suburb']}</td>
-							    			<td>${hospital['postcode']}</td>
-							    		</tr>
-						    		</c:forEach>
-						    	</tbody>
-						    </table>  
-						</c:if>
-						
 					</div>
+					</div>
+					<!-- #Search-area -->
 					
-    			<div class="col-sm-5">
-    				
+					<!-- Map -->
     				<script>
 				      // This example requires the Places library. Include the libraries=places
 				      // parameter when you first load the API. For example:
 				      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 				
+				      var input = '${input}';
+				      var type = '${type}';
+				      var latitude = parseFloat('${latitude}');
+				      var longitude = parseFloat('${longitude}');
+				      
 				      var map;
 				      var infowindow;
 				      
@@ -155,8 +131,14 @@
 				      
 				      //show position
 				      function showPosition(position) {
-				    	  lat = position.coords.latitude;
-				    	  lng = position.coords.longitude;
+				    	  if (input == null || input == '' || input == undefined) {
+				    		  lat = position.coords.latitude;
+					    	  lng = position.coords.longitude;
+				    	  } else {
+				    		  lat = latitude;
+				    		  lng = longitude;  
+				    	  }
+				    	  
 				    	  initMap(lat, lng);
 				      }
 				      
@@ -184,7 +166,8 @@
 
 				        map = new google.maps.Map(document.getElementById('map'), {
 				          center: latlng,
-				          zoom: 12
+				          zoom: 12,
+				          mapTypeId: google.maps.MapTypeId.TERRAIN
 				        });
 				
 				        //Create a marker for current location
@@ -201,7 +184,7 @@
 				        service.nearbySearch({
 				          location: latlng,
 				          radius: 5000,
-				          type: ['pharmacy']
+				          types: ['pharmacy']
 				        }, callback1);
 				      }
 				
@@ -215,6 +198,16 @@
 				
 				      //create marker
 				      function createMarker(place) {
+				    	
+				    	//Output
+				    	console.log(place);
+				        var placeDetail = '<p>';
+				        placeDetail += '<span><strong>' + place.name + '</strong></span><br/>';
+				        placeDetail += '<span>Open Now: ' + place.opening_hours.open_now + '</span><br/>';
+				        placeDetail += '<span>Address: ' + place.vicinity + '</span>';
+				        placeDetail += '</p>';
+				        $('#list ul').append('<li>' + placeDetail + '</li>');
+
 				        var placeLoc = place.geometry.location;
 				        var marker = new google.maps.Marker({
 				          map: map,
@@ -228,30 +221,28 @@
 				        });
 				      }
 				    </script>
-    				<div id="map" class="map" style="height:590px;width:500px"></div>
+				    <div class="row">
+						<div class="col-ml-12" style="padding-top:10px;">
+	    					<div id="map" class="map"></div>
+	    				</div>
+    				</div>
     				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places" async defer></script>
-    				<!-- Add Google Map -->
-    				
-    			</div>
-    		</div>
-    	</div>
+    				<!-- #Add Google Map -->
+					
+					<!-- Result Area -->
+					<div class="row col-sm-12">
+					<div id="list">
+				        <ul>
+				        
+        				</ul>
+    				</div>
+					</div>
+					<!-- #Result Area -->
+    			
     </section>
     <!-- /#Search -->
-    
-    <footer id="footer" class="container-fluid bg-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                   <p>Copyright  @2016  <a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a></p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="pull-right"> Designed by <a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/#footer-->
-  </div>
+   
+  	</div>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />" ></script>
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />" ></script> --%>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

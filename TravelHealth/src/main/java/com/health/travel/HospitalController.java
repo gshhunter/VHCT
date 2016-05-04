@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.google.gson.Gson;
 import com.health.entity.GP;
 import com.health.entity.Hospital;
+import com.health.entity.Tlocation;
 import com.health.service.GPService;
 import com.health.service.HospitalService;
+import com.health.service.LocationService;
 import com.health.util.ValidateNumOrString;
 
 @Controller
@@ -29,6 +31,8 @@ public class HospitalController {
 	private HospitalService hospitalService;
 	@Autowired
 	private GPService gpService;
+	@Autowired
+	private LocationService locationService;
 	
 	/**
 	 * Show all list by search
@@ -93,8 +97,13 @@ public class HospitalController {
 						return "gp";
 					}
 				} else if ("Pharmacy".equals(medicalType)) {
-					
-					
+					List<Tlocation> locations = locationService.findLocationByPostcode(postcode);
+					if (locations.size() > 0) {
+						Tlocation location = locations.get(0);
+						model.addAttribute("latitude", location.getLatitude());
+						model.addAttribute("longitude", location.getLongitude());
+						model.addAttribute("location", gson.toJson(location));
+					}
 					return "pharmacy";
 				} else {
 					return "error";
@@ -141,6 +150,13 @@ public class HospitalController {
 						
 					}
 				} else if ("Pharmacy".equals(medicalType)) {
+					List<Tlocation> locations = locationService.findLocationBySuburb(input);
+					if (locations.size() > 0) {
+						Tlocation location = locations.get(0);
+						model.addAttribute("latitude", location.getLatitude());
+						model.addAttribute("longitude", location.getLongitude());
+						model.addAttribute("location", gson.toJson(location));
+					}
 					return "pharmacy";
 				} else {
 					return "error";

@@ -58,7 +58,6 @@
                 </div>
             </div>
         </div>
-        
     </header>
     <!--/#header-->
     
@@ -101,7 +100,6 @@
 									<option value="Vietnamese">Vietnamese</option>
 								</select>
 							</div>
-							
 							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
@@ -114,7 +112,7 @@
 					<!-- Map -->
 					<div class="row">
 					<div class="col-ml-12" style="padding-top:10px;">
-    					<div id="map" class="map" style="height:400px;width:100%;"></div>
+    					<div id="map" class="map"></div>
     				</div>
 				    </div>
 					<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
@@ -178,35 +176,22 @@
 				        
 				     	// Try HTML5 geolocation.
 				        if (navigator.geolocation) {
-				            navigator.geolocation.getCurrentPosition(function(position) {
-				            var pos = {
-				              lat: position.coords.latitude,
-				              lng: position.coords.longitude
-				            };
-
-				            infocurrentlocation.setPosition(pos);
-				            infocurrentlocation.setContent('Location found.');
+				            navigator.geolocation.getCurrentPosition(
+				                function(position) {
+				            		var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+									infocurrentlocation.setPosition(pos);
+				            		infocurrentlocation.setContent('Location found.');
+						            var curMarker = new google.maps.Marker({
+						            	position: pos,
+						            	map: map,
+						            	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
+						            	tittle: 'Current Location'
+						            });
 				            
-				            var curMarker = new google.maps.Marker({
-				            	position: pos,
-				            	map: map,
-				            	icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-				            	tittle: 'Current Location'
-				            });
-				            /* map.setCenter(pos); */
-				            
-				            //info window add to click listener
-				            /* var con = "My Location" */
-				            /* google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
-			                    return function() {
-			                    	infocurrentlocation.setContent(con);
-			                    	infocurrentlocation.open(map, curMarker);
-			                    }
-			                })(curMarker, con, infocurrentlocation)); */
-				            
-				          }, function() {
-				            handleLocationError(true, infocurrentlocation, map.getCenter());
-				          });
+				          		}, 
+				          		function() {
+				            		handleLocationError(true, infocurrentlocation, map.getCenter());
+				          		});
 				        } else {
 				          // Browser doesn't support Geolocation
 				          handleLocationError(false, infocurrentlocation, map.getCenter());
@@ -231,7 +216,6 @@
 				      
 				      google.maps.event.addDomListener(window, 'load', initMap);
 				    </script>
-				    
 					<!-- #Map -->
 					
 					<!-- Result Area -->
@@ -265,7 +249,6 @@
 					</div>
 					</div>
 					<!-- #Result-area -->
-	
     </section>
     <!-- /#Search -->
     

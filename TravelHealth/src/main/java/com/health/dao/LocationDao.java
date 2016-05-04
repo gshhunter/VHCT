@@ -10,4 +10,6 @@ public interface LocationDao {
 	
 	public List<Tlocation> findLocationLikeSuburb(String suburb);
 	
+	public List<Tlocation> findLocationBySuburb(String suburb);
+	
 }

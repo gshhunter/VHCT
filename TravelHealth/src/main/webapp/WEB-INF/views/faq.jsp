@@ -69,34 +69,36 @@
 		</div>
 	</header>
 	<!--/#header-->
-<!--Body-->
-<div style="margin:150px;height:500px; color:Background{white-space}">
-       <div class="container-fluid">
-           <div class="right" style="text-align: right" color: white; text-shadow:1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue>
-        
-            
-           </div>
-           <!-- Title of body text-->
-           <div class="row">
-               <div class="col-sm-8" style="background-color:white;padding-left:0">
-                <h1>Ooops!</h1>
-                 <p>&nbsp;</p>
-            </div>
-       <!-- Title of body text-->
- 
-               </div>
-      <!-- Text of the body-->
-  <div class="row">
-    <div class="col-sm-4" style="background-color:white;">
-        <div class="auto-style1">
-         We can&#39;t seem to find the page you&#39;re looking for.</div>
-        </div>
+
+    <div>
+    <div>
+        <h1>FAQs<br /></h1>
     </div>
- </div>
-  <!-- /Tesxt of the body-->
+        <div>
+            1-Should I use this website in case of an emergency?  
+<br />
+
+<br />No. This website is intended to assist you to find out healthcare facilities near you to better plan your journey and for preventive measures. We do not advocate using this website in the case of life threating incidents.  
+<br />
+<br />2-How do I know which doctor to choose? 
+                      
+<br />
+<br />Only you can select the right doctor for your particular needs. That&#39;s why we have so much information provided. When choosing a doctor, you should consider certain aspects such as distance from location and languages spoken. 
+<br />
+<br /> 3- How do I get to the hospital? 
+<br />
+<br/>VHCT provides private transport Victoria (PTV) journey planner and other cab services operating locally. You can choose from this wide range of selection to get to your desired location.  
+<br />
+<br />4-What if I want to meet a doctor of a particular speciality directly?
+<br />
+<br />Unfortunately, Australian medical rules do not allow that. You will first have to go through a general practitioner (GP) and in case the problem is more complicated then the GP can 
+<br />
+<br />5-How do I know if the health care facility I plan to visit accepts my international travel insurance?
+<br />
+<br />No. This website does not provide information regarding insurances. You can contact the local health care facility to get further information regarding insurances directly through the contact numbers provided.             
 </div>
- <!-- /body-->         
-   
+</div>
+
  <footer id="footer">
 		<div class="container">
 			<div class="row">
