@@ -122,18 +122,18 @@
 				      var map;
 				      var infowindow;
 				      
-				      initCurrentLocation(showPosition, showError);
+				      /* initCurrentLocation(showPosition, showError); */
 				      
 				      //Initialize current location
-				      function initCurrentLocation(showPosition, showError) {
+				      /* function initCurrentLocation(showPosition, showError) {
 				    	  navigator.geolocation.getCurrentPosition(showPosition, showError);
-				      }
+				      } */
 				      
 				      //show position
-				      function showPosition(position) {
+				      /* function showPosition() {
 				    	  if (input == null || input == '' || input == undefined) {
-				    		  /* lat = position.coords.latitude;
-					    	  lng = position.coords.longitude; */
+				    		  lat = position.coords.latitude;
+					    	  lng = position.coords.longitude;
 				    		  var pDetail = '<p>';
 				    		  pDetail += '<span>Cannot find any data, please input search condition again!</span><br/>';
 				    		  pDetail += '</p>';
@@ -143,12 +143,10 @@
 				    		  lng = longitude;
 				    		  initMap(lat, lng);
 				    	  }
-				    	  
-				    	  
-				      }
+				      } */
 				      
 				      //show error
-				      function showError(error) {
+				      /* function showError(error) {
 			            switch (error.code) {
 			                case error.PERMISSION_DENIED:
 			                    x.innerHTML = "User denied the request for Geolocation."
@@ -163,11 +161,11 @@
 			                    x.innerHTML = "An unknown error occurred."
 			                    break;
 			            }
-			          }
+			          } */
 
 				      //Initialize map
-				      function initMap(lat, lng) {
-				        var latlng = {lat: lat, lng: lng};
+				      function initMap() {
+				        var latlng = {lat: latitude, lng: longitude};
 
 				        map = new google.maps.Map(document.getElementById('map'), {
 				          center: latlng,
@@ -215,14 +213,14 @@
 
 				        var placeLoc = place.geometry.location;
 				        var marker = new google.maps.Marker({
-				          map: map,
-				          position: place.geometry.location,
-				          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+				            map: map,
+				            position: place.geometry.location,
+				            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 				        });
 				
 				        google.maps.event.addListener(marker, 'click', function() {
-				          infowindow.setContent(place.name);
-				          infowindow.open(map, this);
+				            infowindow.setContent(place.name);
+				            infowindow.open(map, this);
 				        });
 				      }
 				    </script>
@@ -231,7 +229,7 @@
 	    					<div id="map" class="map" ></div>
 	    				</div>
     				</div>
-    				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places" async defer></script>
+    				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places&callback=initMap" async defer></script>
     				<!-- #Add Google Map -->
 					
 					<!-- Result Area -->

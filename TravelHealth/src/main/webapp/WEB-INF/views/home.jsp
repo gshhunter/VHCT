@@ -345,6 +345,7 @@
       				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
       				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
       				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
+      				<p><span class="glyphicons glyphicons-lock"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
 	            </div>
 	        </div>
 	    </div> 		
