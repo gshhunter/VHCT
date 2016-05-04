@@ -132,14 +132,19 @@
 				      //show position
 				      function showPosition(position) {
 				    	  if (input == null || input == '' || input == undefined) {
-				    		  lat = position.coords.latitude;
-					    	  lng = position.coords.longitude;
+				    		  /* lat = position.coords.latitude;
+					    	  lng = position.coords.longitude; */
+				    		  var pDetail = '<p>';
+				    		  pDetail += '<span>Cannot find any data, please input search condition again!</span><br/>';
+				    		  pDetail += '</p>';
+				    		  $('#list ul').append('<li>' + pDetail + '</li>');
 				    	  } else {
 				    		  lat = latitude;
-				    		  lng = longitude;  
+				    		  lng = longitude;
+				    		  initMap(lat, lng);
 				    	  }
 				    	  
-				    	  initMap(lat, lng);
+				    	  
 				      }
 				      
 				      //show error
@@ -223,7 +228,7 @@
 				    </script>
 				    <div class="row">
 						<div class="col-ml-12" style="padding-top:10px;">
-	    					<div id="map" class="map"></div>
+	    					<div id="map" class="map" ></div>
 	    				</div>
     				</div>
     				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places" async defer></script>
@@ -231,7 +236,7 @@
 					
 					<!-- Result Area -->
 					<div class="row col-sm-12">
-					<div id="list">
+					<div id="list" style="padding-top:10px;">
 				        <ul>
 				        
         				</ul>
