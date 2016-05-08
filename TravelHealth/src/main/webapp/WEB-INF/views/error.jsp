@@ -72,7 +72,7 @@
 <!--Body-->
 <div style="margin:150px;height:500px; color:Background{white-space}">
        <div class="container-fluid">
-           <div class="right" style="text-align: right" color: white; text-shadow:1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue>
+           <div class="right" style="text-align: right" color: white; text-shadow:1px 1px 2px black 0 0 25px blue 0 0 5px darkblue>
         
             
            </div>

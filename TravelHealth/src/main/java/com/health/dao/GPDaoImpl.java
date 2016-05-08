@@ -32,6 +32,8 @@ public class GPDaoImpl implements GPDao{
 			e.printStackTrace();
 			em.close();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -48,6 +50,8 @@ public class GPDaoImpl implements GPDao{
 			em.close();
 			e.printStackTrace();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -66,6 +70,8 @@ public class GPDaoImpl implements GPDao{
 			em.close();
 			e.printStackTrace();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -83,6 +89,8 @@ public class GPDaoImpl implements GPDao{
 			em.close();
 			e.printStackTrace();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -98,6 +106,8 @@ public class GPDaoImpl implements GPDao{
 			e.printStackTrace();
 			em.close();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 

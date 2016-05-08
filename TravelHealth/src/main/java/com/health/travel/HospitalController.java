@@ -39,7 +39,7 @@ public class HospitalController {
 	 */
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String search(Model model, @RequestParam String input, @RequestParam(value="medicalType", required=false) String medicalType,
-			@RequestParam(value="language", required=false) String language) {
+			@RequestParam(value="language", required=false) String language, @RequestParam(value="distance", required=false) String distance) {
 		logger.info("Medical Type: " + medicalType + " || Language Service: " + language);
 		boolean isPostcode = ValidateNumOrString.isPostcode(input);
 		Gson gson = new Gson();
@@ -47,6 +47,7 @@ public class HospitalController {
 		model.addAttribute("input", input);
 		model.addAttribute("type", medicalType);
 		model.addAttribute("language", language);
+		model.addAttribute("distance", distance);
 		
 		if ("".equals(input.trim()) || input == null) {
 			return null;
@@ -61,22 +62,30 @@ public class HospitalController {
 					//search by post code
 					
 					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(postcode);
-					logger.info("Post Code: " + hospitals.size());
-					//Send list to front end
-					model.addAttribute("hospitals", hospitals);
-					//Send json to front end
-					model.addAttribute("jsonh", gson.toJson(hospitals));
-					return "hospital";
+					if (hospitals != null) {
+						logger.info("Post Code: " + hospitals.size());
+						//Send list to front end
+						model.addAttribute("hospitals", hospitals);
+						//Send json to front end
+						model.addAttribute("jsonh", gson.toJson(hospitals));
+						return "hospital";
+					} else {
+						return "error";
+					}
 					
 				} else if ("Emergency".equals(medicalType)) {
 					//search by post code and medical type
 					List<Hospital> hospitals = hospitalService.findEmergencyHospitalByPostcode(postcode);
-				    logger.info("Postcode + Emergency: " + hospitals.size());
-				    //Send list to front end
-				    model.addAttribute("hospitals", hospitals);
-				    //Send json to front end
-					model.addAttribute("jsonh", gson.toJson(hospitals));
-					return "hospital";
+					if (hospitals != null) {
+					    logger.info("Postcode + Emergency: " + hospitals.size());
+					    //Send list to front end
+					    model.addAttribute("hospitals", hospitals);
+					    //Send json to front end
+						model.addAttribute("jsonh", gson.toJson(hospitals));
+						return "hospital";
+					} else {
+						return "error";
+					}
 					
 				} else if ("General Practitioner".equals(medicalType)) {
 					if ("DL".equals(language)) {
@@ -103,6 +112,8 @@ public class HospitalController {
 						model.addAttribute("latitude", location.getLatitude());
 						model.addAttribute("longitude", location.getLongitude());
 						model.addAttribute("location", gson.toJson(location));
+					} else {
+						return "error";
 					}
 					return "pharmacy";
 				} else {

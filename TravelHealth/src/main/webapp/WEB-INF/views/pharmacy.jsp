@@ -100,6 +100,15 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<select class="form-control" id="distance" name="distance">
+									<option value="5000" selected>5KM</option>
+									<option value="10000">10KM</option>
+									<option value="15000">15KM</option>
+									<option value="20000">20KM</option>
+									<option value="25000">25KM</option>
+								</select>
+							</div>
+							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
@@ -118,51 +127,18 @@
 				      var type = '${type}';
 				      var latitude = parseFloat('${latitude}');
 				      var longitude = parseFloat('${longitude}');
+				      var distance = '${distance}';
+				      var dt;
+				      if (distance == null || distance == '' || distance == undefined) {
+				    	  dt = 5000;  
+				      } else {
+				    	  dt = parseInt('${distance}');
+				      }
+				      console.log("Distance: " + dt);
 				      
 				      var map;
 				      var infowindow;
 				      
-				      /* initCurrentLocation(showPosition, showError); */
-				      
-				      //Initialize current location
-				      /* function initCurrentLocation(showPosition, showError) {
-				    	  navigator.geolocation.getCurrentPosition(showPosition, showError);
-				      } */
-				      
-				      //show position
-				      /* function showPosition() {
-				    	  if (input == null || input == '' || input == undefined) {
-				    		  lat = position.coords.latitude;
-					    	  lng = position.coords.longitude;
-				    		  var pDetail = '<p>';
-				    		  pDetail += '<span>Cannot find any data, please input search condition again!</span><br/>';
-				    		  pDetail += '</p>';
-				    		  $('#list ul').append('<li>' + pDetail + '</li>');
-				    	  } else {
-				    		  lat = latitude;
-				    		  lng = longitude;
-				    		  initMap(lat, lng);
-				    	  }
-				      } */
-				      
-				      //show error
-				      /* function showError(error) {
-			            switch (error.code) {
-			                case error.PERMISSION_DENIED:
-			                    x.innerHTML = "User denied the request for Geolocation."
-			                    break;
-			                case error.POSITION_UNAVAILABLE:
-			                    x.innerHTML = "Location information is unavailable."
-			                    break;
-			                case error.TIMEOUT:
-			                    x.innerHTML = "The request to get user location timed out."
-			                    break;
-			                case error.UNKNOWN_ERROR:
-			                    x.innerHTML = "An unknown error occurred."
-			                    break;
-			            }
-			          } */
-
 				      //Initialize map
 				      function initMap() {
 				        var latlng = {lat: latitude, lng: longitude};
@@ -186,7 +162,7 @@
 				        var service = new google.maps.places.PlacesService(map);
 				        service.nearbySearch({
 				          location: latlng,
-				          radius: 5000,
+				          radius: dt,
 				          types: ['pharmacy']
 				        }, callback1);
 				      }
@@ -202,24 +178,34 @@
 				      //create marker
 				      function createMarker(place) {
 				    	
+				    	var color = 'blue';
+					    var isopen = 'closed';
+					    if (place.opening_hours.open_now == true) {
+					        color = 'red-dot'
+					        isopen = 'opening';
+					    }
+				    	  
 				    	//Output
 				    	console.log(place);
-				        var placeDetail = '<p>';
-				        placeDetail += '<span><strong>' + place.name + '</strong></span><br/>';
-				        placeDetail += '<span>Open Now: ' + place.opening_hours.open_now + '</span><br/>';
-				        placeDetail += '<span>Address: ' + place.vicinity + '</span>';
-				        placeDetail += '</p>';
-				        $('#list ul').append('<li>' + placeDetail + '</li>');
-
+				        var placeDetail = '';
+				        placeDetail += '<td>' + place.name + '</td><br/>';
+				        placeDetail += '<td>' + place.vicinity + '</td><br/>';
+				        placeDetail += '<td>' + isopen + '</td>';
+				        $('#content tbody').append('<tr>' + placeDetail + '</tr>');
+				        
+				        
 				        var placeLoc = place.geometry.location;
 				        var marker = new google.maps.Marker({
 				            map: map,
 				            position: place.geometry.location,
-				            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+				            icon: 'http://maps.google.com/mapfiles/ms/icons/' + color + '.png',
 				        });
 				
+				        var content = "<b>Pharmacy:</b> " + place.name + ' (' + isopen +')' + '</br>' + "<b>Address:</b> " + place.vicinity + '</br>' +
+		        	     "<a href='https://www.google.com.au/maps/dir//" + place.geometry.location.lat() + "," + place.geometry.location.lng() + "'>Public Transport Finder</a>";
+				        
 				        google.maps.event.addListener(marker, 'click', function() {
-				            infowindow.setContent(place.name);
+				            infowindow.setContent(content);
 				            infowindow.open(map, this);
 				        });
 				      }
@@ -235,13 +221,22 @@
 					<!-- Result Area -->
 					<div class="row col-sm-12">
 					<div id="list" style="padding-top:10px;">
-				        <ul>
-				        
-        				</ul>
+				        <table id="content" class="table table-striped table-bordered" >
+				        	<thead>
+				        		<tr>
+				        			<th>Pharmacy Name</th>
+				        			<th>Address</th>
+				        			<th>Opening</th>
+				        		</tr>
+				        	</thead>
+				        	<tbody>
+				        		
+				        	</tbody>
+				        </table>
     				</div>
 					</div>
 					<!-- #Result Area -->
-    			
+
     </section>
     <!-- /#Search -->
    
@@ -264,8 +259,8 @@
     <!-- Data Table jQuery -->
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#content').DataTable({
-        	stateSave: true,
+        $('#').DataTable({
+
         	scrollY: '40vh',
         	scrollCollapse: true,
         	"lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
@@ -280,6 +275,7 @@
 			var input = '${input}';
 			var type = '${type}';
 			var language = '${language}';
+			var distanceStr = '${distance}';
 			
 			if (type == null || type == undefined || type == '' || type == 'AH') {
 				$("#medicalType").val('AH');
@@ -291,6 +287,12 @@
 				$("#language").show();
 			} else {
 				$("#language").hide();
+			}
+			
+			if (distanceStr == null || distanceStr == undefined || distanceStr == '') {
+				$("#distance").val('5000');
+			} else {
+				$("#distance").val(distanceStr);
 			}
 			
 			$("#medicalType").change(function(){

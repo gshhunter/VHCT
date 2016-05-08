@@ -38,10 +38,9 @@
 
                     }
                #contain iframe {
-                   width: 1000px;
-                   height: 2400px;
+                   width: 100%;
+                   height: 2430px;
                    margin-left: -5px;
-                   
                    margin-top: -375px;
                    margin-bottom: -1500px;
                    border: 0 solid;

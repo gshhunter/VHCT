@@ -24,11 +24,19 @@ public class LocationDaoImpl implements LocationDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Tlocation> findLocationByPostcode(int postcode) {
-		String str = "SELECT * FROM tlocation t WHERE t.Postcode = ?1";
-		Query query = em.createNativeQuery(str, Tlocation.class);
-		query.setParameter(1, postcode);
-		List<Tlocation> list = query.getResultList();
-		return list;
+		try {
+			String str = "SELECT * FROM tlocation t WHERE t.Postcode = ?1";
+			Query query = em.createNativeQuery(str, Tlocation.class);
+			query.setParameter(1, postcode);
+			List<Tlocation> list = query.getResultList();
+			return list;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} finally {
+			em.close();
+		}
 	}
 
 	/**
@@ -38,10 +46,18 @@ public class LocationDaoImpl implements LocationDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Tlocation> findLocationLikeSuburb(String suburb) {
-		String str = "SELECT t FROM tlocation t WHERE UPPER(t.suburb) LIKE ?1";
-		Query query = em.createQuery(str);
-		query.setParameter(1, suburb.toUpperCase() + "%");
-		return query.getResultList();
+		try {
+			String str = "SELECT t FROM tlocation t WHERE UPPER(t.suburb) LIKE ?1";
+			Query query = em.createQuery(str);
+			query.setParameter(1, suburb.toUpperCase() + "%");
+			return query.getResultList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} finally {
+			em.close();
+		}
 	}
 
 	/**
@@ -51,10 +67,18 @@ public class LocationDaoImpl implements LocationDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Tlocation> findLocationBySuburb(String suburb) {
-		String str = "SELECT * FROM tlocation t WHERE t.Suburb = ?1";
-		Query query = em.createNativeQuery(str, Tlocation.class);
-		query.setParameter(1, suburb);
-		return query.getResultList();
+		try {
+			String str = "SELECT * FROM tlocation t WHERE t.Suburb = ?1";
+			Query query = em.createNativeQuery(str, Tlocation.class);
+			query.setParameter(1, suburb);
+			return query.getResultList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} finally {
+			em.close();
+		}
 	}
 	
 	

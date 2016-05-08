@@ -15,7 +15,7 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
-
+<link href="<c:url value="/resources/css/pop-up.css" />" rel="stylesheet">
 <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -63,7 +63,6 @@
 						<li class="scroll"><a href="#contact-area">Contact</a></li>
 					</ul>
 				</div>
-				<div id="box" style="color: #FF0000">Emergency Dial: 000</div>
 			</div>
 			
 		</div>
@@ -173,7 +172,7 @@
 										class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Hospital Search</a>
+											<a href="<%=request.getContextPath()%>/searchPage">Hospital Search</a>
 										</h3>
 										<p>Let's you find hospitals near you</p>
 									</div>
@@ -345,28 +344,36 @@
       				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
       				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
       				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
-      				<p><span class="glyphicons glyphicons-lock"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
+      				<p><span class="glyphicon glyphicon-question-sign"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
 	            </div>
 	        </div>
 	    </div> 		
-	    <!-- <div id="gmap-wrap">
- 			<div class="infowindow">
- 				<h3>Miami Metro</h3>
- 				<address>
- 					<strong>1 Zoo Bouladk</strong><br />Old Bond Street<br />London, Uk
- 				</address>
- 			</div>
-    	</div> -->
      </section>	
     <!--/#contact-area-->
 
+
+	<!-- Pop-up window part -->
+	<div id="msg_win"
+		style="display: block; top: 490px; visibility: visible; opacity: 1;">
+		<div class="icos">
+			<a id="msg_min" title="minimize" href="javascript:void 0"></a>
+			<a id="msg_close" title="close" href="javascript:void 0"></a>
+		</div>
+		<div id="msg_title">Important Notice!</div>
+		<div id="msg_content">
+			<b style="color:red;">Emergency Dial: 000</b><br/><br/>
+			<p>NURSE-ON-CALL 24 hours a day on 1300 60 60 24 in Victoria</p>
+		</div>
+		
+		<div id="msg_facts"><a href="<%=request.getContextPath()%>/facts" target="_blank">More Facts?</a></div>
+	</div>
+	
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
 					<p>
-						Copyright @ 2016<a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
+						Copyright @ 2016<a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
 							Daemon </a>
 					</p>
 				</div>
@@ -407,6 +414,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.mb.YTPlayer.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/respond.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/pop-up.js" />"></script>
 	<script type="text/javascript">
 	    $(document).ready(function(){
 	    	$("#language").hide();

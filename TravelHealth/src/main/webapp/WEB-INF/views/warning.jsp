@@ -63,10 +63,10 @@
     <!--/#header-->
 	
 	<!-- Travel warning -->
-	<section>
-		<div id="divContainer" style="position: absolute; left: 0px; top: 75px; border: solid 2px #ffffff;">
+	<section id="home">
+		<div id="divContainer" style="position: absolute; left: 0px; top: 75px; border: solid 2px #ffffff; width: 100%; height: 80%;">
 	    	<div id="frameContainer" style="overflow:hidden;">
-	        	<iframe src="http://emergency.vic.gov.au/respond/" scrolling="yes" style="width: 1445px; height: 650px; margin-top: -70px; margin-left:-10px;"></iframe>
+	        	<iframe src="http://emergency.vic.gov.au/respond/" scrolling="yes" style="width: 100%; height: 650px; margin-top: -70px; margin-left:-10px;"></iframe>
 	    	</div>
         </div>
 	</section>

@@ -56,6 +56,8 @@ public class HospitalDaoImpl implements HospitalDao{
 			e.printStackTrace();
 			em.close();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -107,6 +109,8 @@ public class HospitalDaoImpl implements HospitalDao{
 			em.close();
 			e.printStackTrace();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -128,6 +132,8 @@ public class HospitalDaoImpl implements HospitalDao{
 			e.printStackTrace();
 			em.close();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 
@@ -148,6 +154,8 @@ public class HospitalDaoImpl implements HospitalDao{
 			e.printStackTrace();
 			em.close();
 			return null;
+		} finally {
+			em.close();
 		}
 	}
 	

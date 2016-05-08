@@ -116,4 +116,20 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		return "faq";
 	}
+	
+	/**
+	 * Redirect to Facts page
+	 */
+	@RequestMapping(value="/facts", method = RequestMethod.GET)
+	public String fact(Locale locale, Model model) {
+        logger.info("Facts page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		return "facts";
+	}
 }
