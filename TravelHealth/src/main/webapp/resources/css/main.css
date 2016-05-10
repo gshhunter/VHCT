@@ -504,13 +504,13 @@ font-weight: 400
 *******About-Us CSS******
 **************************/
 
-#about-us {
+.about-us {
   padding: 0;
   overflow:hidden;
   background: #E6E6DA
 }
 
-#about-us .item {
+.about-us .item {
   background-position: right center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -895,7 +895,7 @@ font-weight: 400
 
 #our-team h3 {
   color: #777;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -904,7 +904,7 @@ font-weight: 400
 
 .team-member h4 {
   color: #777;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 14px;
   font-weight: 300;
   margin-bottom: 18px;
@@ -1477,7 +1477,7 @@ ul.plan li.plan-content span {
 
 #contact .contact-form textarea {
   background: #fff;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   font-weight: 300;
   resize: none;
@@ -1487,7 +1487,7 @@ ul.plan li.plan-content span {
 #contact .contact-form input {
   background: #fff;
   color: #2d2d2d;
-  font-family: roboto;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   font-weight: 300;
   height: 50px;
@@ -1502,7 +1502,7 @@ ul.plan li.plan-content span {
   border: medium none;
   border-radius: 0;
   color: #FFFFFF;
-  font-family: cabin;
+  font-family: Lato, sans-serif;
   font-weight: 700;
   margin-bottom: 25px;
   margin-top: 25px;

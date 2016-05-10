@@ -8,7 +8,8 @@
 <meta name="description" content="The Travel Health website in Victoria">
 <meta name="author" content="Shuhao Guo">
 <title>Victoria Health Care Tourism</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+<%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
+<link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
@@ -56,14 +57,13 @@
 				
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="scroll"><a href="#header">Home</a></li>
-						<li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>">Home</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
+						<!-- <li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
-						<li class="scroll"><a href="#about-us">About Us</a></li>
-						<li class="scroll"><a href="#contact-area">Contact</a></li>
 					</ul>
 				</div>
-				<div id="box" style="color: #FF0000">Emergency Dial: 000</div>
 			</div>
 			
 		</div>

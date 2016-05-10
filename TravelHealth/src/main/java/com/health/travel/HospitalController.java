@@ -167,6 +167,7 @@ public class HospitalController {
 						model.addAttribute("latitude", location.getLatitude());
 						model.addAttribute("longitude", location.getLongitude());
 						model.addAttribute("location", gson.toJson(location));
+					    logger.info("Location:" + location.getSuburb() + location.getPostcode());
 					}
 					return "pharmacy";
 				} else {

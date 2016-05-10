@@ -49,11 +49,11 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                       	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#services">Services</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#contact-area">Contact</a></li>
+                       	<li class="scroll"><a href="<%=request.getContextPath() %>#home">Home</a></li>
+                       	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
+						<!-- <li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
+						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                     </ul>
                 </div>
             </div>
@@ -252,7 +252,7 @@
     </section>
     <!-- /#Search -->
     
-    <footer id="footer" class="container-fluid bg-2">
+    <!-- <footer id="footer" class="container-fluid bg-2">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -263,7 +263,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!--/#footer-->
   </div>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />" ></script>

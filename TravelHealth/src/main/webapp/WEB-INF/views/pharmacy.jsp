@@ -50,10 +50,10 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#services">Services</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#about-us">About Us</a></li>
-                        <li class="scroll"><a href="<%=request.getContextPath() %>#contact-area">Contact</a></li>
+                       	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
+						<!-- <li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
+						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                     </ul>
                 </div>
             </div>
@@ -182,7 +182,7 @@
 					    var isopen = 'closed';
 					    if (place.opening_hours.open_now == true) {
 					        color = 'red-dot'
-					        isopen = 'opening';
+					        isopen = 'open now';
 					    }
 				    	  
 				    	//Output
@@ -217,6 +217,13 @@
     				</div>
     				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places&callback=initMap" async defer></script>
     				<!-- #Add Google Map -->
+    				
+    				<!-- Icon Description -->
+					<div class="row" style="padding-top:20px; padding-bottom:10px; padding-left:10px;">
+						<img alt="" src="http://maps.google.com/mapfiles/ms/icons/red-dot.png">: Opening | 
+						<img alt="" src="http://maps.google.com/mapfiles/ms/icons/blue.png">: Closed
+					</div>
+					<!-- #Icon Description -->
 					
 					<!-- Result Area -->
 					<div class="row col-sm-12">
@@ -226,7 +233,7 @@
 				        		<tr>
 				        			<th>Pharmacy Name</th>
 				        			<th>Address</th>
-				        			<th>Opening</th>
+				        			<th>Open Now</th>
 				        		</tr>
 				        	</thead>
 				        	<tbody>
@@ -300,7 +307,12 @@
 		    		$("#language").show();
 		    	} else {
 		    		$("#language").hide();
-		    	}	
+		    	}
+	    		if ($("#medicalType").val() == 'Pharmacy') {
+	    			$("#distance").show();
+	    		} else {
+	    			$("#distance").hide();
+	    		}
 	    	});
 		})
 	</script>

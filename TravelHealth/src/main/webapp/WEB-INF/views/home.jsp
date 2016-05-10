@@ -56,11 +56,11 @@
 				
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="scroll"><a href="#header">Home</a></li>
-						<li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="#home">Home</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
+						<!-- <li class="scroll"><a href="#services">Services</a></li>
+						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
-						<li class="scroll"><a href="#about-us">About Us</a></li>
-						<li class="scroll"><a href="#contact-area">Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 	</header>
 	<!--/#header-->
 
-	<section id="home">
+	<section id="home" class="container-fluid">
 		<div id="home-carousel" class="carousel slide" data-interval="false">
 
 			<div class="carousel-inner">
@@ -102,7 +102,7 @@
 					<div class="carousel-caption">
 						<div>
 							<h2 class="heading animated bounceInRight">Victorian Tourist Health Assistant</h2>
-							<p class="animated bounceInLeft">We provide 3 million travelers with health support</p>
+							<p class="animated bounceInLeft">We provide 3 million travellers with health support</p>
 							<a class="btn btn-default btn-transparent animated bounceInUp" href="#services">Get Started</a>
 
 							<div class="search-basic">
@@ -200,7 +200,7 @@
 										<h3 class="media-heading">
 											<a href="<%=request.getContextPath()%>/warning">Travel Warnings</a>
 										</h3>
-										<p>Provide health-related risks around Victoria</p>
+										<p>Provide incidents and warnings for Victoria</p>
 									</div>
 								</div>
 							</div>
@@ -225,7 +225,7 @@
 	</section>
 	<!--/#service-->
 
-	<section id="about-us" class="container-fluid">
+	<%-- <section id="service" class="about-us container-fluid">
 		<div class="row">
 			<div class="features">
 				<div class="col-sm-7">
@@ -233,14 +233,14 @@
 						<div class="tab-pane active" id="creative">
 							<div id="community-carousel" class="carousel slide"
 								data-ride="carousel">
-								<!-- Indicators -->
+								
 								<ul class="carousel-indicators">
 									<li data-target="#community-carousel" data-slide-to="0" class="active"></li>
 									<li data-target="#community-carousel" data-slide-to="1"></li>
 									<li data-target="#community-carousel" data-slide-to="2"></li>
 								</ul>
 
-								<!-- Wrapper for slides -->
+								
 								<div class="carousel-inner">
 									<div class="item active">
 										<img
@@ -310,27 +310,28 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --%>
 	<!--/#about-us-->
 
 	<section id="contact-area" class="clearfix">
 	    <div id="contact">
 	    	
-	    	<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+	    	<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="MAILTO:yrav3@student.monash.edu">
 	            <div class="form-group">
-	                <input type="text" name="name" class="form-control" required placeholder="You Name">
+	                <input type="text" id="ssName" name="name" class="form-control" required placeholder="Your Name">
 	            </div>
 	            <div class="form-group">
-	                <input type="email" name="email" class="form-control" required placeholder="Email Address">
+	                <input type="email" id="ssEmail" name="email" class="form-control" required placeholder="Email Address">
 	            </div>
 	            <div class="form-group">
-	                <input type="text" name="subject" class="form-control" required placeholder="Subject">
+	                <input type="text" id="ssSubject" name="subject" class="form-control" required placeholder="Subject">
 	            </div>
 	            <div class="form-group">
-	                <textarea name="message" id="message" required class="form-control" rows="8" placeholder="Message"></textarea>
+	                <textarea name="message" id="ssMessage" required class="form-control" rows="8" placeholder="Message"></textarea>
 	            </div>                        
 	            <div class="form-group">
-	                <button type="submit" class="btn btn-primary">Send</button>
+	                <input type="submit" id="ssSubmit" class="btn btn-primary" value="Send" />
+	                <input type="reset" class="btn btn-primary" value="Reset" />
 	            </div>
 	        </form>
 	       
@@ -338,11 +339,11 @@
 	    <div id="contact-info">
 	        <div class="row">
 	            <div class="col-sm-7">
-	                <p>Contact us and we'll reply you within 24 hours.</p>
+	                <p>Contact us and we'll reply to you within 24 hours.</p>
 	                <p> </p>
       				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
-      				<p><span class="glyphicon glyphicon-phone"></span> +61 01234567</p>
-      				<p><span class="glyphicon glyphicon-envelope"></span> xxx@student.monash.edu</p>
+      				<p><span class="glyphicon glyphicon-phone"></span> +61 0413631953</p>
+      				<p><span class="glyphicon glyphicon-envelope"></span> <a href="MAILTO:yrav3@student.monash.edu">Email to VicTHA</a></p>
       				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
       				<p><span class="glyphicon glyphicon-question-sign"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
 	            </div>
@@ -350,7 +351,6 @@
 	    </div> 		
      </section>	
     <!--/#contact-area-->
-
 
 	<!-- Pop-up window part -->
 	<div id="msg_win"
@@ -401,7 +401,6 @@
 	</footer>
 	<!--/#footer-->
 
-
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />"></script>
@@ -415,6 +414,14 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/respond.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/pop-up.js" />"></script>
+	<!-- Google Analytics -->
+	<script>
+		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		ga('create', 'UA-XXXXX-Y', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async src='//www.google-analytics.com/analytics.js'></script>
+	<!-- End Google Analytics -->
 	<script type="text/javascript">
 	    $(document).ready(function(){
 	    	$("#language").hide();
@@ -428,5 +435,6 @@
 	    	
 	    });
 	</script>
+	
 </body>
 </html>

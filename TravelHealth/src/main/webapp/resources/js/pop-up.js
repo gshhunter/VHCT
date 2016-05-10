@@ -1,8 +1,8 @@
 var Message = {
 			set : function() {//最小化与恢复状态切换
 				var set = this.minbtn.status == 1 ? [ 0, 1, 'block',
-						this.char1[0], '最小化' ] : [ 1, 0, 'none', this.char1[1],
-						'恢复' ];
+						this.char1[0], 'Minimize' ] : [ 1, 0, 'none', this.char1[1],
+						'Expand' ];
 				this.minbtn.status = set[0];
 				this.win.style.borderBottomWidth = set[1];
 				this.content.style.display = set[2];
@@ -105,9 +105,9 @@ var Message = {
 					me.close()
 				};
 				this.char = navigator.userAgent.toLowerCase()
-						.indexOf('firefox') + 1 ? [ '_', '::', '×' ] : [ '0',
+						.indexOf('firefox') + 1 ? [ '_', '+', '×' ] : [ '0',
 						'2', 'r' ];//FF不支持webdings字体
-			    this.char1 = ['_', '::', 'x'];
+			    this.char1 = ['_', '+', 'x'];
 				this.minbtn.innerHTML = this.char1[0];
 				this.closebtn.innerHTML = this.char1[2];
 				setTimeout(function() {//初始化最先位置
