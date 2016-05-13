@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
-	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-	http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.springframework.org/schema/context 
-	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />   
@@ -19,14 +14,14 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
 	<!-- Beans -->
-	<beans:bean id="homeController" class="com.health.travel.HomeController" />
-	<beans:bean id="hospitalController" class="com.health.travel.HospitalController" />
+	<bean id="homeController" class="com.health.travel.HomeController" />
+	<bean id="hospitalController" class="com.health.travel.HospitalController" />
 	
 	<!-- Package -->
 	<context:component-scan base-package="com.health.travel" />
@@ -35,29 +30,29 @@
 	<context:component-scan base-package="com.health.entity" />
 	
 	<!-- MySQL Datasource with Commons DBCP connection pooling -->
-  	<beans:bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
-    	<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    	<beans:property name="url" value="jdbc:mysql://au-cdbr-azure-southeast-a.cloudapp.net:3306/acsm_fcfa134a294a803"/>
+  	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    	<property name="url" value="jdbc:mysql://au-cdbr-azure-southeast-a.cloudapp.net:3306/acsm_fcfa134a294a803"/>
     	
     	<!-- Azure MYSQL middle level Username and Password -->
-    	<!-- <beans:property name="username" value="bc80fa6f6bd086"/>
-    	<beans:property name="password" value="a2b41c30"/> -->
+    	<!-- <property name="username" value="bc80fa6f6bd086"/>
+    	<property name="password" value="a2b41c30"/> -->
     	
     	<!-- Azure MYSQL High Level Username and Password -->
     	<!-- Database=acsm_fcfa134a294a803;Data Source=au-cdbr-azure-southeast-a.cloudapp.net;User Id=bca67650b6fa59;Password=772bbe05 -->
-    	<beans:property name="username" value="bca67650b6fa59"/>
-    	<beans:property name="password" value="772bbe05"/>
-  	</beans:bean>
+    	<property name="username" value="bca67650b6fa59"/>
+    	<property name="password" value="772bbe05"/>
+  	</bean>
   	
   	<!-- EntityManagerFactory -->
-    <beans:bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-	    <beans:property name="persistenceUnitName" value="persistenceUnit"/>
-	    <beans:property name="dataSource" ref="dataSource"/>
-    </beans:bean>
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+	    <property name="persistenceUnitName" value="persistenceUnit"/>
+	    <property name="dataSource" ref="dataSource"/>
+    </bean>
    
 	<!-- Transaction Manager -->
-	<beans:bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
-	    <beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
-	</beans:bean>
+	<bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+	    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
 	
-</beans:beans>
+</beans>

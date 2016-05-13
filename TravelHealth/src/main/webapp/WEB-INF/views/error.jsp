@@ -8,14 +8,14 @@
 <meta name="description" content="The Travel Health website in Victoria">
 <meta name="author" content="Shuhao Guo">
 <title>Victoria Health Care Tourism</title>
-<%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
-<link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
-<link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
+    <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/hospital.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
+	<link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />" >
+	<link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
 
 <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>

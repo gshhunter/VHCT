@@ -16,11 +16,10 @@
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
 <link href="<c:url value="/resources/css/pop-up.css" />" rel="stylesheet">
-<!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
+<!--[if lt IE 9]
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+[endif]-->
 <link rel="shortcut icon" href="<c:url value="/resources/images/ico/new-favicon.png" />">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value="/resources/images/ico/apple-touch-icon-144-precomposed.png" />">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />">
@@ -77,8 +76,8 @@
 				<div class="item active">
 					<!-- Videos -->
 				    <video autoplay loop>
-						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.webm" type="video/webm">
-						<source src="http://www.maryjbz.com/mj/Site_video_-_shorter.mp4" type="video/mp4">
+						<source src="http://www.maryjbz.com/mj/Site_videowebm (5).webm" type="video/webm">
+						<source src="http://www.maryjbz.com/mj/Site_videomp4.mp4" type="video/mp4">
 					</video>
 				    
 				    <!-- Slide Pictures -->
@@ -112,7 +111,6 @@
 
 									<select class="form-control input-lg" id="medicalType" name="medicalType">
 										<option value="AH" selected>Hospital (default)</option>
-										<option value="Emergency">Emergency Hospital</option>
 										<option value="General Practitioner">General Practitioner</option>
 										<option value="Pharmacy">Pharmacy</option>
 									</select>
@@ -225,94 +223,6 @@
 	</section>
 	<!--/#service-->
 
-	<%-- <section id="service" class="about-us container-fluid">
-		<div class="row">
-			<div class="features">
-				<div class="col-sm-7">
-					<div class="tab-content">
-						<div class="tab-pane active" id="creative">
-							<div id="community-carousel" class="carousel slide"
-								data-ride="carousel">
-								
-								<ul class="carousel-indicators">
-									<li data-target="#community-carousel" data-slide-to="0" class="active"></li>
-									<li data-target="#community-carousel" data-slide-to="1"></li>
-									<li data-target="#community-carousel" data-slide-to="2"></li>
-								</ul>
-
-								
-								<div class="carousel-inner">
-									<div class="item active">
-										<img
-											src="<c:url value="/resources/images/about-us/about-us1.jpg" />" />
-									</div>
-									<div class="item">
-										<img
-											src="<c:url value="/resources/images/about-us/about-us3.jpg" />" />
-									</div>
-									<div class="item">
-										<img
-											src="<c:url value="/resources/images/about-us/about-us2.jpg" />" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-5">
-					<ul class="nav features-nav">
-						<li class="active" data-target="#community-carousel" data-slide-to="0">
-							<div class="vertical-middle">
-								<div>
-									<div class="media">
-										<div class="pull-left">
-											<i class="fa fa-magic media-object"></i>
-										</div>
-										<div class="media-body media-content">
-											<h3 class="media-heading">Connect to hospitals</h3>
-											<p>Help travelers look for nearby hospitals in Victoria</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li data-target="#community-carousel" data-slide-to="1">
-							<div class="vertical-middle">
-								<div>
-									<div class="media">
-										<div class="pull-left">
-											<i class="fa fa-users media-object"></i>
-										</div>
-										<div class="media-body media-content">
-											<h3 class="media-heading">Visualize health data</h3>
-											<p>Provide map and visualized data of health care and safety in Victoria</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li data-target="#community-carousel" data-slide-to="2">
-							<div class="vertical-middle">
-								<div>
-									<div class="media">
-										<div class="pull-left">
-											<i class="fa fa-comments media-object"></i>
-										</div>
-										<div class="media-body media-content">
-											<h3 class="media-heading">Connect to health</h3>
-											<p>Help travelers select a transport way to get health</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section> --%>
-	<!--/#about-us-->
-
 	<section id="contact-area" class="clearfix">
 	    <div id="contact">
 	    	
@@ -343,7 +253,7 @@
 	                <p> </p>
       				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
       				<p><span class="glyphicon glyphicon-phone"></span> +61 0413631953</p>
-      				<p><span class="glyphicon glyphicon-envelope"></span> <a href="MAILTO:yrav3@student.monash.edu">Email to VicTHA</a></p>
+      				<p><span class="glyphicon glyphicon-envelope"></span> <a href="MAILTO:victha.2016@gmail.com">Email to VicTHA</a></p>
       				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
       				<p><span class="glyphicon glyphicon-question-sign"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
 	            </div>
@@ -354,30 +264,30 @@
 
 	<!-- Pop-up window part -->
 	<div id="msg_win"
-		style="display: block; top: 490px; visibility: visible; opacity: 1;">
+		style="display: block; top: 500px; visibility: visible; opacity: 1;">
 		<div class="icos">
 			<a id="msg_min" title="minimize" href="javascript:void 0"></a>
 			<a id="msg_close" title="close" href="javascript:void 0"></a>
 		</div>
-		<div id="msg_title">Important Notice!</div>
+		<div id="msg_title" style="color:white;">Important Notice!</div>
 		<div id="msg_content">
-			<b style="color:red;">Emergency Dial: 000</b><br/><br/>
+			<p style="color:red;">Emergency Dial: 000</p>
+			<p><a href="<%=request.getContextPath()%>/hospital/emergency">Emergency Hospital List</a></p>
 			<p>NURSE-ON-CALL 24 hours a day on 1300 60 60 24 in Victoria</p>
+			<a href="<%=request.getContextPath()%>/facts" target="_blank">More Facts?</a>
 		</div>
-		
-		<div id="msg_facts"><a href="<%=request.getContextPath()%>/facts" target="_blank">More Facts?</a></div>
 	</div>
 	
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-5">
 					<p>
 						Copyright @ 2016<a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
 							Daemon </a>
 					</p>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-5">
 					<div id="google_translate_element"></div>
 					<script type="text/javascript">
 						function googleTranslateElementInit() {
@@ -390,12 +300,12 @@
 					</script>
 					<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 				</div>
-				<div class="col-sm-4">
-					<p class="pull-right">
+				<!--<div class="col-sm-4">
+					 <p class="pull-right">
 						Designed by <a target="_blank"
 							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">Daemon</a>
-					</p>
-				</div>
+					</p> 
+				</div>-->
 			</div>
 		</div>
 	</footer>

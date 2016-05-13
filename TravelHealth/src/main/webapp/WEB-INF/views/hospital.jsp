@@ -27,6 +27,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" >
+   
 </head><!--/head-->
 
 <body>
@@ -77,7 +78,6 @@
 							  
 								<select class="form-control" id="medicalType" name="medicalType">
 									<option value="AH">Hospital</option>
-									<option value="Emergency">Emergency Hospital</option>
 									<option value="General Practitioner">General Practitioner</option>
 									<option value="Pharmacy">Pharmacy</option>
 								</select>
@@ -101,154 +101,185 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<select class="form-control" id="distance" name="distance">
+									<!-- <option value="5000" selected>5KM</option> -->
+									<option value="10000" selected>10KM</option>
+									<option value="15000">15KM</option>
+									<option value="20000">20KM</option>
+									<option value="25000">25KM</option>
+								</select>
+							</div>
+							<div class="form-group">
 								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</form>
 					</div>
-					</div>
-					</div>
-					<!-- #Search-area -->
+				</div>
+			</div>
+			<!-- #Search-area -->
 					
 					<!-- Map -->
-					<div class="row">
-					<div class="col-ml-12" style="padding-top:10px;">
-    					<div id="map" class="map"></div>
-    				</div>
-				    </div>
-					<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
-					
     				<script>
-    				  //Get a search result JSON
-  				  	  var jsonh = '${jsonh}';
-
+				      // This example requires the Places library. Include the libraries=places
+				      // parameter when you first load the API. For example:
+				      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+				
+				      var input = '${input}';
+				      var type = '${type}';
+				      var latitude = parseFloat('${latitude}');
+				      var longitude = parseFloat('${longitude}');
+				      var distance = '${distance}';
+				      var dt;
+				      if (distance == null || distance == '' || distance == undefined) {
+				    	  dt = 10000;  
+				      } else {
+				    	  dt = parseInt('${distance}');
+				      }
+				      console.log("Distance: " + dt);
+				      
+				      var map;
+				      var infowindow;
+				      
+				      //Initialize map
 				      function initMap() {
-				    	var myLatLng1 = {lat: -37.831, lng: 144.962};
-				        var map = new google.maps.Map(document.getElementById('map'), {
-				          center: myLatLng1,
-				          zoom: 11,
+				        var latlng = {lat: latitude, lng: longitude};
+
+				        map = new google.maps.Map(document.getElementById('map'), {
+				          center: latlng,
+				          zoom: 10,
 				          mapTypeId: google.maps.MapTypeId.TERRAIN
 				        });
-				    	
-				      	//Infomation Window
-				        var infowindow = new google.maps.InfoWindow();
-				        //transfer json to array
-					    var objArrary = eval(jsonh);
-				        //Marker array
-				        var markers = [];
+				
+				        //Create a marker for current location
+				        var marker = new google.maps.Marker({
+				        	position: latlng,
+				        	map: map,
+				        	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
+				        	tittle: 'You are here!'
+				        });
 				        
-				        for (var i = 0; i < objArrary.length; i++) {
-				        	var obj = objArrary[i];
-				        	//Must be number
-				        	var lat = parseFloat(obj['latitude']);
-				        	var lng = parseFloat(obj['longitude']);
-				        	//Address
-				        	var address = obj['address'];
-				        	
-				        	//Hospital name
-				        	var hname = obj['hospital_name'];
-				        	var myLatLng = {lat: lat, lng: lng};
-				        	var marker = new google.maps.Marker({
-					            position: myLatLng,
-					            map: map,
-					            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-					            title: hname
-					          });
-				        	
-				        	//Content
-				        	var content = "<b>Hospital:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
-				        	     "<a href='https://www.google.com.au/maps/dir//" + obj['latitude'] + "," + obj['longitude'] + "'>Public Transport Finder</a>"; 
-				        	
-				        	//add info window
-				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
-			                    return function() {
-			                    	infowindow.close();
-			                        infowindow.setContent(content);
-			                        infowindow.open(map, marker);
-			                    }
-			                })(marker, content, infowindow));
-				        	
-				        	markers.push(marker);
-				        	
-				        }
+				        infowindow = new google.maps.InfoWindow();
 				        
-				        //info window for current location
-				        var infocurrentlocation = new google.maps.InfoWindow();
-				        
-				     	// Try HTML5 geolocation.
-				        if (navigator.geolocation) {
-				            navigator.geolocation.getCurrentPosition(
-				                function(position) {
-				            		var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
-									infocurrentlocation.setPosition(pos);
-				            		infocurrentlocation.setContent('Location found.');
-						            var curMarker = new google.maps.Marker({
-						            	position: pos,
-						            	map: map,
-						            	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
-						            	tittle: 'Current Location'
-						            });
-				            
-				          		}, 
-				          		function() {
-				            		handleLocationError(true, infocurrentlocation, map.getCenter());
-				          		});
-				        } else {
-				          // Browser doesn't support Geolocation
-				          handleLocationError(false, infocurrentlocation, map.getCenter());
-				        }
-				     	//
-				        function handleLocationError(browserHasGeolocation, infocurrentlocation, pos) {
-				        	infocurrentlocation.setPosition(pos);
-				        	infocurrentlocation.setContent(browserHasGeolocation ?
-					    	                        'Error: The Geolocation service failed.' :
-					    	                        'Error: Your browser doesn\'t support geolocation.');
-					    }
-				     	
-				        //Set bounds
-				        var bounds = new google.maps.LatLngBounds();
-				        
-				        for (var i = 0; i < markers.length; i++) {
-				         bounds.extend(markers[i].getPosition());
-				        }
-				        //map will fit
-				        map.fitBounds(bounds);
+				        var service = new google.maps.places.PlacesService(map);
+				        service.nearbySearch({
+				          location: latlng,
+				          radius: dt,
+				          //rankBy:google.maps.places.RankBy.DISTANCE,
+				          types: ['hospital']
+				        }, processResults);
 				      }
-				      
-				      google.maps.event.addDomListener(window, 'load', initMap);
+				
+				      function processResults(results, status, pagination) {
+				        if (status === google.maps.places.PlacesServiceStatus.OK ) {
+				          
+				            createMarkers(results);
+				        	
+				            if (pagination.hasNextPage) {
+				            	var moreButton = document.getElementById('more');
+				            	moreButton.disabled = false;
+				            	moreButton.addEventListener('click', function() {
+				            		moreButton.disabled = true;
+				            		pagination.nextPage();
+				            	});
+				            }
+				        } 
+				      }
+				
+				      //create markers
+				      function createMarkers(places) {
+				    	var placesList = document.getElementById('places');
+				    	
+					    	for (var i = 0, place; place = places[i]; i++) {
+					    	 	var serv = new google.maps.places.PlacesService(map);
+					    	 	var request = {placeId: place.place_id};
+					    	 	//Get details
+					    	 	serv.getDetails(request, callback1);
+					    	 	//Call back method
+					    	 	function callback1(plc, stat){
+					    	 		if (stat == google.maps.places.PlacesServiceStatus.OK) {
+								    	var color = 'red';
+									    var isopen = 'closed';
+									    if (plc.opening_hours.open_now === true) {
+									        color = 'green-dot'
+									        isopen = 'open now';
+									    }
+								    	  
+								    	//Output
+								    	console.log(plc);
+								    	var rating = 0.0;
+								    	if (plc.rating != undefined) {
+								    		rating = plc.rating;
+								    	}
+								    	var href = "";
+								    	if (plc.website != undefined) {
+								    		href = " href='" + plc.website + "'";
+								    	}
+								    	
+								        var placeDetail = "";
+								        placeDetail += "<td><a" + href + ">" + plc.name + "</a></td><br/>";
+								        placeDetail += "<td>" + plc.formatted_address + "</td><br/>";
+								        placeDetail += "<td>" + plc.formatted_phone_number + "</td><br/>";
+								        /* placeDetail += "<td>" + rating + "</td>"; */
+								        $("#content tbody").append("<tr>" + placeDetail + "</tr>");
+								        
+								        //Marker method
+								        var marker = new google.maps.Marker({
+								            map: map,
+								            position: plc.geometry.location,
+								            icon: 'http://maps.google.com/mapfiles/ms/icons/' + color + '.png',
+								        });
+								
+								        var content = "<b>Pharmacy:</b> " + plc.name + ' (' + isopen +')' + '</br>' + "<b>Address:</b> " + plc.vicinity + '</br>' +
+						        	     "<a href='https://www.google.com.au/maps/dir//" + plc.geometry.location.lat() + "," + plc.geometry.location.lng() + "'>Public Transport Finder</a>";
+								        
+								        google.maps.event.addListener(marker, 'click', function() {
+								            infowindow.setContent(content);
+								            infowindow.open(map, this);
+								        });
+					    	 		}
+					    	 	}
+					      	}
+				      }
 				    </script>
-					<!-- #Map -->
+				    <div class="row">
+						<div class="col-ml-12" style="padding-top:10px;">
+	    					<div id="map" class="map" ></div>
+	    				</div>
+    				</div>
+    				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtTvXm0F0AN7F4Q1OTZR1vcEATevSsYJc&libraries=places&callback=initMap" async defer></script>
+    				<!-- #Add Google Map -->
+    				
+    				<!-- Icon Description -->
+					<div class="row" style="padding-top:10px; padding-bottom:5px;">
+						<img alt="" src="http://maps.google.com/mapfiles/ms/icons/green-dot.png">: Opening |  
+						<img alt="" src="http://maps.google.com/mapfiles/ms/icons/red.png">: Closed | 
+						<img alt="" src="http://maps.google.com/mapfiles/ms/icons/arrow.png">: Search Location
+					</div>
+					<!-- #Icon Description -->
 					
 					<!-- Result Area -->
-					<div class="row col-sm-12">
-					<div class="result-area" style="padding-top:10px;">
-						<c:if test="${empty hospitals}">
-							<p>There is no result yet!</p>
-							<p>Please enter new search conditions.</p>
-						</c:if>
-						<c:if test="${not empty hospitals }">
-						    <table id="content" class="table table-striped table-bordered" >
-						    	<thead>
-						    		<tr>
-						    			<th>Hospital Name</th>
-						    			<th>Suburb</th>
-						    			<th>Postcode</th>
-						    			
-						    		</tr>
-						    	</thead>
-						    	<tbody>
-						    		<c:forEach items="${hospitals}" var="hospital">
-							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/detail/${hospital['hospital_id']}">${hospital['hospital_name']}</a></td>
-							    			<td>${hospital['suburb']}</td>
-							    			<td>${hospital['postcode']}</td>
-							    		</tr>
-						    		</c:forEach>
-						    	</tbody>
-						    </table>  
-						</c:if>
+					<div id="result-area" class="row col-sm-12">
+						<div id="list" class="table-responsive" style="padding-top:10px;">
+					        <table id="content" class="table table-hover table-fixedheader table-bordered">
+					        	<thead>
+					        		<tr>
+					        			<th>Hospital Name</th>
+					        			<th>Address</th>
+					        			<th>Phone Number</th>
+					        			<!-- <th>Rating</th> -->
+					        		</tr>
+					        	</thead>
+					        	<tbody>
+					        		
+					        	</tbody>
+					        </table>
+					        
+	    				</div>
+	    				<div id="moreButton" style="right:0px;">
+					        <input type="button" id="more" value="More Results"/>
+					    </div>
 					</div>
-					</div>
-					<!-- #Result-area -->
+					<!-- #Result Area -->
     </section>
     <!-- /#Search -->
     
@@ -282,7 +313,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
     
     <!-- Data Table jQuery -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     $(document).ready(function() {
         $('#content').DataTable({
         	stateSave: true,
@@ -294,12 +325,13 @@
         	}
         });
     } );
-    </script>
+    </script> -->
     <script type="text/javascript">
 		$(document).ready(function(){
 			var input = '${input}';
 			var type = '${type}';
 			var language = '${language}';
+			var distanceStr = '${distance}';
 			
 			if (type == null || type == undefined || type == '' || type == 'AH') {
 				$("#medicalType").val('AH');
@@ -313,12 +345,24 @@
 				$("#language").hide();
 			}
 			
+			if (distanceStr == null || distanceStr == undefined || distanceStr == '') {
+				$("#distance").val('10000');
+			} else {
+				$("#distance").val(distanceStr);
+			}
+			
 			$("#medicalType").change(function(){
-	    		if ($("#medicalType").val() == 'General Practitioner') {
+				
+				if ($("#medicalType").val() == 'AH' || $("#medicalType").val() == 'Pharmacy') {
+					$("#distance").show();
+					$("#language").hide();
+				} else if ($("#medicalType").val() == 'General Practitioner') {
 		    		$("#language").show();
+		    		$("#distance").hide();
 		    	} else {
 		    		$("#language").hide();
-		    	}	
+		    		$("#distance").hide();
+		    	}
 	    	});
 		})
 	</script>

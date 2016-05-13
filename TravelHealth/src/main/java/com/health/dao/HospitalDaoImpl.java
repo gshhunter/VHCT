@@ -22,43 +22,24 @@ public class HospitalDaoImpl implements HospitalDao{
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
-	@Override
 	public List<Hospital> findByPostcode(int postcode) {
-		try {
-			String str = "SELECT h FROM Hospital h WHERE h.postcode BETWEEN ?1 AND ?2";
-			Query query = em.createQuery(str);
-			query.setParameter(1, postcode - 2);
-			query.setParameter(2, postcode + 2);
-			return query.getResultList();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			em.close();
-			e.printStackTrace();
-			return null;
-		} finally {
-			em.close();
-		}
+		String str = "SELECT h FROM Hospital h WHERE h.postcode BETWEEN ?1 AND ?2";
+		Query query = em.createQuery(str, Hospital.class);
+		query.setParameter(1, postcode - 2);
+		query.setParameter(2, postcode + 2);
+		return query.getResultList();
 	}
 
 	/**
 	 * find hospital by suburb
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	@Transactional
 	public List<Hospital> findBySuburb(String suburb) {
-		try {
-			String str = "SELECT h FROM Hospital h WHERE h.suburb = :suburb";
-			Query query = em.createQuery(str);
-			query.setParameter("suburb", suburb);
-			return query.getResultList();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			em.close();
-			return null;
-		} finally {
-			em.close();
-		}
+		String str = "SELECT h FROM Hospital h WHERE h.suburb = :suburb";
+		Query query = em.createQuery(str, Hospital.class);
+		query.setParameter("suburb", suburb);
+		return query.getResultList();
 	}
 
 	
@@ -67,7 +48,6 @@ public class HospitalDaoImpl implements HospitalDao{
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
-	@Override
 	public List<Hospital> findByPostcodeAndMedicalType(String postcode, String medical) {
 		String str = "SELECT * FROM Hospital h WHERE h.Postcode = ?1 AND h.Hospital_id IN " + 
 			"(SELECT Hospital_id FROM Hospital_Medical hm INNER JOIN Medical_Service m ON hm.Medical_id = m.Medical_id " + 
@@ -81,7 +61,6 @@ public class HospitalDaoImpl implements HospitalDao{
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	@Override
 	public List<Hospital> findBySuburbAndMedicalType(String suburb, String medical) {
 		String str = "SELECT * FROM Hospital h WHERE h.Suburb = ?1 AND h.Hospital_id IN " + 
 				"(SELECT Hospital_id FROM Hospital_Medical hm INNER JOIN Medical_Service m ON hm.Medical_id = m.Medical_id " + 
@@ -96,70 +75,53 @@ public class HospitalDaoImpl implements HospitalDao{
 	/**
 	 * Search hospital by id
 	 */
-	@Override
+	@Transactional
 	public Hospital findById(int hid) {
-		try {
-			String str = "FROM Hospital h WHERE h.hospital_id = ?1";
-			Query query = em.createQuery(str, Hospital.class);
-			query.setParameter(1, hid);
-			Hospital hospital = (Hospital)query.getSingleResult();
-			return hospital;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			em.close();
-			e.printStackTrace();
-			return null;
-		} finally {
-			em.close();
-		}
+		String str = "FROM Hospital h WHERE h.hospital_id = ?1";
+		Query query = em.createQuery(str, Hospital.class);
+		query.setParameter(1, hid);
+		Hospital hospital = (Hospital)query.getSingleResult();
+		return hospital;
 	}
 
 	/**
 	 * Search emergency hospital by post code 
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	@Transactional
 	public List<Hospital> findEmergencyByPostcode(int postcode) {
-		try {
 			String str = "SELECT h FROM Hospital h WHERE h.postcode >= ?1 AND h.postcode <= ?2 AND h.isemergency = ?3";
 			Query query = em.createQuery(str);
 			query.setParameter(1, postcode - 2);
 			query.setParameter(2, postcode + 2);
 			query.setParameter(3, "YES");
 			return query.getResultList();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			em.close();
-			return null;
-		} finally {
-			em.close();
-		}
 	}
 
 	/**
 	 * Search emergency hospital by suburb
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	@Transactional
 	public List<Hospital> findEmergencyBySuburb(String suburb) {
-		try {
 			String str = "SELECT h FROM Hospital h WHERE h.suburb = ?1 AND h.isemergency = ?2";
-			Query query = em.createQuery(str);
+			Query query = em.createQuery(str, Hospital.class);
 			query.setParameter(1, suburb);
 			query.setParameter(2, "YES");
 			return query.getResultList();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			em.close();
-			return null;
-		} finally {
-			em.close();
-		}
 	}
 	
-	
+	/**
+	 * Search all emergency
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Hospital> findAllEmergency() {
+		String str = "SELECT h FROM Hospital h WHERE h.isemergency = 'YES'";
+		Query query = em.createQuery(str, Hospital.class);
+		List<Hospital> list = query.getResultList();
+		return list;
+	}
 
 
 //	@SuppressWarnings("unchecked")

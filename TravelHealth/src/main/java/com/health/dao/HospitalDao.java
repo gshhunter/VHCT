@@ -49,5 +49,11 @@ public interface HospitalDao {
 	 * @return
 	 */
 	public List<Hospital> findEmergencyBySuburb(String suburb);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Hospital> findAllEmergency();
 }
 

@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="Shuhao Guo">
     <title>Victoria Health Care Tourism</title>
-    <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
@@ -41,83 +40,35 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                     <a class="navbar-brand" href="<%=request.getContextPath()%>">
                     	<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
                     </a>
-                    
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                       	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
+                       	<li class="scroll"><a href="<%=request.getContextPath() %>#home">Home</a></li>
                        	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
-						<!-- <li class="scroll"><a href="#services">Services</a></li>
-						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
-						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        
     </header>
     <!--/#header-->
     
     <section id="body" class="container-fluid">
-    		<!-- Search Area -->
-    		<div class="row">
-    			<div class="col-sm-12" style="width:100%;">
-    			    <div class="search-area">
-	    				<form id="form-search" class="form-inline" method="post" action="<%=request.getContextPath() %>/hospital/search" role="form">
-							<div class="form-group">
-							  
-								<input type="text" id="input" name="input" class="form-control input-md" value="${input}" placeholder="Suburb/Postcode" required>
-							  
-							</div>
-							<div class="form-group">
-								<select class="form-control" id="medicalType" name="medicalType">
-									<option value="AH">Hospital</option>
-									<option value="General Practitioner">General Practitioner</option>
-									<option value="Pharmacy">Pharmacy</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<select class="form-control" id="language" name="language" >
-									<option value="DL" selected>Doctor Languages</option>
-									<option value="Arabic">Arabic</option>
-									<option value="Chinese">Chinese</option>
-									<option value="French">French</option>
-									<option value="German">German</option>
-									<option value="Greek">Greek</option>
-									<option value="Hindi">Hindi</option>
-									<option value="Indonesian">Indonesian</option>
-									<option value="Italian">Italian</option>
-									<option value="Malay">Malay</option>
-									<option value="Persian">Persian</option>
-									<option value="Russian">Russian</option>
-									<option value="Spanish">Spanish</option>
-									<option value="Vietnamese">Vietnamese</option>
-								</select>
-							</div>
-							
-							<div class="form-group">
-								<button class="btn btn-success btn-md" style="background-color:#2ecc71;" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
-							</div>
-						</form>
-					</div>
-					</div>
-					</div>
-					<!-- #Search-area -->
-					
-					<!--Map -->
+
+					<!-- Map -->
 					<div class="row">
-					  <div class="col-ml-12" style="padding-top:10px;">
+					<div class="col-ml-12">
     					<div id="map" class="map"></div>
-    				  </div>
     				</div>
-    				<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
+				    </div>
+					<script src="https://maps.googleapis.com/maps/api/js?output=embed&sensor=true" type="text/javascript"></script>
+					
     				<script>
     				  //Get a search result JSON
-  				  	  var jsonh = '${jsong}';
+  				  	  var jsonh = '${jsonh}';
 
 				      function initMap() {
 				    	var myLatLng1 = {lat: -37.831, lng: 144.962};
@@ -143,17 +94,17 @@
 				        	var address = obj['address'];
 				        	
 				        	//Hospital name
-				        	var hname = obj['gp_name'];
+				        	var hname = obj['hospital_name'];
 				        	var myLatLng = {lat: lat, lng: lng};
 				        	var marker = new google.maps.Marker({
 					            position: myLatLng,
 					            map: map,
-					            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+					            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 					            title: hname
 					          });
 				        	
 				        	//Content
-				        	var content = "<b>Doctor:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
+				        	var content = "<b>Hospital:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
 				        	     "<a href='https://www.google.com.au/maps/dir//" + obj['latitude'] + "," + obj['longitude'] + "'>Public Transport Finder</a>"; 
 				        	
 				        	//add info window
@@ -174,35 +125,22 @@
 				        
 				     	// Try HTML5 geolocation.
 				        if (navigator.geolocation) {
-				            navigator.geolocation.getCurrentPosition(function(position) {
-				            var pos = {
-				              lat: position.coords.latitude,
-				              lng: position.coords.longitude
-				            };
-
-				            infocurrentlocation.setPosition(pos);
-				            infocurrentlocation.setContent('Location found.');
+				            navigator.geolocation.getCurrentPosition(
+				                function(position) {
+				            		var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+									infocurrentlocation.setPosition(pos);
+				            		infocurrentlocation.setContent('Location found.');
+						            var curMarker = new google.maps.Marker({
+						            	position: pos,
+						            	map: map,
+						            	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
+						            	tittle: 'Current Location'
+						            });
 				            
-				            var curMarker = new google.maps.Marker({
-				            	position: pos,
-				            	map: map,
-				            	icon: 'http://maps.google.com/mapfiles/ms/icons/arrow.png',
-				            	tittle: 'Current Location'
-				            });
-				            /* map.setCenter(pos); */
-				            
-				            //info window add to click listener
-				            /* var con = "My Location" */
-				            /* google.maps.event.addListener(marker, 'click', (function(curMarker, con, infocurrentlocation) {
-			                    return function() {
-			                    	infocurrentlocation.setContent(con);
-			                    	infocurrentlocation.open(map, curMarker);
-			                    }
-			                })(curMarker, con, infocurrentlocation)); */
-				            
-				          }, function() {
-				            handleLocationError(true, infocurrentlocation, map.getCenter());
-				          });
+				          		}, 
+				          		function() {
+				            		handleLocationError(true, infocurrentlocation, map.getCenter());
+				          		});
 				        } else {
 				          // Browser doesn't support Geolocation
 				          handleLocationError(false, infocurrentlocation, map.getCenter());
@@ -227,42 +165,44 @@
 				      
 				      google.maps.event.addDomListener(window, 'load', initMap);
 				    </script>
-    				<!-- #Map -->
+					<!-- #Map -->
 					
 					<!-- Result Area -->
 					<div class="row col-sm-12">
 					<div class="result-area" style="padding-top:10px;">
-						<c:if test="${empty doctors}">
+						<c:if test="${empty hospitals}">
 							<p>There is no result yet!</p>
 							<p>Please enter new search conditions.</p>
 						</c:if>
-						<c:if test="${not empty doctors }">
+						<c:if test="${not empty hospitals }">
 						    <table id="content" class="table table-striped table-bordered" >
 						    	<thead>
 						    		<tr>
-						    			<th>GP Name</th>
-						    			<th>Suburb</th>
-						    			<th>Postcode</th>
-						    			<th>Language</th>
+						    			<th>Hospital Name</th>
+						    			<th>Address</th>
+						    			<th>Phone Number</th>
+						    			
 						    		</tr>
 						    	</thead>
 						    	<tbody>
-						    		<c:forEach items="${doctors}" var="doctor">
+						    		<c:forEach items="${hospitals}" var="hospital">
 							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/gp_detail/${doctor['gp_id']}">${doctor['gp_name']}</a></td>
-							    			<td>${doctor['suburb']}</td>
-							    			<td>${doctor['postcode']}</td>
-					    	    			<td>${doctor['language']}</td>
+							    			<td>${hospital['hospital_name']}</td>
+							    			<td>${hospital.address} ${hospital.suburb} VIC ${hospital.postcode}</td>
+							    			<c:if test="${not empty hospital.phoneno}">
+							    				<td>${hospital.phoneno}</td>
+							    			</c:if>
+							    			<c:if test="${empty hospital.phoneno}">
+							    				<td>n/a</td>
+							    			</c:if>
 							    		</tr>
 						    		</c:forEach>
 						    	</tbody>
 						    </table>  
 						</c:if>
-						</div>
 					</div>
-					<!-- #Result-Area -->
-    			
-    		
+					</div>
+					<!-- #Result-area -->
     </section>
     <!-- /#Search -->
     
@@ -284,7 +224,6 @@
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />" ></script> --%>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
- 	
   	<%-- <script type="text/javascript" src="<c:url value="/resources/js/modernizr.custom.86080.js" />" ></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />" ></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />" ></script>
@@ -295,6 +234,7 @@
    	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+    
     <!-- Data Table jQuery -->
     <script type="text/javascript">
     $(document).ready(function() {
@@ -322,9 +262,8 @@
 				$("#medicalType").val(type);
 			}
 			
-			if ($("#medicalType").val() == 'General Practitioner') {
-				$("#language").show();
-			} else {
+			if ($("#medicalType").val() == 'Emergency') {
+				$("#distance").hide();
 				$("#language").hide();
 			}
 			
@@ -335,12 +274,16 @@
 			}
 			
 			$("#medicalType").change(function(){
-	    		if ($("#medicalType").val() == 'General Practitioner') {
+				
+				if ($("#medicalType").val() == 'AH' || $("#medicalType").val() == 'Pharmacy') {
+					$("#distance").show();
+					$("#language").hide();
+				} else if ($("#medicalType").val() == 'General Practitioner') {
 		    		$("#language").show();
 		    		$("#distance").hide();
 		    	} else {
 		    		$("#language").hide();
-		    		$("#distance").show();
+		    		$("#distance").hide();
 		    	}
 	    	});
 		})

@@ -65,9 +65,14 @@
 	<!-- Travel warning -->
 	<section id="home">
 		<div id="divContainer" style="position: absolute; left: 0px; top: 75px; border: solid 2px #ffffff; width: 100%; height: 80%;">
-	    	<div id="frameContainer" style="overflow:hidden;">
+			
+			<div class="modal-body">
+      			<iframe src="http://emergency.vic.gov.au/respond/" width="100%" height="1020px" src="" frameborder="0" style="zoom:0.60" margin-top: "-120px"></iframe>
+			</div>
+			
+	    	<!-- <div id="frameContainer" style="overflow:hidden;">
 	        	<iframe src="http://emergency.vic.gov.au/respond/" scrolling="yes" style="width: 100%; height: 650px; margin-top: -70px; margin-left:-10px;"></iframe>
-	    	</div>
+	    	</div> -->
         </div>
 	</section>
 	<!-- #Travel warning -->

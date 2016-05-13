@@ -1,6 +1,7 @@
 package com.health.travel;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,33 +60,16 @@ public class HospitalController {
 				int postcode = Integer.parseInt(input);
 				
 				if ("AH".equals(medicalType)) {
-					//search by post code
-					
-					List<Hospital> hospitals = hospitalService.findHospitalByPostCode(postcode);
-					if (hospitals != null) {
-						logger.info("Post Code: " + hospitals.size());
-						//Send list to front end
-						model.addAttribute("hospitals", hospitals);
-						//Send json to front end
-						model.addAttribute("jsonh", gson.toJson(hospitals));
-						return "hospital";
+					List<Tlocation> locations = locationService.findLocationByPostcode(postcode);
+					if (locations.size() > 0) {
+						Tlocation location = locations.get(0);
+						model.addAttribute("latitude", location.getLatitude());
+						model.addAttribute("longitude", location.getLongitude());
+						model.addAttribute("location", gson.toJson(location));
 					} else {
 						return "error";
 					}
-					
-				} else if ("Emergency".equals(medicalType)) {
-					//search by post code and medical type
-					List<Hospital> hospitals = hospitalService.findEmergencyHospitalByPostcode(postcode);
-					if (hospitals != null) {
-					    logger.info("Postcode + Emergency: " + hospitals.size());
-					    //Send list to front end
-					    model.addAttribute("hospitals", hospitals);
-					    //Send json to front end
-						model.addAttribute("jsonh", gson.toJson(hospitals));
-						return "hospital";
-					} else {
-						return "error";
-					}
+					return "hospital";
 					
 				} else if ("General Practitioner".equals(medicalType)) {
 					if ("DL".equals(language)) {
@@ -127,16 +111,6 @@ public class HospitalController {
 					//Send list to front end
 					model.addAttribute("hospitals", hospitals);
 					//Send json to front end
-					model.addAttribute("jsonh", gson.toJson(hospitals));
-					return "hospital";
-					
-				} else if ("Emergency".equals(medicalType)) {
-					//search by suburb and medical type
-					List<Hospital> hospitals = hospitalService.findEmergencyHospitalBySuburb(input);
-				    logger.info("Suburb + Medical: " + hospitals.size());
-				    //Send list to front end
-				    model.addAttribute("hospitals", hospitals);
-				    //Send json to front end
 					model.addAttribute("jsonh", gson.toJson(hospitals));
 					return "hospital";
 					
@@ -195,5 +169,18 @@ public class HospitalController {
 		GP doctor = gpService.findGPById(Integer.parseInt(gpid));
 		model.addAttribute("doctor", doctor);
 		return "gp_detail";
+	}
+	
+	/**
+	 * Redirect to emergency page
+	 */
+	@RequestMapping(value = "/emergency", method = RequestMethod.GET)
+	public String emergency(Locale locale, Model model) {
+		Gson gs = new Gson();
+		List<Hospital> emergency = hospitalService.findAllEmergency();
+		model.addAttribute("hospitals", emergency);
+		model.addAttribute("jsonh", gs.toJson(emergency));
+		logger.info("Emergency hospitals's size: " + emergency.size());
+		return "emergency";
 	}
 }

@@ -57,4 +57,10 @@ public interface HospitalService {
 	 * @return
 	 */
 	public List<Hospital> findEmergencyHospitalBySuburb(String suburb);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Hospital> findAllEmergency();
 }
