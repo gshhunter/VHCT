@@ -97,26 +97,6 @@
 
 		</div>
 
-
-	<footer id="footer" class="container-fluid bg-2">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<p>
-						Copyright @2016 <a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a>
-					</p>
-				</div>
-				<div class="col-sm-6">
-					<p class="pull-right">
-						Designed by <a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--/#footer-->
 	</div>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/jquery.js" />"></script>

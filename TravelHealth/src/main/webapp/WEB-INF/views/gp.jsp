@@ -27,7 +27,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" >
-</head><!--/head-->
+</head>
+<!--/head-->
 
 <body>
   <div class="container">
@@ -241,18 +242,23 @@
 						    	<thead>
 						    		<tr>
 						    			<th>GP Name</th>
-						    			<th>Suburb</th>
-						    			<th>Postcode</th>
+						    			<th>Address</th>
 						    			<th>Language</th>
+						    			<th>Phone Number</th>
 						    		</tr>
 						    	</thead>
 						    	<tbody>
 						    		<c:forEach items="${doctors}" var="doctor">
 							    		<tr>
-							    			<td><a href="<%=request.getContextPath() %>/hospital/gp_detail/${doctor['gp_id']}">${doctor['gp_name']}</a></td>
-							    			<td>${doctor['suburb']}</td>
-							    			<td>${doctor['postcode']}</td>
-					    	    			<td>${doctor['language']}</td>
+							    			<td>${doctor['gp_name']}</td>
+							    			<td>${doctor.address} ${doctor.suburb} VIC ${doctor.postcode}</td>
+							    			<td>${doctor.language}</td>
+							    			<c:if test="${not empty doctor.phone}">
+					    	    				<td>${doctor.phone}</td>
+					    	    			</c:if>
+					    	    			<c:if test="${empty doctor.phone}">
+					    	    				<td>n/a</td>
+					    	    			</c:if>
 							    		</tr>
 						    		</c:forEach>
 						    	</tbody>

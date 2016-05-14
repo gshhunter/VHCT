@@ -130,19 +130,27 @@
 				      var longitude = parseFloat('${longitude}');
 				      var distance = '${distance}';
 				      var dt;
+				      
 				      if (distance == null || distance == '' || distance == undefined) {
 				    	  dt = 10000;  
 				      } else {
 				    	  dt = parseInt('${distance}');
 				      }
 				      console.log("Distance: " + dt);
+				      console.log("Latitude + Longitude: " + latitude + "/" + longitude);
 				      
 				      var map;
 				      var infowindow;
+				      var latlng;
 				      
 				      //Initialize map
 				      function initMap() {
-				        var latlng = {lat: latitude, lng: longitude};
+				    	  
+				        if (input == '' || input == null || input == undefined) {
+				        	latlng = {lat:-37.8141, lng:144.9633}; //Melbourne coordination
+				        } else {
+				        	latlng = {lat: latitude, lng: longitude};	
+				        }
 
 				        map = new google.maps.Map(document.getElementById('map'), {
 				          center: latlng,
@@ -160,6 +168,7 @@
 				        
 				        infowindow = new google.maps.InfoWindow();
 				        
+				        //Nearby Service
 				        var service = new google.maps.places.PlacesService(map);
 				        service.nearbySearch({
 				          location: latlng,

@@ -57,8 +57,6 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="scroll"><a href="#home">Home</a></li>
 						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
-						<!-- <li class="scroll"><a href="#services">Services</a></li>
-						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
 					</ul>
 				</div>
@@ -165,9 +163,9 @@
 						<div class="services row">
 							<div class="col-sm-6">
 								<div class="media service-media">
-									<img
-										src="<c:url value="/resources/images/services/hospital_search.png" />"
-										class="pull-left" alt="" />
+									<a href="<%=request.getContextPath()%>/searchPage">
+										<img src="<c:url value="/resources/images/services/hospital_search.png" />" class="pull-left" alt="" />
+									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
 											<a href="<%=request.getContextPath()%>/searchPage">Hospital Search</a>
@@ -178,9 +176,9 @@
 							</div>
 							<div class="col-sm-6">
 								<div class="media service-media">
-									<img
-										src="<c:url value="/resources/images/services/weather-warning.png" />"
-										class="pull-left" alt="" />
+									<a href="<%=request.getContextPath()%>/weather">
+										<img src="<c:url value="/resources/images/services/weather-warning.png" />" class="pull-left" alt="" />
+									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
 											<a href="<%=request.getContextPath()%>/weather">Weather Forecast</a>
@@ -191,9 +189,9 @@
 							</div>
 							<div class="col-sm-6">
 								<div class="media service-media">
-									<img
-										src="<c:url value="/resources/images/services/travel_warning.png" />"
-										class="pull-left" alt="" />
+									<a href="<%=request.getContextPath()%>/warning">
+										<img src="<c:url value="/resources/images/services/travel_warning.png" />" class="pull-left" alt="" />
+									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
 											<a href="<%=request.getContextPath()%>/warning">Travel Warnings</a>
@@ -204,9 +202,7 @@
 							</div>
 							<div class="col-sm-6">
 								<div class="media service-media">
-									<img
-										src="<c:url value="/resources/images/services/transport_finder.png" />"
-										class="pull-left" alt="" />
+									<img src="<c:url value="/resources/images/services/transport_finder.png" />" class="pull-left" alt="" />
 									<div class="media-body">
 										<h3 class="media-heading">
 											<a>Transportation Finder</a>
@@ -241,7 +237,7 @@
 	            </div>                        
 	            <div class="form-group">
 	                <input type="submit" id="ssSubmit" class="btn btn-primary" value="Send" />
-	                <input type="reset" class="btn btn-primary" value="Reset" />
+	                <input type="reset" id="ssReset" class="btn btn-primary" value="Reset" />
 	            </div>
 	        </form>
 	       

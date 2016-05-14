@@ -183,4 +183,5 @@ public class HospitalController {
 		logger.info("Emergency hospitals's size: " + emergency.size());
 		return "emergency";
 	}
+	
 }
