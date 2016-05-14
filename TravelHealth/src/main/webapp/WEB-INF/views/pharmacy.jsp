@@ -147,7 +147,7 @@
 
 				        map = new google.maps.Map(document.getElementById('map'), {
 				          center: latlng,
-				          zoom: 12,
+				          zoom: 10,
 				          mapTypeId: google.maps.MapTypeId.TERRAIN
 				        });
 				

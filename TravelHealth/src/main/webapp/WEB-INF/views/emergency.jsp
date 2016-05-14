@@ -169,38 +169,38 @@
 					
 					<!-- Result Area -->
 					<div class="row col-sm-12">
-					<div class="result-area" style="padding-top:10px;">
-						<c:if test="${empty hospitals}">
-							<p>There is no result yet!</p>
-							<p>Please enter new search conditions.</p>
-						</c:if>
-						<c:if test="${not empty hospitals }">
-						    <table id="content" class="table table-striped table-bordered" >
-						    	<thead>
-						    		<tr>
-						    			<th>Hospital Name</th>
-						    			<th>Address</th>
-						    			<th>Phone Number</th>
-						    			
-						    		</tr>
-						    	</thead>
-						    	<tbody>
-						    		<c:forEach items="${hospitals}" var="hospital">
+						<div class="result-area" style="padding-top:10px;">
+							<c:if test="${empty hospitals}">
+								<p>There is no result yet!</p>
+								<p>Please enter new search conditions.</p>
+							</c:if>
+							<c:if test="${not empty hospitals }">
+							    <table id="content" class="table table-striped table-bordered" >
+							    	<thead>
 							    		<tr>
-							    			<td>${hospital['hospital_name']}</td>
-							    			<td>${hospital.address} ${hospital.suburb} VIC ${hospital.postcode}</td>
-							    			<c:if test="${not empty hospital.phoneno}">
-							    				<td>${hospital.phoneno}</td>
-							    			</c:if>
-							    			<c:if test="${empty hospital.phoneno}">
-							    				<td>n/a</td>
-							    			</c:if>
+							    			<th>Hospital Name</th>
+							    			<th>Address</th>
+							    			<th>Phone Number</th>
+							    			
 							    		</tr>
-						    		</c:forEach>
-						    	</tbody>
-						    </table>  
-						</c:if>
-					</div>
+							    	</thead>
+							    	<tbody>
+							    		<c:forEach items="${hospitals}" var="hospital">
+								    		<tr>
+								    			<td>${hospital['hospital_name']}</td>
+								    			<td>${hospital.address} ${hospital.suburb} VIC ${hospital.postcode}</td>
+								    			<c:if test="${not empty hospital.phoneno}">
+								    				<td>${hospital.phoneno}</td>
+								    			</c:if>
+								    			<c:if test="${empty hospital.phoneno}">
+								    				<td>n/a</td>
+								    			</c:if>
+								    		</tr>
+							    		</c:forEach>
+							    	</tbody>
+							    </table>  
+							</c:if>
+						</div>
 					</div>
 					<!-- #Result-area -->
     </section>
