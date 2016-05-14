@@ -66,8 +66,6 @@ public class HospitalController {
 						model.addAttribute("latitude", location.getLatitude());
 						model.addAttribute("longitude", location.getLongitude());
 						model.addAttribute("location", gson.toJson(location));
-					} else {
-						return "error";
 					}
 					return "hospital";
 					
@@ -96,8 +94,6 @@ public class HospitalController {
 						model.addAttribute("latitude", location.getLatitude());
 						model.addAttribute("longitude", location.getLongitude());
 						model.addAttribute("location", gson.toJson(location));
-					} else {
-						return "error";
 					}
 					return "pharmacy";
 				} else {
@@ -105,13 +101,13 @@ public class HospitalController {
 				}
 			} else {
 				if ("AH".equals(medicalType)) {
-					//search by suburb
-					List<Hospital> hospitals = hospitalService.findHospitalBySuburb(input);
-					logger.info("Suburb: " + hospitals.size());
-					//Send list to front end
-					model.addAttribute("hospitals", hospitals);
-					//Send json to front end
-					model.addAttribute("jsonh", gson.toJson(hospitals));
+					List<Tlocation> locations = locationService.findLocationBySuburb(input);
+					if (locations.size() > 0) {
+						Tlocation location = locations.get(0);
+						model.addAttribute("latitude", location.getLatitude());
+						model.addAttribute("longitude", location.getLongitude());
+						model.addAttribute("location", gson.toJson(location));
+					}
 					return "hospital";
 					
 				} else if ("General Practitioner".equals(medicalType)) {
