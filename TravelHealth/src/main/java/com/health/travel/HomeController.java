@@ -138,7 +138,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value="/error", method = RequestMethod.GET)
 	public String error(Locale locale, Model model) {
-        logger.info("Facts page! The client locale is {}.", locale);
+        logger.info("Error page! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -147,6 +147,22 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		return "error";
+	}
+	
+	/**
+	 * Redirect to Transport page
+	 */
+	@RequestMapping(value="/transport", method = RequestMethod.GET)
+	public String transport(Locale locale, Model model) {
+        logger.info("Transport page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		return "transport";
 	}
 	
 }

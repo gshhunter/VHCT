@@ -202,10 +202,12 @@
 							</div>
 							<div class="col-sm-6">
 								<div class="media service-media">
-									<img src="<c:url value="/resources/images/services/transport_finder.png" />" class="pull-left" alt="" />
+									<a href="<%=request.getContextPath()%>/transport">
+										<img src="<c:url value="/resources/images/services/transport_finder.png" />" class="pull-left" alt="" />
+									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a>Transportation Finder</a>
+											<a href="<%=request.getContextPath()%>/transport">Transportation Finder</a>
 										</h3>
 										<p>Easy integration of journey planner</p>
 									</div>
