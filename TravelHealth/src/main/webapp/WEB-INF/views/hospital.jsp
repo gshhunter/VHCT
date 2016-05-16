@@ -239,7 +239,7 @@
 								        });
 								
 								        var content = "<b>Pharmacy:</b> " + plc.name + ' (' + isopen +')' + '</br>' + "<b>Address:</b> " + plc.vicinity + '</br>' +
-						        	     "<a href='https://www.google.com.au/maps/dir//" + plc.geometry.location.lat() + "," + plc.geometry.location.lng() + "'>Public Transport Finder</a>";
+						        	     "<a href='https://www.google.com.au/maps/place/" + plc.geometry.location.lat() + "," + plc.geometry.location.lng() + "'>Public Transport Finder</a>";
 								        
 								        google.maps.event.addListener(marker, 'click', function() {
 								            infowindow.setContent(content);

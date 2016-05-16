@@ -51,8 +51,6 @@
                     <ul class="nav navbar-nav navbar-right">
                        	<li class="scroll"><a href="<%=request.getContextPath() %>">Home</a></li>
                        	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
-						<!-- <li class="scroll"><a href="#services">Services</a></li>
-						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
                     </ul>
                 </div>

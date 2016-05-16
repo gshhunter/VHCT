@@ -17,19 +17,48 @@
 	<link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />" >
 	<link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
 	<link href="<c:url value="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css" />" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="<c:url value="/resources/images/ico/new-favicon.png" />">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value="/resources/images/ico/apple-touch-icon-144-precomposed.png" />" >
+    <%-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<c:url value="/resources/images/ico/apple-touch-icon-144-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<c:url value="/resources/images/ico/apple-touch-icon-114-precomposed.png" />" >
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<c:url value="/resources/images/ico/apple-touch-icon-72-precomposed.png" />" >
-    <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" >
+    <link rel="apple-touch-icon-precomposed" href="<c:url value="/resources/images/ico/apple-touch-icon-57-precomposed.png" />" > --%>
 </head>
 
 <body onLoad="initialize()">
-    <div class="row">
+	<div class="container">
+	<header id="header">      
+        <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>">
+                    	<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                       	<li class="scroll"><a href="<%=request.getContextPath() %>#home">Home</a></li>
+                       	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+    
+    <div class="row" style="padding-top:85px;">
     <script>var directionDisplay, map;
         var directionsService = new google.maps.DirectionsService();
         var geocoder = new google.maps.Geocoder();
@@ -133,27 +162,34 @@
             });
         }
     </script>
-     <div class="col-md-6">
-    	<form action="#" onSubmit="calcRoute();return false;" id="routeForm">
-  			<label>
-  				From: <br />
-    			<input type="text" id="routeStart" value="Melbourne,victoria"> <br />
-          		<a href="#" class="autoLink" style="display: none;">Use current location: <span>not found</span></a>
- 			</label>
-        	<label>
-    			To: <br />
-    			<input type="text" id="routeEnd" value="Victoria">
-  			</label>
-  			<label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
-  			<label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
-  			<label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
-  			<label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
-  		    <input type="submit" value="Calculate route">
-		</form>
-    </div>
+        <div class="col-md-10">
+    <form action="#" onSubmit="calcRoute();return false;" id="routeForm">
+  <label>
+    From: <br />
+   
+      
+      
+       <input type="text" id="routeStart" value="Melbourne,victoria">
+      <br />
+          <a href="#" class="autoLink" style="display: none;">Use current location: <span>not found</span></a>
+  </label>
+        <label>
+    To: <br />
+    <input type="text" id="routeEnd" value="Victoria">
+  </label>
+  <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
+  <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
+  <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
+  <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
+  <input type="submit" value="Calculate route">
+</form>
+            </div>
     <div id="map_canvas" style="width:100%; height:300px"></div>
-    <div id="directionsPanel">Enter a starting point and click "Calculate route".</div>
-	</div>
+    <div id="directionsPanel">
+  Enter a starting point and click "Calculate route".
+        </div>
+</div>
+</div>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />" ></script>
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />" ></script> --%>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -166,9 +202,7 @@
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/main.js" />" ></script> --%>  
     <%-- <script type="text/javascript" src="<c:url value="/resources/js/switcher.js" />" ></script> --%>
    	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    
     
 </body>
 </html>
