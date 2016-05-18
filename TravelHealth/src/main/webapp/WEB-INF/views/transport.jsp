@@ -178,7 +178,7 @@
     <input type="text" id="routeEnd" value="Victoria">
   </label>
   <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
-  <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
+  <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicycling</label>
   <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
   <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
   <input type="submit" value="Calculate route">

@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Shuhao Guo">
     <title>Victoria Health Care Tourism</title>
-    <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+    
+    <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
@@ -18,7 +18,10 @@
 	<link href="<c:url value="/resources/css/hospital.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 	<link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />" >
-	<%-- <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet"> --%>
+	<%-- <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />" rel="stylesheet">
+	<link href="<c:url value="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" />" rel="stylesheet"> --%>
+	<link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
+	
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -74,7 +77,7 @@
                                 <img class="img-responsive" src="resources/images/team/mary.jpg"  alt="" />
                                 <h3>Maryam</h3>
                                 <h4>User Interface Designer</h4>
-                                <h4>Email: mjab7@student.monash.edu</h4>
+                                <h4><!-- Email: mjab7@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -87,11 +90,11 @@
                                 <img class="img-responsive" src="resources/images/team/shuhao.jpg" alt="" />
                                 <h3>Shuhao Guo</h3>
                                 <h4>Chief System Developer</h4>
-                                <h4>Email: sguo17@student.monash.edu</h4>
+                                <h4><!-- Email: sguo17@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.facebook.com/frank.guo.71066"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="http://www.linkedin.com/in/shuhao-guo-09393a85"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -100,7 +103,7 @@
                                 <img class="img-responsive" src= "resources/images/team/pradeep1.jpg"  alt="" />
                                 <h3>Pradeep</h3>
                                 <h4>Database Architect</h4>
-                                <h4>Email: pmai5@student.monash.edu</h4>
+                                <h4><!-- Email: pmai5@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -113,7 +116,7 @@
                                 <img class="img-responsive" src="resources/images/team/yadhu1-1.jpg"  alt="" />
                                 <h3>Yadhu</h3>
                                 <h4>Project Manager</h4>
-                                <h4>Email: yrav3@student.monash.edu</h4>
+                                <h4><!-- Email: yrav3@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -146,8 +149,9 @@
     <!--/#footer-->
   </div>
     
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ 	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" ></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />" ></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.isotope.min.js" />" ></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jquery.prettyPhoto.js" />" ></script>

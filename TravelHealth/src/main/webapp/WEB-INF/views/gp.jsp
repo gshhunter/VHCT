@@ -155,7 +155,7 @@
 				        	
 				        	//Content
 				        	var content = "<b>Doctor:</b> " + hname + '</br>' + "<b>Address:</b> " + address + '</br>' +
-				        	     "<a href='https://www.google.com.au/maps/place/" + obj['latitude'] + "," + obj['longitude'] + "' target='_blank'>Public Transport Finder</a>"; 
+				        	     "<a href='https://www.google.com.au/maps/dir//" + obj['latitude'] + "," + obj['longitude'] + " target='_blank'>Public Transport Finder</a>"; 
 				        	
 				        	//add info window
 				        	google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
@@ -332,6 +332,12 @@
 				$("#language").show();
 			} else {
 				$("#language").hide();
+			}
+			
+			if (language == null || language == undefined || language == '') {
+				$("#language").val('DL');
+			} else {
+				$("#language").val(language);
 			}
 			
 			if (distanceStr == null || distanceStr == undefined || distanceStr == '') {

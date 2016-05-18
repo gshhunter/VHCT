@@ -8,7 +8,7 @@
 <meta name="description" content="The Travel Health website in Victoria">
 <meta name="author" content="Shuhao Guo">
 <title>Victoria Health Care Tourism</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/prettyPhoto.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
@@ -131,7 +131,7 @@
 									</select>
 									
 									<button class="btn btn-success btn-lg" type="submit" style="background-color:#2ecc71;">
-										<span class="glyphicon glyphicon-search"></span> Search
+										<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
 									</button>
 
 								</form>
@@ -249,11 +249,11 @@
 	            <div class="col-sm-7">
 	                <p>Contact us and we'll reply to you within 24 hours.</p>
 	                <p> </p>
-      				<p><span class="glyphicon glyphicon-map-marker"></span> Melbourne, Australia</p>
-      				<p><span class="glyphicon glyphicon-phone"></span> +61 0413631953</p>
-      				<p><span class="glyphicon glyphicon-envelope"></span> <a href="MAILTO:victha.2016@gmail.com">Email to VicTHA</a></p>
-      				<p><span class="glyphicon glyphicon-leaf"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
-      				<p><span class="glyphicon glyphicon-question-sign"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
+      				<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Melbourne, Australia</p>
+      				<p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> +61 0413631953</p>
+      				<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="MAILTO:victha.2016@gmail.com">Email to VicTHA</a></p>
+      				<p><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
+      				<p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
 	            </div>
 	        </div>
 	    </div> 		
@@ -310,7 +310,7 @@
 	<!--/#footer-->
 
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/smoothscroll.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.prettyPhoto.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>

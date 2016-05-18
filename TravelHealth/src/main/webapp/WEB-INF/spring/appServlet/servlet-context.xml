@@ -2,16 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
   xmlns:tx="http://www.springframework.org/schema/tx"
-  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
-	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />   
-	<mvc:default-servlet-handler/>
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,7 +31,7 @@
 	<!-- MySQL Datasource with Commons DBCP connection pooling -->
   	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
     	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    	<property name="url" value="jdbc:mysql://au-cdbr-azure-southeast-a.cloudapp.net:3306/acsm_fcfa134a294a803"/>
+    	<property name="url" value="jdbc:mysql://sydney.ckajptv0smbn.ap-southeast-2.rds.amazonaws.com:3306/travelhealth"/>
     	
     	<!-- Azure MYSQL middle level Username and Password -->
     	<!-- <property name="username" value="bc80fa6f6bd086"/>
@@ -40,8 +39,8 @@
     	
     	<!-- Azure MYSQL High Level Username and Password -->
     	<!-- Database=acsm_fcfa134a294a803;Data Source=au-cdbr-azure-southeast-a.cloudapp.net;User Id=bca67650b6fa59;Password=772bbe05 -->
-    	<property name="username" value="bca67650b6fa59"/>
-    	<property name="password" value="772bbe05"/>
+    	<property name="username" value="root0"/>
+    	<property name="password" value="root123456"/>
   	</bean>
   	
   	<!-- EntityManagerFactory -->
