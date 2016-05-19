@@ -165,4 +165,20 @@ public class HomeController {
 		return "transport";
 	}
 	
+	/**
+	 * Redirect to Transport page
+	 */
+	@RequestMapping(value="/terms", method = RequestMethod.GET)
+	public String terms(Locale locale, Model model) {
+        logger.info("Terms page! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		return "terms";
+	}
+	
 }

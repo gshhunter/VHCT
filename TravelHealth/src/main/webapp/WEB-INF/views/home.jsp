@@ -155,7 +155,6 @@
                             <!-- Move down button -->
                             
 						</div>
-						
 					</div>
 				</div>
 			</div>
@@ -177,9 +176,9 @@
 									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="<%=request.getContextPath()%>/searchPage">Hospital Search</a>
+											<a href="<%=request.getContextPath()%>/searchPage">Health Center Search</a>
 										</h3>
-										<p>Let's you find hospitals near you</p>
+										<p>Search hospitals/GPs/Pharmacy</p>
 									</div>
 								</div>
 							</div>
@@ -192,7 +191,7 @@
 										<h3 class="media-heading">
 											<a href="<%=request.getContextPath()%>/weather">Weather Forecast</a>
 										</h3>
-										<p>Receive live updates and warnings on local weather</p>
+										<p>Receive live updates on local weather</p>
 									</div>
 								</div>
 							</div>
@@ -216,7 +215,7 @@
 									</a>
 									<div class="media-body">
 										<h3 class="media-heading">
-											<a href="<%=request.getContextPath()%>/transport">Transportation Finder</a>
+											<a href="<%=request.getContextPath()%>/transport">Transport Finder</a>
 										</h3>
 										<p>Easy integration of journey planner</p>
 									</div>
@@ -248,7 +247,7 @@
 	            </div>                        
 	            <div class="form-group">
 	                <input type="submit" id="ssSubmit" class="btn btn-primary" value="Send" onclick="myFunction()"/>
-	                <input type="reset" id="ssReset" class="btn btn-primary" value="Reset" />
+	                <input type="button" id="ssReset" class="btn btn-primary" value="Reset" onclick="clearForm()"/>
 	                <script>
 	                	function myFunction() {
 	                		var name = document.getElementById("ssName").value;
@@ -265,6 +264,13 @@
 	                		}
 	                		
 	                	}
+	                	
+	                	function clearForm() {
+	                		document.getElementById("ssName").value = "";
+                			document.getElementById("ssEmail").value = "";
+                			document.getElementById("ssSubject").value = "";
+                			document.getElementById("ssMessage").value = "";
+	                	}
 	                </script>
 	            </div>
 	        </form>
@@ -276,10 +282,10 @@
 	                <p>Contact us and we'll reply to you within 24 hours.</p>
 	                <p> </p>
       				<p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Melbourne, Australia</p>
-      				<p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> +61 0413631953</p>
       				<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="MAILTO:victha.2016@gmail.com">Email to VicTHA</a></p>
       				<p><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
       				<p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
+      				<p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/terms" target="_blank">Terms and Conditions</a></p>
       				<div id="google_translate_element"></div>
       				<script type="text/javascript">
 						function googleTranslateElementInit() {
@@ -309,7 +315,8 @@
 			<p style="color:red;">Emergency Dial: 000</p>
 			<p><a href="<%=request.getContextPath()%>/hospital/emergency">Emergency Hospital List</a></p>
 			<p>NURSE-ON-CALL 24 hours a day on 1300 60 60 24 in Victoria</p>
-			<a href="<%=request.getContextPath()%>/facts" target="_blank">More Facts?</a>
+			<p><a href="<%=request.getContextPath()%>/facts" target="_blank">More Facts?</a></p>
+			
 		</div>
 	</div>
 	

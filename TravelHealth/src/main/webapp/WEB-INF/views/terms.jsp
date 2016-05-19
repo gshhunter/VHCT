@@ -92,33 +92,22 @@
 	<div style="padding:100px;">
 		<div>
 			<h1>
-				FAQs<br />
+				Terms and Conditions<br />
 			</h1>
 		</div>
 		<div>
-			<b>1. Should I use this website in case of an emergency?</b> <br /> <br />No.
-			This website is intended to assist you to find out healthcare
-			facilities near you to better plan your journey and for preventive
-			measures. We do not advocate using this website in the case of life
-			threating incidents. <br /> <br />
-			<b>2. How do I know which doctor to choose?</b> <br /> <br />
-			Only you can select the right doctor for your
-			particular needs. That&#39;s why we have so much information
-			provided. When choosing a doctor, you should consider certain aspects
-			such as distance from location and languages spoken. <br /> <br />
-			<b>3. How do I get to the hospital?</b> <br /> <br />VHCT provides private
-			transport Victoria (PTV) journey planner and other cab services
-			operating locally. You can choose from this wide range of selection
-			to get to your desired location. <br /> <br />
-			<b>4. What if I want to meet a doctor of a particular speciality directly?</b> <br /> <br />
-			Unfortunately, Australian medical rules do not allow that. You will first have to go
-			through a general practitioner (GP) and in case the problem is more
-			complicated then the GP can <br /> <br />
-			<b>5. How do I know if the health care facility I plan to visit accepts my international travel
-			insurance?</b> <br /> <br />No. This website does not provide
-			information regarding insurances. You can contact the local health
-			care facility to get further information regarding insurances
-			directly through the contact numbers provided.
+			<p>Last updated: (11/05/2016) </p>
+			<p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the <a href="http://victha2016.tk">Victorian Tourist Health Assistant</a> operated by Daemon ("us", "we", or "our"). 
+			</p>
+			<p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. </p>
+			<p><b>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.</b><br/></p>
+			<h3>Links To Other Web Sites<br/></h3>
+			<p>Our Service may contain links to third-party web sites or services that are not owned or controlled by Daemon.<br/> 
+			</p>
+			<p>Daemon has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Daemon shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.<br/></p>
+			<h3>Changes<br/></h3>
+			<p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 3 0 (change this) days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. 
+			<br/></p>
 		</div>
 	</div>
 
