@@ -62,6 +62,9 @@
 						<!-- <li class="scroll"><a href="#services">Services</a></li>
 						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/warning">Warnings</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/weather">Weather</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/transport">Transport Finder</a></li>
 					</ul>
 				</div>
 			</div>

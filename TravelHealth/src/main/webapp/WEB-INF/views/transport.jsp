@@ -51,6 +51,9 @@
                        	<li class="scroll"><a href="<%=request.getContextPath() %>#home">Home</a></li>
                        	<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
                         <li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+                        <li class="scroll"><a href="<%=request.getContextPath()%>/warning">Warnings</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/weather">Weather</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/transport">Transport Finder</a></li>
                     </ul>
                 </div>
             </div>

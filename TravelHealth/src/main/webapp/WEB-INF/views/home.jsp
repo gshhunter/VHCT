@@ -16,6 +16,9 @@
 <link href="<c:url value="/resources/css/responsive.css" />" rel="stylesheet">
 <link id="preset" rel="stylesheet" type="text/css" href="<c:url value="/resources/css/presets/preset1.css" />">
 <link href="<c:url value="/resources/css/pop-up.css" />" rel="stylesheet">
+<style type="text/css">iframe.goog-te-banner-frame{ display: none !important;}</style>
+<style type="text/css">body {position: static !important; top:0px !important;}</style>
+
 <!--[if lt IE 9]
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
@@ -40,16 +43,19 @@
 	
 	<header id="header">
 		<div class="navbar navbar-inverse navbar-fixed-top" role="banner">
-			<div class="container">
+			
+			<div id="header-one" class="container">
+				
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					
+					<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span> 
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="<%=request.getContextPath()%>"> 
-					<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
+					</button> -->
+					<a class="navbar-brand navbar-left" href="<%=request.getContextPath()%>"> 
+						<img src="<c:url value="/resources/images/logo.png" />" alt="logo">
 					</a>
 				</div>
 				
@@ -58,6 +64,9 @@
 						<li class="scroll"><a href="#home">Home</a></li>
 						<li class="scroll"><a href="<%=request.getContextPath()%>/ourteam">About Us</a></li>
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/warning">Warnings</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/weather">Weather</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/transport">Transport Finder</a></li>
 					</ul>
 				</div>
 			</div>
@@ -238,8 +247,25 @@
 	                <textarea name="message" id="ssMessage" required class="form-control" rows="8" placeholder="Message"></textarea>
 	            </div>                        
 	            <div class="form-group">
-	                <input type="submit" id="ssSubmit" class="btn btn-primary" value="Send" />
+	                <input type="submit" id="ssSubmit" class="btn btn-primary" value="Send" onclick="myFunction()"/>
 	                <input type="reset" id="ssReset" class="btn btn-primary" value="Reset" />
+	                <script>
+	                	function myFunction() {
+	                		var name = document.getElementById("ssName").value;
+	                		var email = document.getElementById("ssEmail").value;
+	                		var subject = document.getElementById("ssSubject").value;
+	                		var message = document.getElementById("ssMessage").value;
+	                		console.log(name);
+	                		if (name != "" && email != "" && subject != "" && message != "") {
+	                			alert("Message has been sent! We will contact with you in 24 hours.");
+	                			document.getElementById("ssName").value = "";
+	                			document.getElementById("ssEmail").value = "";
+	                			document.getElementById("ssSubject").value = "";
+	                			document.getElementById("ssMessage").value = "";
+	                		}
+	                		
+	                	}
+	                </script>
 	            </div>
 	        </form>
 	       
@@ -254,6 +280,17 @@
       				<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="MAILTO:victha.2016@gmail.com">Email to VicTHA</a></p>
       				<p><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/ourteam" target="_blank">Our Team</a></p>
       				<p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <a href="<%=request.getContextPath()%>/faq" target="_blank">FAQs</a></p>
+      				<div id="google_translate_element"></div>
+      				<script type="text/javascript">
+						function googleTranslateElementInit() {
+ 							new google.translate.TranslateElement({
+ 								pageLanguage: 'en', 
+ 								includedLanguages: 'af,ar,de,el,en,es,fa,fr,hi,id,it,ja,jv,ko,ms,nl,pt,ru,sv,th,tl,tr,ur,vi,zh-CN,zh-TW', 
+ 								layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+ 								autoDisplay: false}, 'google_translate_element');
+						}
+					</script>
+					<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	            </div>
 	        </div>
 	    </div> 		
@@ -279,31 +316,13 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-5">
+				<div class="col-sm-12 text-center">
 					<p>
-						Copyright @ 2016<a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
+						Copyright &#169; 2016<a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">
 							Daemon </a>
 					</p>
 				</div>
-				<div class="col-sm-5">
-					<div id="google_translate_element"></div>
-					<script type="text/javascript">
-						function googleTranslateElementInit() {
-						 new google.translate.TranslateElement({
-							 pageLanguage: 'en', 
-							 includedLanguages: 'ar,de,el,es,fa,fr,hi,it,ja,ko,ms,nl,pt,ru,sv,th,tr,ur,vi,zh-CN,zh-TW', 
-							 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-							 }, 'google_translate_element');
-						}
-					</script>
-					<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-				</div>
-				<!--<div class="col-sm-4">
-					 <p class="pull-right">
-						Designed by <a target="_blank"
-							href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?t=5VCF3Qntx4EI76NW12lj">Daemon</a>
-					</p> 
-				</div>-->
+				
 			</div>
 		</div>
 	</footer>
@@ -315,6 +334,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.prettyPhoto.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.ba-dotimeout.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.parallax.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.flexslider.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/main.js" />"></script>
 	<%-- <script type="text/javascript" src="<c:url value="/resources/js/gmaps.js" />"></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/html5shiv.js" />"></script>
@@ -324,7 +344,10 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/pop-up.js" />"></script>
 	<!-- Google Analytics -->
 	<script>
-		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		window.ga=window.ga||function(){
+			(ga.q=ga.q||[]).push(arguments)
+		};
+		ga.l=+new Date;
 		ga('create', 'UA-XXXXX-Y', 'auto');
 		ga('send', 'pageview');
 	</script>

@@ -58,6 +58,9 @@
 						<!-- <li class="scroll"><a href="#services">Services</a></li>
 						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/warning">Warnings</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/weather">Weather</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/transport">Transport Finder</a></li>
                     </ul>
                 </div>
             </div>
@@ -79,9 +82,9 @@
                                 <h4>User Interface Designer</h4>
                                 <h4><!-- Email: mjab7@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><img src="resources/images/ico/Facebook Filled-20.png" alt=""/></a></li>
+                                    <li><a href="https://au.linkedin.com/in/maryam-jabbarzadeh-3a8a7431"><img src="resources/images/ico/LinkedIn Filled-20.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="resources/images/ico/Twitter Filled-20.png" alt=""/></a>
                                 </ul>
                             </div>
                         </div>
@@ -92,9 +95,9 @@
                                 <h4>Chief System Developer</h4>
                                 <h4><!-- Email: sguo17@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
-                                    <li><a href="https://www.facebook.com/frank.guo.71066"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="http://www.linkedin.com/in/shuhao-guo-09393a85"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://www.facebook.com/frank.guo.71066"><img src="resources/images/ico/Facebook Filled-20.png" alt=""/></a></li>
+                                    <li><a href="http://www.linkedin.com/in/shuhao-guo-09393a85"><img src="resources/images/ico/LinkedIn Filled-20.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="resources/images/ico/Twitter Filled-20.png" alt=""/></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -105,9 +108,9 @@
                                 <h4>Database Architect</h4>
                                 <h4><!-- Email: pmai5@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://www.facebook.com/pradeep.mainali"><img src="resources/images/ico/Facebook Filled-20.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="resources/images/ico/LinkedIn Filled-20.png" alt=""/></a></li>
+                                    <li><a href="#"><img src="resources/images/ico/Twitter Filled-20.png" alt=""/></a>
                                 </ul>
                             </div>
                         </div>
@@ -118,9 +121,9 @@
                                 <h4>Project Manager</h4>
                                 <h4><!-- Email: yrav3@student.monash.edu --></h4>
                                 <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://www.facebook.com/yadhu.ravinath"><img src="resources/images/ico/Facebook Filled-20.png" alt=""/></a></li>
+                                    <li><a href="http://www.linkedin.com/in/yadhuravinath"><img src="resources/images/ico/LinkedIn Filled-20.png" alt=""/></a></li>
+                                    <li><a href="https://twitter.com/YadhuRavinath"><img src="resources/images/ico/Twitter Filled-20.png" alt=""/></a>
                                 </ul>
                             </div>
                         </div>
@@ -138,7 +141,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                   <p>Copyright  @2016  <a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a></p>
+                   <p>Copyright &#169; 2016  <a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a></p>
                 </div>
                 <div class="col-sm-6">
                     <p class="pull-right"> Designed by <a target="_blank" href="http://mahara.infotech.monash.edu.au/mahara/view/view.php?id=2192">Daemon</a></p>

@@ -74,6 +74,9 @@
 						<!-- <li class="scroll"><a href="#services">Services</a></li>
 						<li class="scroll"><a href="#contact-area">Contact</a></li> -->
 						<li class="scroll"><a href="<%=request.getContextPath()%>/searchPage">Search</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/warning">Warnings</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/weather">Weather</a></li>
+						<li class="scroll"><a href="<%=request.getContextPath()%>/transport">Transport Finder</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,11 +86,30 @@
     <!--/#header-->
 	
 	<section>
-		<div class="col-sm-12" style="top:75px; padding-top:10px;">
-			<div id="contain" style="">
-				<iframe src="https://weather.yahoo.com.au/forecast/vic" scrolling="Yes"></iframe>
+		<div id="divContainer"
+				style="position: absolute; left: 0px; top: 75px; border: solid 2px #ffffff; width: 100%; height: 80%;">
+
+				<div
+					style="border: 2px solid #666; border-radius: 11px; padding: 0px;">
+
+					<iframe id="form-iframe" src="http://www.weatherzone.com.au/vic"
+						style="margin: 0; width: 100%; height: 1200px; border: none; margin-top: 0px; overflow: hidden;"
+						scrolling="no" onload="AdjustIframeHeightOnLoad()"></iframe>
+
+					<script type="text/javascript">
+						function AdjustIframeHeightOnLoad() {
+							document.getElementById("form-iframe").style.height = document
+									.getElementById("form-iframe").contentWindow.document.body.scrollHeight
+									+ "px";
+						}
+						function AdjustIframeHeight(i) {
+							document.getElementById("form-iframe").style.height = parseInt(i)
+									+ "px";
+						}
+					</script>
+
+				</div>
 			</div>
-		</div>
 	</section>
 	
 	<!-- Footer -->

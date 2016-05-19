@@ -1,5 +1,6 @@
 
 body {
+  width:100%;
   font-family: Lato, sans-serif;
   position: relative;
   font-weight:400;
@@ -276,8 +277,8 @@ font-weight: 400
 .navbar-inverse .navbar-nav > .open > a {
   background-color: inherit;
   border-width:0 0 3px 0;
-  border-style:  solid;
-  border:;
+  border-style: solid;
+  border: 1;
 }
 
 /*dropdown menu*/
@@ -976,7 +977,7 @@ font-weight: 400
 .team-member ul li a {
   color: #CCCCC2;
   font-size: 20px;
-  padding: 0 8px;
+  padding: 0 5px;
 }
 
 .team-member ul li a:hover , 
@@ -1477,6 +1478,7 @@ ul.plan li.plan-content span {
 
 #contact .contact-form textarea {
   background: #fff;
+  color: #2d2d2d;
   font-family: Lato, sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -2562,7 +2564,7 @@ ul.preset-list li {
 /* Move down button*/
 
 .movedown {
-	padding-top: 100px;
+	padding-top: 50px;
 }
 
 /*footer grey bar*/

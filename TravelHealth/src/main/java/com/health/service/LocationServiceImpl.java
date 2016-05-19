@@ -16,7 +16,6 @@ public class LocationServiceImpl implements LocationService{
 	private LocationDao locationDao;
 	
 	@Override
-	@Transactional
 	public List<Tlocation> findLocationByPostcode(int postcode) {
 		return locationDao.findLocationByPostcode(postcode);
 	}

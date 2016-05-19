@@ -15,42 +15,42 @@ public class HospitalServiceImpl implements HospitalService{
 	@Autowired
 	private HospitalDao hospitalDao;
 	
-	@Transactional
+	@Override
 	public List<Hospital> findHospitalByPostCode(int postcode) {
 		return hospitalDao.findByPostcode(postcode);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findHospitalBySuburb(String suburb) {
 		return hospitalDao.findBySuburb(suburb);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findHospitalByPostcodeAndMedical(String postcode, String medical) {
 		return hospitalDao.findByPostcodeAndMedicalType(postcode, medical);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findHospitalBySuburbAndMedical(String suburb, String medical) {
 		return hospitalDao.findBySuburbAndMedicalType(suburb, medical);
 	}
 
-	@Transactional
+	@Override
 	public Hospital findHospitalById(int hid) {
 		return hospitalDao.findById(hid);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findEmergencyHospitalByPostcode(int postcode) {
 		return hospitalDao.findEmergencyByPostcode(postcode);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findEmergencyHospitalBySuburb(String suburb) {
 		return hospitalDao.findEmergencyBySuburb(suburb);
 	}
 
-	@Transactional
+	@Override
 	public List<Hospital> findAllEmergency() {
 		return hospitalDao.findAllEmergency();
 	}

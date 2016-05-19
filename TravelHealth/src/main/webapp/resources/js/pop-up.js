@@ -105,9 +105,9 @@ var Message = {
 					me.close()
 				};
 				this.char = navigator.userAgent.toLowerCase()
-						.indexOf('firefox') + 1 ? [ '&#95;', '&#43;', '&#120;' ] : [ '&#95;',
-						'&#43;', '&#120;' ];//FF不支持webdings字体
-			    this.char1 = ['&#95;', '&#43;', '&#120;'];
+						.indexOf("firefox") + 1 ? [ "", "", "&#120;" ] : [ "",
+						"", "&#120;" ];//FF不支持webdings字体
+			    this.char1 = ["", "", "&#120;"];
 				this.minbtn.innerHTML = this.char1[0];
 				this.closebtn.innerHTML = this.char1[2];
 				setTimeout(function() {//初始化最先位置
