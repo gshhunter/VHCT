@@ -83,7 +83,7 @@
 				<div class="item active">
 					<!-- Videos -->
 				    <video autoplay loop>
-						<source src="http://www.maryjbz.com/mj/Site_videowebm (5).webm" type="video/webm">
+						<source src="<c:url value="/resources/Site_video_3.webm" />" type="video/webm">
 						<source src="http://www.maryjbz.com/mj/Site_videomp4.mp4" type="video/mp4">
 					</video>
 				    
